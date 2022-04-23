@@ -27,8 +27,10 @@ raw_data_flipped = raw_data %>%
   as_tibble() %>%
   column_to_rownames("Sample_title")
 
+# TODO: save raw_data_flipped to ./data/raw_data_clean.csv
 
-  
+
+# TODO: move this part of the wrangling into a new  
   
 # Remove unnecessary columns, most of these have all the same value
 raw_data_concise = raw_data_flipped %>% 
@@ -49,19 +51,5 @@ raw_data_concise = raw_data_flipped %>%
             Sample_data_processing,
             Sample_platform_id,
             Sample_contact_name:Sample_contact_country)) %>% View()  # TODO: Add the rest of the irrelevant columns
-
-
-raw_data_concise %>% 
-  select(Sample_characteristics_ch1)
-
-
-
-
-
-raw_data_flipped %>% 
-  count(Sample_platform_id)
-
-
-
 
 
