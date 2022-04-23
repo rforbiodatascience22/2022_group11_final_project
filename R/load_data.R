@@ -8,7 +8,7 @@ raw_data = read_tsv("./_raw/GSE13937_series_matrix.txt",
 # Set column and row names and transpose the data
 raw_data_flipped = raw_data %>% 
   mutate(X1 = X1 %>% str_replace("!", "")) %>% 
-  # ??? Better way of doing this? I've tried mutate with case_when (unsuccesfully) 
+  # ??? Better way of doing this? I've tried mutate with case_when (unsuccessfully) 
   mutate(X1 = case_when(str_sub(X2, end = 6) == "cohort" ~ "cohort",
                         str_sub(X2, end = 18) == "hybridization date" ~"hybridization_date", # ??? respect max 80 chars
                         str_sub(X2, end = 11) == "tissue type" ~ "tissue_type",
@@ -23,7 +23,7 @@ raw_data_flipped = raw_data %>%
                         str_sub(X2, end = 19) == "death due to cancer" ~ "death_due_to_cancer",
                         TRUE ~ X1)) %>%
   column_to_rownames("X1") %>% 
-  t() %>% # ??? Transpose, there must be a tidyverse way of doing this
+  t() %>% # ??? Transpose, is it ok to do this in tidyverse?
   as_tibble()
   
 write_csv(raw_data_flipped, 
@@ -57,9 +57,13 @@ data_tidy = data_concise %>%
   mutate(chemoradiation_therapy = str_sub(string = chemoradiation_therapy,
                                           start = 25)) %>% 
   mutate(alcohol_consumption = str_sub(string = alcohol_consumption,
-                                       start = 21)) %>% 
+                                       start = 21),
+         alcohol_consumption = na_if(alcohol_consumption,
+                                     y = "")) %>%
   mutate(smoking = str_sub(string = smoking,
-                           start = 10)) %>%
+                           start = 10),
+         smoking = na_if(smoking,
+                         y = "")) %>%
   mutate(ptnm_stage = str_sub(string = ptnm_stage,
                               start = 13)) %>%
   mutate(nodal_involvement = str_sub(string = nodal_involvement,
@@ -68,16 +72,9 @@ data_tidy = data_concise %>%
                                  start = 16),
          survival_days = as.integer(survival_days)) %>% 
   mutate(death_due_to_cancer = str_sub(string = death_due_to_cancer,
-                                       start = 22)) %>% View()
+                                       start = 22))
 
 
 write_csv(data_tidy, 
           file = "./data/data_tidy.csv")
-
-
-
-
-
-
-
 
