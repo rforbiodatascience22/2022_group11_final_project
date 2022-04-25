@@ -40,7 +40,8 @@ data_concise = raw_data_flipped %>%
             Sample_molecule_ch1:Sample_platform_id,
             Sample_contact_name:Sample_contact_country,
             Sample_supplementary_file:ID_REF,
-            Blank))
+            Blank)) %>% 
+  select(-contains("mmu"))
 
 
 data_tidy = data_concise %>% 
@@ -74,10 +75,6 @@ data_tidy = data_concise %>%
          survival_days = as.integer(survival_days)) %>% 
   mutate(death_due_to_cancer = str_sub(string = death_due_to_cancer,
                                        start = 22))
-
-#Removing the probes coming from Mus musculus
-data_tidy <- data_tidy %>% 
-  select(-contains("mmu"))
 
 
 write_csv(data_tidy, 
