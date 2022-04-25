@@ -78,6 +78,19 @@ data_tidy = data_concise %>%
 data_tidy <- data_tidy %>% 
   select(-contains("mmu"))
 
+# Grouping based on staging (in situ, localized, regional, and distant)
+data_tidy <- data_tidy %>% 
+  mutate(SEER_stage = 
+           case_when(ptnm_stage == "0" ~ "In situ",
+                     nodal_involvement == "No" & ptnm_stage != "0" ~ "Localized",
+                     nodal_involvement == "Yes" & ptnm_stage != "IV" ~ "Regional",
+                     ptnm_stage == "IV" ~ "Distant")) %>%
+  mutate(SEER_stage = factor(SEER_stage,
+                             levels = c("In situ",
+                                        "Localized",
+                                        "Regional",
+                                        "Distant"))) %>%
+  relocate(SEER_stage, .after = ptnm_stage)
 
 write_csv(data_tidy, 
           file = "./data/data_tidy.csv")
