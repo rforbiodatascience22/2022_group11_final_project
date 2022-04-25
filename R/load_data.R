@@ -75,6 +75,10 @@ data_tidy = data_concise %>%
   mutate(death_due_to_cancer = str_sub(string = death_due_to_cancer,
                                        start = 22))
 
+#Removing the probes coming from Mus musculus
+data_tidy <- data_tidy %>% 
+  select(-contains("mmu"))
+
 
 write_csv(data_tidy, 
           file = "./data/data_tidy.csv")

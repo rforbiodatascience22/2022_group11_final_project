@@ -1,0 +1,36 @@
+---
+title: "Untitled"
+output: html_document
+date: '2022-04-25'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+data_tidy <- read_csv("data/data_tidy.csv") %>% 
+  as_tibble()
+
+data_tidy 
+```
+
+```{r}
+ggplot(data = data_tidy,
+       mapping = aes(x = nodal_involvement,
+                       y = survival_days)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_point(mapping = aes(fill = smoking),
+              shape = 21,
+              color = "black") 
+  #facet_wrap(vars(species),
+              #    ncol = 2,
+               #   scales = "free_y")
+```
+
+
+```{r}
+data_tidy %>% 
+  select(-contains("mmu"))
+```
+
