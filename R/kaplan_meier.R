@@ -10,15 +10,22 @@ data = tidy_data %>%
         death_due_to_cancer)
 
 data %>% 
-  filter(tissue_type == "cancerous",
-         death_due_to_cancer == "Yes") %>% 
+  filter(tissue_type == "cancerous") %>% 
   mutate(survival_rates = generate_survival_probabilities(survival_days) * 100) %>%
-  group_by(chemoradiation_therapy)
+  # group_by(chemoradiation_therapy) %>%
+  mutate(prev_surv = generate_survival_probabilities(survival_days,
+                                                     shift = TRUE) * 100) %>%
+  pivot_longer(cols = survival_rates:prev_surv,
+               names_to = "survrate_type",
+               values_to = "survival_rates") %>% 
   ggplot(mapping = aes(x = survival_days,
-                       y = survival_rates,
-                       color = chemoradiation_therapy)) +
+                       y = survival_rates)) +
   geom_point() +
   geom_line()
+
+
+
+
 
 
 

@@ -39,7 +39,8 @@ data_concise = raw_data_flipped %>%
             histology,
             Sample_molecule_ch1:Sample_platform_id,
             Sample_contact_name:Sample_contact_country,
-            Sample_supplementary_file:ID_REF))
+            Sample_supplementary_file:ID_REF,
+            Blank))
 
 
 data_tidy = data_concise %>% 
