@@ -12,48 +12,13 @@ data = tidy_data %>%
 data %>% 
   filter(tissue_type == "cancerous",
          death_due_to_cancer == "Yes") %>% 
-  mutate(survival_rates = generate_survival_probabilities(survival_days) * 100) %>% 
+  mutate(survival_rates = generate_survival_probabilities(survival_days) * 100) %>%
+  group_by(chemoradiation_therapy)
   ggplot(mapping = aes(x = survival_days,
                        y = survival_rates,
                        color = chemoradiation_therapy)) +
   geom_point() +
   geom_line()
-
-
-data %>% 
-  filter(tissue_type == "cancerous",
-         death_due_to_cancer == "Yes") %>% 
-  mutate(survival_rates = generate_survival_probabilities(survival_days) * 100) %>% 
-  ggplot(mapping = aes(x = survival_days,
-                       y = survival_rates,
-                       color = tumor_type)) +
-  geom_point() +
-  geom_line()
-
-
-
-data %>% 
-  filter(tissue_type == "cancerous",
-         death_due_to_cancer == "Yes") %>% 
-  mutate(survival_rates = generate_survival_probabilities(survival_days) * 100) %>% 
-  ggplot(mapping = aes(x = survival_days,
-                       y = survival_rates,
-                       color = tumor_type)) +
-  geom_point() +
-  geom_line()
-
-
-data %>% 
-  filter(tissue_type == "cancerous",
-         death_due_to_cancer == "Yes") %>% 
-  mutate(survival_rates = generate_survival_probabilities(survival_days) * 100) %>% 
-  ggplot(mapping = aes(x = survival_days,
-                       y = survival_rates,
-                       color = cohort)) +
-  geom_point() +
-  geom_line()
-
-
 
 
 
