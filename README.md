@@ -9,6 +9,9 @@ Romero Yianni, Daniel - s220260
 
 ## Data and Pipeline
 
+Paper: https://pubmed.ncbi.nlm.nih.gov/19789312/
+Data: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE13937
+
 ## Results
 
 ## Conclusion
