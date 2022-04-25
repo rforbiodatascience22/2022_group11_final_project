@@ -27,10 +27,16 @@ ggplot(data = data_tidy,
               #    ncol = 2,
                #   scales = "free_y")
 ```
+```{r}
+
+data_tidy %>% 
+  select(-contains("mmu"))
+```
+
 
 
 ```{r}
 data_tidy %>% 
-  select(-contains("mmu"))
+  select(contains("hsa-miR"))
 ```
 
