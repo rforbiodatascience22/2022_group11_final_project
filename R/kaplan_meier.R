@@ -9,7 +9,7 @@ data = tidy_data %>%
         chemoradiation_therapy, ptnm_stage, nodal_involvement, survival_days,
         death_due_to_cancer)
 
-data %>% 
+Kaplan_Meier_plot = data %>% 
   filter(tissue_type == "cancerous") %>% 
   mutate(survival_rates = generate_survival_probabilities(survival_days) * 100) %>%
   mutate(prev_surv = generate_survival_probabilities(survival_days,
@@ -27,14 +27,6 @@ data %>%
        x = "Days",
        y = "Survival rate (%)")
 
-
-
-
-
-
-
-
-
-
-
-
+ggsave(filename = "./doc/Kaplan-Meier.png",
+       plot = Kaplan_Meier_plot,
+       dpi = 400)
