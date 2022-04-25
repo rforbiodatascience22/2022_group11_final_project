@@ -31,6 +31,6 @@ ggplot(data = data_tidy,
 
 ```{r}
 data_tidy %>% 
-  select(contains(c("mir")))
+  select(-contains("mmu"))
 ```
 
