@@ -1,6 +1,8 @@
 library(tidyverse)
 library(magrittr)
 
+## Loading the raw data ##
+
 raw_data = read_tsv("./_raw/GSE13937_series_matrix.txt",
                     skip = 35,
                     col_names = FALSE)
@@ -23,7 +25,8 @@ raw_data_flipped = raw_data %>%
                         str_sub(X2, end = 19) == "death due to cancer" ~ "death_due_to_cancer",
                         TRUE ~ X1)) %>%
   column_to_rownames("X1") %>% 
-  t() %>% # ??? Transpose, is it ok to do this in tidyverse?
+  t() %>% # ??? Transpose, is it ok to do this in tidyverse? Answer: You can transpose by
+  #pivoting longer and wider at the same time 
   as_tibble()
   
 write_csv(raw_data_flipped, 
@@ -40,8 +43,8 @@ data_concise = raw_data_flipped %>%
             Sample_molecule_ch1:Sample_platform_id,
             Sample_contact_name:Sample_contact_country,
             Sample_supplementary_file:ID_REF,
-            Blank)) %>% 
-  select(-contains("mmu"))
+            Blank)) #%>% 
+#  select(-contains("mmu"))
 
 
 data_tidy = data_concise %>% 
@@ -76,9 +79,8 @@ data_tidy = data_concise %>%
   mutate(death_due_to_cancer = str_sub(string = death_due_to_cancer,
                                        start = 22))
 
-#Removing the probes coming from Mus musculus
-data_tidy <- data_tidy %>% 
-  select(-contains("mmu"))
+
+
 
 # Grouping based on staging (in situ, localized, regional, and distant)
 data_tidy <- data_tidy %>% 
@@ -96,4 +98,77 @@ data_tidy <- data_tidy %>%
 
 write_csv(data_tidy, 
           file = "./data/data_tidy.csv")
+
+
+### Filtering only the relevant MiRNAs of the paper ###
+## Loading the data of the microarray probes ##
+
+raw_probes <- read_tsv("./_raw/A-GEOD-8835.adf.txt",
+                    skip = 14,
+                    col_names = TRUE)
+
+raw_comments <- read_tsv("./_raw/A-GEOD-8835_comments.txt",
+                        col_names = TRUE)
+
+raw_probes <- bind_cols(raw_probes,
+                        raw_comments)
+
+#This is the control probes - we do NOT want these -
+raw_controls <- raw_probes %>% 
+  filter(`Comment[SPOT_ID]` == 'Control') 
+
+#This is the raw_probes without all the controls. From now on, we no longer need the 4 variables created above.
+#We will only work with probes_data
+probes_data <- anti_join(raw_probes,
+          raw_controls)
+
+#Now I am only selecting the human data and the data from mature MiRNAs, and 
+#then Removing unnecessary columns so that we only have data for mature MiRNAs
+probes_data <- probes_data %>% 
+  filter(`Reporter Group [organism]` == "Homo sapiens" &
+         `Comment[Contains_Mature_MiRNA]` == "yes"  &
+          str_detect(`Reporter Name`, 'hsa')) %>% 
+  select(-c(`Comment[SPOT_ID]`,`Reporter Group [organism]`,`Comment[Contains_Mature_MiRNA]`))
+
+#Renaming the two columns
+probes_data <- probes_data %>% 
+  rename("Probe_name" = "Reporter Name")  %>% 
+  rename("Mature_MiRNA" = "Reporter Database Entry [mirbase]")
+
+#Pivoting the data_tidy miRNAs to be able to filter them later on 
+data_tidy_pivoted <- data_tidy %>% 
+  pivot_longer(cols = "ath-MIR156aNo1" : "series_matrix_table_end", 
+               names_to = "Probe_name", 
+               values_to = "Expression")
+
+#Filtering the rows from data_tidy that have a match in probes_data  (I need to keep both columns in probes_data)
+#from probes_data so that I change the names of the MiRNA next
+data_tidy_filtered <- right_join(data_tidy_pivoted,
+          probes_data)
+
+#Removing the "Probe name" column so that we only have the "Mature MiRNA"
+data_tidy_filtered <- data_tidy_filtered %>% 
+  select(-"Probe_name")
+
+#Please read below.
+
+
+
+#Pivoting back to the different MiRNAs into columns
+#Warning: this is not well finished. Apparently, the mature MiRNAs are duplicated or triplicated in the
+#microarray, so as we do not have only 1 entry per observation, you can't really repivot it. At least I have
+#not been able to do it and make it work. I suggest working with data_tidy_filtered after we decide what to do
+#with the duplicates and triplicates, but I would understand if you think there are too many observations
+#(I don't think they are that many now)
+data_tidy_repivoted <- data_tidy_filtered %>% 
+  pivot_wider(names_from = "Mature_MiRNA",
+              values_from = "Expression" )
+
+
+#This is to check the IDs/Number of mature MiRNAs that we should have 
+mature_data = read_tsv("./_raw/A-GEOD-13415.adf.txt",
+                       skip = 15,
+                       col_names = TRUE)
+
+
 

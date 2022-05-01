@@ -1,0 +1,3766 @@
+Comment[Contains_Mature_MiRNA]	Comment[SPOT_ID]
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+no	
+no	
+yes	
+no	
+no	
+no	
+no	
+no	
+yes	
+no	
+yes	
+yes	
+no	
+yes	
+yes	
+no	
+no	
+yes	
+yes	
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+no	
+yes	
+yes	
+no	
+no	
+no	
+no	
+no	
+NA	Control
+NA	Control
+no	
+no	
+no	
+no	
+no	
+no	
+no	
+yes	
+no	
+no	
+yes	
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+no	
+no	
+no	
+NA	Control
+NA	Control
+NA	Control
+yes	
+no	
+no	
+no	
+no	
+yes	
+yes	
+no	
+yes	
+yes	
+no	
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+no	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+no	
+no	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+no	
+no	
+no	
+no	
+no	
+no	
+no	
+yes	
+no	
+yes	
+no	
+no	
+no	
+no	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+no	
+yes	
+yes	
+no	
+yes	
+yes	
+no	
+no	
+yes	
+yes	
+no	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+NA	Control
+NA	Control
+NA	Control
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+no	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+no	
+no	
+no	
+no	
+yes	
+no	
+no	
+yes	
+no	
+yes	
+no	
+yes	
+no	
+no	
+yes	
+no	
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+no	
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+no	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+NA	Control
+NA	Control
+NA	Control
+no	
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+no	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+no	
+no	
+yes	
+no	
+yes	
+no	
+no	
+no	
+yes	
+yes	
+no	
+no	
+no	
+no	
+no	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+no	
+no	
+no	
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+yes	
+no	
+yes	
+yes	
+no	
+yes	
+yes	
+no	
+yes	
+no	
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+no	
+no	
+yes	
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+no	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+no	
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+no	
+no	
+no	
+no	
+yes	
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+no	
+no	
+yes	
+no	
+yes	
+yes	
+no	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+no	
+yes	
+NA	Control
+no	
+no	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+no	
+yes	
+no	
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+no	
+no	
+yes	
+yes	
+yes	
+no	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+no	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+no	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+no	
+no	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+no	
+no	
+yes	
+no	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+no	
+no	
+no	
+no	
+yes	
+no	
+yes	
+no	
+yes	
+no	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+no	
+no	
+no	
+yes	
+no	
+no	
+no	
+no	
+NA	Control
+NA	Control
+no	
+yes	
+no	
+no	
+yes	
+no	
+no	
+no	
+yes	
+no	
+yes	
+no	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+no	
+yes	
+no	
+no	
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+no	
+no	
+yes	
+no	
+no	
+no	
+no	
+yes	
+yes	
+yes	
+no	
+no	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+no	
+yes	
+no	
+no	
+no	
+no	
+yes	
+no	
+yes	
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+no	
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+NA	Control
+NA	Control
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+no	
+yes	
+no	
+yes	
+no	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+no	
+yes	
+no	
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+no	
+no	
+yes	
+no	
+yes	
+no	
+no	
+no	
+no	
+no	
+no	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+NA	Control
+NA	Control
+NA	Control
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+no	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+no	
+no	
+yes	
+no	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+no	
+NA	Control
+NA	Control
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+no	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+yes	
+no	
+yes	
+no	
+no	
+no	
+yes	
+yes	
+no	
+no	
+no	
+no	
+no	
+NA	Control
+NA	Control
+yes	
+yes	
+no	
+yes	
+no	
+yes	
+no	
+no	
+no	
+yes	
+yes	
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+no	
+no	
+no	
+no	
+yes	
+no	
+yes	
+no	
+yes	
+no	
+no	
+yes	
+yes	
+yes	
+yes	
+no	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+no	
+no	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+yes	
+yes	
+no	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+yes	
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+no	
+no	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+no	
+no	
+no	
+no	
+no	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+yes	
+yes	
+yes	
+yes	
+yes	
+NA	Control
+NA	Control
+NA	Control
+yes	
+yes	
+yes	
+yes	
+no	
+yes	
+no	
+yes	
+no	
+yes	
+yes	
+yes	
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
+NA	Control
