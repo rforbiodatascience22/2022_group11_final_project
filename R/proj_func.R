@@ -1,6 +1,5 @@
 # Generate survival probability for Kaplan-Meier plots
 generate_survival_probabilities = function(survival_days, shift = FALSE){
-  # ??? Consult Leon on how to do this in tidyverse
   survival_probs = numeric()
   n_observations = length(survival_days)
   for (i in 1:n_observations){
