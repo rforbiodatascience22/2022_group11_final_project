@@ -9,7 +9,7 @@ data_tidy %>%
   geom_bar()
 
 # plot
-data_tidy %>% 
+data_tidy_filtered %>% 
   mutate(five_year_survival_rate = case_when(survival_days == "1826" ~ 1,
                                           TRUE ~ 0)) %>% # if alive after 5 years ~ 1
   relocate(five_year_survival_rate, .after = survival_days) %>% 
