@@ -102,6 +102,7 @@ write_csv(data_tidy,
 
 ### Filtering only the relevant MiRNAs of the paper ###
 ## Loading the data of the microarray probes ##
+data_tidy <- read_csv("./data/data_tidy.csv")
 
 raw_probes <- read_tsv("./_raw/A-GEOD-8835.adf.txt",
                     skip = 14,
@@ -146,11 +147,16 @@ data_tidy_pivoted <- data_tidy %>%
 data_tidy_filtered <- right_join(data_tidy_pivoted,
           probes_data)
 
+write_csv(data_tidy_filtered, 
+          file = "./data/data_tidy_filtered.csv")
+
+
 #Removing the "Probe name" column so that we only have the "Mature MiRNA"
 data_tidy_filtered <- data_tidy_filtered %>% 
   select(-"Probe_name")
 
 #Please read below.
+
 
 
 
