@@ -4,7 +4,7 @@ library(patchwork)
 tidy_data = read_csv("./data/data_tidy.csv")
 
 toDelete <- seq(0, length(tidy_data), 2)
-data <- data[-toDelete,]
+data <- tidy_data[-toDelete,]
 
 data <- data %>% 
   select(chemoradiation_therapy, survival_days, alcohol_consumption, 
@@ -64,3 +64,62 @@ pl6 <- data %>%
   theme(legend.position = "bottom")
 
 pl4 / pl5 / pl6
+
+# PCA
+library(broom)
+library(cowplot)
+
+pca_fit <- data_tidy_filtered %>% 
+  select(patient, Expression, Mature_MiRNA) %>%
+  drop_na() %>%
+  group_by(Mature_MiRNA, patient) %>%
+  mutate(Mean = mean(Expression)) %>%
+  select(-Expression) %>%
+  distinct() %>%
+  pivot_wider(names_from = Mature_MiRNA, values_from = Mean) %>%
+  select_if(~ !any(is.na(.)))%>%
+  ungroup() %>%
+  select(-patient) %>%
+  scale() %>%
+  prcomp(scale = TRUE)
+
+pca_fit %>%
+  augment(data_tidy) %>% # add original dataset back in
+  ggplot(aes(.fittedPC1, .fittedPC2, color = SEER_stage)) + 
+  geom_point(size = 1.5) +
+  scale_color_manual(
+    values = c(Distant = "#D55E00", Localized = "#0072B2", Regional = "#FF0000",
+               `In situ` = "#800080")
+  ) +
+  theme_half_open(12) + background_grid()
+
+# define arrow style for plotting
+arrow_style <- arrow(
+  angle = 20, ends = "first", type = "closed", length = grid::unit(8, "pt")
+)
+
+# plot rotation matrix
+pca_fit %>%
+  tidy(matrix = "rotation") %>%
+  pivot_wider(names_from = "PC", names_prefix = "PC", values_from = "value") %>%
+  ggplot(aes(PC1, PC2)) +
+  geom_segment(xend = 0, yend = 0, arrow = arrow_style) +
+  geom_text(
+    aes(label = column),
+    hjust = 1, nudge_x = -0.02, 
+    color = "#904C2F"
+  ) +
+  xlim(-1.25, .5) + ylim(-.5, 1) +
+  coord_fixed() + # fix aspect ratio to 1:1
+  theme_minimal_grid(12)
+
+pca_fit %>%
+  tidy(matrix = "eigenvalues") %>%
+  ggplot(aes(PC, percent)) +
+  geom_col(fill = "#56B4E9", alpha = 0.8) +
+  scale_x_continuous(breaks = 1:9, limits = c(0,10)) +
+  scale_y_continuous(
+    labels = scales::percent_format(),
+    expand = expansion(mult = c(0, 0.01))
+  ) +
+  theme_minimal_hgrid(12)
