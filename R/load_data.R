@@ -13,7 +13,7 @@ raw_data = read_tsv("./_raw/GSE13937_series_matrix.txt",
 # Set column and row names and transpose the data
 raw_data_flipped = raw_data %>% 
   mutate(X1 = X1 %>% str_replace("!", "")) %>% 
-  # ??? Better way of doing this? I've tried mutate with case_when (unsuccessfully) 
+  # If there's time, try to find better way of doing this 
   mutate(X1 = case_when(
     str_sub(X2, end = 6) == "cohort" ~ "cohort",
     str_sub(X2, end = 18) == "hybridization date" ~ "hybridization_date",
