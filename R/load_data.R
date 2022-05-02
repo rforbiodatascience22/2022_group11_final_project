@@ -1,7 +1,10 @@
-library(tidyverse)
-library(magrittr)
+# Load libraries ----------------------------------------------------------
 
-## Loading the raw data ##
+library("tidyverse")
+library("magrittr")
+
+
+# Load raw data -----------------------------------------------------------
 
 raw_data = read_tsv("./_raw/GSE13937_series_matrix.txt",
                     skip = 35,
@@ -11,24 +14,25 @@ raw_data = read_tsv("./_raw/GSE13937_series_matrix.txt",
 raw_data_flipped = raw_data %>% 
   mutate(X1 = X1 %>% str_replace("!", "")) %>% 
   # ??? Better way of doing this? I've tried mutate with case_when (unsuccessfully) 
-  mutate(X1 = case_when(str_sub(X2, end = 6) == "cohort" ~ "cohort",
-                        str_sub(X2, end = 18) == "hybridization date" ~"hybridization_date", # ??? respect max 80 chars
-                        str_sub(X2, end = 11) == "tissue type" ~ "tissue_type",
-                        str_sub(X2, end = 9) == "histology" ~ "histology",
-                        str_sub(X2, end = 19) == "barrett's esophagus" ~ "barretts_esophagus",
-                        str_sub(X2, end = 22) == "chemoradiation therapy" ~ "chemoradiation_therapy",
-                        str_sub(X2, end = 19) == "alcohol consumption" ~ "alcohol_consumption",
-                        str_sub(X2, end = 7) == "smoking" ~ "smoking",
-                        str_sub(X2, end = 10) == "ptnm stage" ~ "ptnm_stage",
-                        str_sub(X2, end = 17) == "nodal involvement" ~ "nodal_involvement",
-                        str_sub(X2, end = 13) == "survival days" ~ "survival_days",
-                        str_sub(X2, end = 19) == "death due to cancer" ~ "death_due_to_cancer",
-                        TRUE ~ X1)) %>%
+  mutate(X1 = case_when(
+    str_sub(X2, end = 6) == "cohort" ~ "cohort",
+    str_sub(X2, end = 18) == "hybridization date" ~ "hybridization_date",
+    str_sub(X2, end = 11) == "tissue type" ~ "tissue_type",
+    str_sub(X2, end = 9) == "histology" ~ "histology",
+    str_sub(X2, end = 19) == "barrett's esophagus" ~ "barretts_esophagus",
+    str_sub(X2, end = 22) == "chemoradiation therapy" ~ 
+      "chemoradiation_therapy",
+    str_sub(X2, end = 19) == "alcohol consumption" ~ "alcohol_consumption",
+    str_sub(X2, end = 7) == "smoking" ~ "smoking",
+    str_sub(X2, end = 10) == "ptnm stage" ~ "ptnm_stage",
+    str_sub(X2, end = 17) == "nodal involvement" ~ "nodal_involvement",
+    str_sub(X2, end = 13) == "survival days" ~ "survival_days",
+    str_sub(X2, end = 19) == "death due to cancer" ~ "death_due_to_cancer",
+    TRUE ~ X1)) %>%
   column_to_rownames("X1") %>% 
-  t() %>% # ??? Transpose, is it ok to do this in tidyverse? Answer: You can transpose by
-  #pivoting longer and wider at the same time 
+  t() %>%
   as_tibble()
-  
+
 write_csv(raw_data_flipped, 
           file = "./data/data_transposed.csv")
 
@@ -43,8 +47,7 @@ data_concise = raw_data_flipped %>%
             Sample_molecule_ch1:Sample_platform_id,
             Sample_contact_name:Sample_contact_country,
             Sample_supplementary_file:ID_REF,
-            Blank)) #%>% 
-#  select(-contains("mmu"))
+            Blank))
 
 
 data_tidy = data_concise %>% 
