@@ -147,6 +147,10 @@ data_tidy_pivoted <- data_tidy %>%
 data_tidy_filtered <- right_join(data_tidy_pivoted,
           probes_data)
 
+write_csv(data_tidy_filtered, 
+          file = "./data/data_tidy_filtered.csv")
+
+
 #Removing the "Probe name" column so that we only have the "Mature MiRNA"
 data_tidy_filtered <- data_tidy_filtered %>% 
   select(-"Probe_name")
@@ -154,8 +158,6 @@ data_tidy_filtered <- data_tidy_filtered %>%
 #Please read below.
 
 
-write_csv(data_tidy_filtered, 
-          file = "./data/data_tidy_filtered.csv")
 
 
 #Pivoting back to the different MiRNAs into columns
