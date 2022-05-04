@@ -63,10 +63,8 @@ non_grouped <- data_tidy %>%
                names_to = "probe",
                values_to = "expression") %>%
   pivot_wider(names_from = tissue_type,
-              values_from = expression)
-
-%>% 
-  group_by(probe) 
+              values_from = expression) %>% 
+  group_by(probe) %>% View()
 
 %>% 
   mutate(differential_expresion = "cancerous" - "non-cancerous") %>% View()
@@ -152,7 +150,56 @@ test
 
 
 
+```{r}
+data_selected <- data_tidy %>%
+  select(1:14,
+         "hsa-mir-21No1",
+         "hsa-mir-021-prec-17No1",
+         "hsa-mir-223-prec",
+         "hsa-mir-146bNo1",
+         "hsa-mir-146-prec",
+         "hsa-mir-181a-precNo1",
+         "hsa-mir-181b-precNo1",
+         "hsa-mir-103-prec-5=103-1",
+         "hsa-mir-107-prec-10",
+         "hsa-let-7c-prec",
+         "hsa-mir-203-precNo1",
+         "hsa-mir-205-prec") %>%
+  pivot_longer(cols = contains("hsa"),
+               names_to = "probe",
+               values_to = "expression") %>%
+  pivot_wider(names_from = tissue_type,
+              values_from = expression) %>%
+  rename("non_cancerous" = "non-cancerous")
 
+data_selected2 <- data_tidy %>%
+  pivot_longer(cols = contains("hsa"),
+               names_to = "probe",
+               values_to = "expression") %>%
+  filter(probe == "hsa-mir-21No1" | 
+           probe == "hsa-mir-021-prec-17No1" |
+           probe ==         "hsa-mir-223-prec" |
+           probe ==         "hsa-mir-146bNo1" |
+           probe ==         "hsa-mir-146-prec" |
+           probe ==         "hsa-mir-181a-precNo1" |
+           probe ==         "hsa-mir-181b-precNo1" |
+           probe ==         "hsa-mir-103-prec-5=103-1" |
+           probe ==          "hsa-mir-107-prec-10" |
+           probe ==          "hsa-let-7c-prec" |
+           probe ==         "hsa-mir-203-precNo1" |
+           probe ==         "hsa-mir-205-prec")
+# pivot_wider(names_from = tissue_type,
+#             values_from = expression) %>% 
+# rename("non_cancerous" = "non-cancerous")
+
+```
+
+`Lo que tnego que hacer: necesito sacar el fold change the cancerous/non-cancerous para cada miRNA. Cada miRNA tiene 2 muestras en cada paciente, una procedente de cancerous y non cancerous. Pues esas muestras las tengo que bien dividir para el fold change o bien restar y de ahi sacar una columna con la diferencia para cada paciente de un mismo miRNA. Asi, para un unico miRNA, tendre tantos valores de fold change como pacientes tenga. Y eso sera para todos los miRNA. 
+```{r}
+data_selected2 %>% 
+  group_by(probe) %>% 
+  filter(probe == "hsa-let-7c-prec")
+```
 
 
 
