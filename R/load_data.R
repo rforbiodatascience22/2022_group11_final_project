@@ -152,7 +152,8 @@ write_csv(data_tidy_filtered,
           file = "./data/data_tidy_filtered.csv")
 
 
-
+data_tidy_filtered <- read_csv("data/data_tidy_filtered.csv") %>% 
+  as_tibble() 
 
 #Removing the "Probe name" column so that we only have the "Mature MiRNA"
 #data_tidy_filtered <- data_tidy_filtered %>% 

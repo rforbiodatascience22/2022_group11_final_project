@@ -45,7 +45,7 @@ data_tidy %>%
            position="dodge")
   
 
-data_tidy %>% 
+non_grouped <- data_tidy %>%
   select(1:14,
          "hsa-mir-21No1",
          "hsa-mir-021-prec-17No1",
@@ -58,13 +58,17 @@ data_tidy %>%
          "hsa-mir-107-prec-10",
          "hsa-let-7c-prec",
          "hsa-mir-203-precNo1",
-         "hsa-mir-205-prec") %>% 
+         "hsa-mir-205-prec") %>%
   pivot_longer(cols = contains("hsa"),
                names_to = "probe",
                values_to = "expression") %>%
   pivot_wider(names_from = tissue_type,
-              values_from = expression) %>% 
-  group_by(probe) %>% 
+              values_from = expression)
+
+%>% 
+  group_by(probe) 
+
+%>% 
   mutate(differential_expresion = "cancerous" - "non-cancerous") %>% View()
 
 
