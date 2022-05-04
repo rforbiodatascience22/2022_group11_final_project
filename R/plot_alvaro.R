@@ -109,7 +109,38 @@ ggplot(data = data_tidy_filtered,
 
 
 
-data_tidy <- data_tidy_filtered
+data_tidy <- data_tidy_filtered %>% 
+  select(-"Mature_MiRNA") %>% 
+  pivot_wider(names_from = "Probe_name",
+              values_from = "Expression")
+
+
+
+
+#Removing the "Probe name" column so that we only have the "Mature MiRNA"
+#data_tidy_filtered <- data_tidy_filtered %>% 
+#  select(-"Probe_name")
+
+
+
+#Warning: the following lines are not well finished.
+
+
+#Pivoting back to the different MiRNAs into columns
+# Apparently, the mature MiRNAs are duplicated or triplicated in the
+#microarray, so as we do not have only 1 entry per observation, you can't really repivot it. At least I have
+#not been able to do it and make it work. I suggest working with data_tidy_filtered after we decide what to do
+#with the duplicates and triplicates, but I would understand if you think there are too many observations
+#(I don't think they are that many now)
+# data_tidy_repivoted <- data_tidy_filtered %>% 
+#   pivot_wider(names_from = "Mature_MiRNA",
+#               values_from = "Expression" )
+# 
+
+#This is to check the IDs/Number of mature MiRNAs that we should have 
+# mature_data = read_tsv("./_raw/A-GEOD-13415.adf.txt",
+#                        skip = 15,
+#                        col_names = TRUE)
 
 
 
