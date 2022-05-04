@@ -108,3 +108,27 @@ ggplot(data = data_tidy_filtered,
 #- I should probably end up with something like this https://www.ebi.ac.uk/arrayexpress/files/A-GEOD-13415/A-GEOD-13415.adf.txt
 
 
+
+data_tidy <- data_tidy_filtered
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

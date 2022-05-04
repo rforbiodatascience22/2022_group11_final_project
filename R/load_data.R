@@ -146,8 +146,10 @@ data_tidy_pivoted <- data_tidy %>%
 #Filtering the rows from data_tidy that have a match in probes_data  (I need to keep both columns in probes_data)
 #from probes_data so that I change the names of the MiRNA next
 data_tidy_filtered <- right_join(data_tidy_pivoted,
-          probes_data)
-
+          probes_data) %>% 
+          drop_na() %>% 
+          relocate(Expression, .after = last_col())
+  
 write_csv(data_tidy_filtered, 
           file = "./data/data_tidy_filtered.csv")
 
@@ -170,15 +172,15 @@ data_tidy_filtered <- read_csv("data/data_tidy_filtered.csv") %>%
 #not been able to do it and make it work. I suggest working with data_tidy_filtered after we decide what to do
 #with the duplicates and triplicates, but I would understand if you think there are too many observations
 #(I don't think they are that many now)
-data_tidy_repivoted <- data_tidy_filtered %>% 
-  pivot_wider(names_from = "Mature_MiRNA",
-              values_from = "Expression" )
-
+# data_tidy_repivoted <- data_tidy_filtered %>% 
+#   pivot_wider(names_from = "Mature_MiRNA",
+#               values_from = "Expression" )
+# 
 
 #This is to check the IDs/Number of mature MiRNAs that we should have 
-mature_data = read_tsv("./_raw/A-GEOD-13415.adf.txt",
-                       skip = 15,
-                       col_names = TRUE)
+# mature_data = read_tsv("./_raw/A-GEOD-13415.adf.txt",
+#                        skip = 15,
+#                        col_names = TRUE)
 
 
 
