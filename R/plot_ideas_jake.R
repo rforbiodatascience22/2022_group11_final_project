@@ -3,7 +3,7 @@ library(patchwork)
 
 #NOTE: "./data/data_tidy.csv" IS NOW "./data/data_aug_wide.csv".
 #YOU SHOULD CHANGE IT IN YOUR READ_CSV FUNCTION
-tidy_data = read_csv("./data/data_tidy.csv")
+tidy_data = read_csv("./data/data_aug_wide.csv")
 
 toDelete <- seq(0, length(tidy_data), 2)
 data <- tidy_data[-toDelete,]
@@ -68,10 +68,13 @@ pl6 <- data %>%
 pl4 / pl5 / pl6
 
 # PCA
+
+tidy_data = read_csv("./data/data_aug_long.csv")
+
 library(broom)
 library(cowplot)
 
-pca_fit <- data_tidy_filtered %>% 
+pca_fit <- tidy_data %>% 
   select(patient, Expression, Mature_MiRNA) %>%
   drop_na() %>%
   group_by(Mature_MiRNA, patient) %>%
@@ -86,7 +89,7 @@ pca_fit <- data_tidy_filtered %>%
   prcomp(scale = TRUE)
 
 pca_fit %>%
-  augment(data_tidy) %>% # add original dataset back in
+  augment(tidy_data) %>% # add original dataset back in
   ggplot(aes(.fittedPC1, .fittedPC2, color = SEER_stage)) + 
   geom_point(size = 1.5) +
   scale_color_manual(
