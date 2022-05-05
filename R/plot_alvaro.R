@@ -1,7 +1,7 @@
 library(tidyverse)
 library(patchwork)
 library(magrittr)
-source("./R/proj_func.R")
+
 
 data_tidy_filtered <- read_csv("data/data_tidy_filtered.csv") %>% 
   as_tibble() 
