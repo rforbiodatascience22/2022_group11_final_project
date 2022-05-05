@@ -62,7 +62,7 @@ probes_data <- anti_join(raw_probes,
 
 # Write data --------------------------------------------------------------
 write_csv(raw_data_flipped, 
-          file = "./data/data_transposed.csv")
+          file = "./data/data_load.csv")
 
 write_csv(probes_data,
-          file = "./data/probes_data.csv")
+          file = "./data/probes_data_load.csv")

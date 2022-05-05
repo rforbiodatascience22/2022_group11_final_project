@@ -11,7 +11,7 @@ library("magrittr")
 
 
 # Load data ---------------------------------------------------------------
-raw_data_flipped <- read_csv("./data/data_transposed.csv")
+raw_data_flipped <- read_csv("./data/data_load.csv")
 # my_data <- read_tsv(file = "data/01_my_data.tsv")
 
 # Wrangle data ------------------------------------------------------------
@@ -70,4 +70,4 @@ data_tidy = data_concise %>%
 #           file = "data/02_my_data_clean.tsv")
 
 write_csv(data_tidy, 
-          file = "./data/data_tidy.csv")
+          file = "./data/data_clean.csv")
