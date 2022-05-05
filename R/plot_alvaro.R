@@ -3,11 +3,9 @@ library(patchwork)
 library(magrittr)
 
 
-data_tidy_filtered <- read_csv("data/data_tidy_filtered.csv") %>% 
-  as_tibble() 
+data_tidy_long<- read_csv("data/data_aug_long.csv") 
 
-data_tidy <- read_csv("data/data_tidy.csv") %>% 
-  as_tibble() 
+data_tidy_wide = read_csv("./data/data_aug_wide.csv") 
 
 view(data_tidy_filtered)
 
@@ -23,6 +21,65 @@ data_tidy_filtered <- data_tidy_filtered %>%
 #is shown. Mir-21, mir-223, mir-192, and mir-194are over-expressed in tumors while mir-203 is under-expressed in tumors. 
 
 
+#Selecting the most important probes and getting the expression column for cancerous
+#and non-cancerous
+data_selected <- data_tidy_wide %>%
+  select(1:14,
+         "hsa-mir-21No1",
+         "hsa-mir-021-prec-17No1",
+         "hsa-mir-223-prec",
+         "hsa-mir-146bNo1",
+         "hsa-mir-146-prec",
+         "hsa-mir-181a-precNo1",
+         "hsa-mir-181b-precNo1",
+         "hsa-mir-103-prec-5=103-1",
+         "hsa-mir-107-prec-10",
+         "hsa-let-7c-prec",
+         "hsa-mir-203-precNo1",
+         "hsa-mir-205-prec") %>%
+  select(-Sample_geo_accession) %>%  #It gives issues with the mapping 
+  pivot_longer(cols = contains("hsa"),
+               names_to = "probe",
+               values_to = "expression") %>%
+  pivot_wider(names_from = tissue_type,
+              values_from = expression) %>%
+  rename("non_cancerous" = "non-cancerous")
+
+
+#Use of mapping function to remove all the NAs and compress the dataframe
+data <-  data_selected  %>% 
+  nest(-patient, -probe) %>% 
+  mutate(data = map(data, ~ map_dfc(., na.omit))) %>% 
+  unnest() %>% 
+  distinct() 
+
+
+#Next: create graph!! Heatmap??
+
+data <- data %>% 
+  mutate(ratio = non_cancerous / cancerous) %>% 
+  filter(ratio > 1) %>% 
+  arrange(desc(ratio))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ------------------------------ THIS DOES NOT WORK VERY WELL --------
 First I have to select the samples with adenocarcinoma.
 The x axis is mir-21, mir-223, mir-203, mir-192, mir-194 
 The y axis is Expression of cancerous tissue vs non-cancerous tissue (in log2)
@@ -139,75 +196,4 @@ data_tidy <- data_tidy_filtered %>%
 # mature_data = read_tsv("./_raw/A-GEOD-13415.adf.txt",
 #                        skip = 15,
 #                        col_names = TRUE)
-
-
-
-
-
-
-
-test
-
-
-
-```{r}
-data_selected <- data_tidy %>%
-  select(1:14,
-         "hsa-mir-21No1",
-         "hsa-mir-021-prec-17No1",
-         "hsa-mir-223-prec",
-         "hsa-mir-146bNo1",
-         "hsa-mir-146-prec",
-         "hsa-mir-181a-precNo1",
-         "hsa-mir-181b-precNo1",
-         "hsa-mir-103-prec-5=103-1",
-         "hsa-mir-107-prec-10",
-         "hsa-let-7c-prec",
-         "hsa-mir-203-precNo1",
-         "hsa-mir-205-prec") %>%
-  pivot_longer(cols = contains("hsa"),
-               names_to = "probe",
-               values_to = "expression") %>%
-  pivot_wider(names_from = tissue_type,
-              values_from = expression) %>%
-  rename("non_cancerous" = "non-cancerous")
-
-data_selected2 <- data_tidy %>%
-  pivot_longer(cols = contains("hsa"),
-               names_to = "probe",
-               values_to = "expression") %>%
-  filter(probe == "hsa-mir-21No1" | 
-           probe == "hsa-mir-021-prec-17No1" |
-           probe ==         "hsa-mir-223-prec" |
-           probe ==         "hsa-mir-146bNo1" |
-           probe ==         "hsa-mir-146-prec" |
-           probe ==         "hsa-mir-181a-precNo1" |
-           probe ==         "hsa-mir-181b-precNo1" |
-           probe ==         "hsa-mir-103-prec-5=103-1" |
-           probe ==          "hsa-mir-107-prec-10" |
-           probe ==          "hsa-let-7c-prec" |
-           probe ==         "hsa-mir-203-precNo1" |
-           probe ==         "hsa-mir-205-prec")
-# pivot_wider(names_from = tissue_type,
-#             values_from = expression) %>% 
-# rename("non_cancerous" = "non-cancerous")
-
-```
-
-`Lo que tnego que hacer: necesito sacar el fold change the cancerous/non-cancerous para cada miRNA. Cada miRNA tiene 2 muestras en cada paciente, una procedente de cancerous y non cancerous. Pues esas muestras las tengo que bien dividir para el fold change o bien restar y de ahi sacar una columna con la diferencia para cada paciente de un mismo miRNA. Asi, para un unico miRNA, tendre tantos valores de fold change como pacientes tenga. Y eso sera para todos los miRNA. 
-```{r}
-data_selected2 %>% 
-  group_by(probe) %>% 
-  filter(probe == "hsa-let-7c-prec")
-```
-
-
-
-
-
-
-
-
-
-
 
