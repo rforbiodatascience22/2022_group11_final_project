@@ -3,7 +3,7 @@ library(patchwork)
 
 #NOTE: "./data/data_tidy.csv" IS NOW "./data/data_aug_wide.csv".
 #YOU SHOULD CHANGE IT IN YOUR READ_CSV FUNCTION
-tidy_data = read_csv("./data/data_aug_wide.csv")
+tidy_data_wide = read_csv("./data/data_aug_wide.csv")
 
 toDelete <- seq(0, length(tidy_data), 2)
 data <- tidy_data[-toDelete,]
@@ -68,8 +68,7 @@ pl6 <- data %>%
 pl4 / pl5 / pl6
 
 # PCA
-
-tidy_data = read_csv("./data/data_aug_long.csv")
+tidy_data_long = read_csv("./data/data_aug_long.csv")
 
 library(broom)
 library(cowplot)
@@ -89,11 +88,11 @@ pca_fit <- tidy_data %>%
   prcomp(scale = TRUE)
 
 pca_fit %>%
-  augment(tidy_data) %>% # add original dataset back in
+  augment(tidy_data_wide) %>% # add original dataset back in
   ggplot(aes(.fittedPC1, .fittedPC2, color = SEER_stage)) + 
   geom_point(size = 1.5) +
   scale_color_manual(
-    values = c(Distant = "#D55E00", Localized = "#0072B2", Regional = "#FF0000",
+    values = c(Distant = "#00b300", Localized = "#0072B2", Regional = "#FF0000",
                `In situ` = "#800080")
   ) +
   theme_half_open(12) + background_grid()
@@ -112,9 +111,10 @@ pca_fit %>%
   geom_text(
     aes(label = column),
     hjust = 1, nudge_x = -0.02, 
-    color = "#904C2F"
+    color = "#904C2F", size = 2,
+    check_overlap = T
   ) +
-  xlim(-1.25, .5) + ylim(-.5, 1) +
+  xlim(-0.5, .5) + ylim(-.5, 0.5) +
   coord_fixed() + # fix aspect ratio to 1:1
   theme_minimal_grid(12)
 
