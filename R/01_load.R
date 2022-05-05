@@ -3,6 +3,8 @@
 library("tidyverse")
 library("magrittr")
 
+# Objective: Collapse data to a single file or convert .xlsx to .tsv, here we could 
+# imagine having an .xlsx-file with multiple sheets, from which we create a single .tsv
 
 # Load raw data -----------------------------------------------------------
 
