@@ -55,12 +55,11 @@ data <-  data_selected  %>%
 
 
 #Next: create graph!! Heatmap??
-
 data <- data %>% 
   mutate(ratio = non_cancerous / cancerous) %>% 
   filter(ratio > 1) %>% 
-  arrange(desc(ratio))
-
+  arrange(desc(ratio)) %>% 
+  relocate(probe, .before = non_cancerous)
 
 
 
