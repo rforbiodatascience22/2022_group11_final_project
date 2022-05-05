@@ -50,15 +50,18 @@ data <-  data_selected  %>%
 data <- data %>% 
   mutate(ratio = non_cancerous / cancerous) %>% 
   filter(ratio > 1) %>% 
-  arrange(desc(ratio)) %>% 
+  #arrange(desc(ratio)) %>% 
   relocate(probe, .before = non_cancerous)
 
 
 #Next: create graph!! Heatmap??
+# ggplot(data = data,
+#        mapping = aes(x= probe, 
+#                      y= patient)) +
+#   geom_tile(mapping = aes(fill = ratio)) +
 
-
-
-
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))
+  
 
 
 
