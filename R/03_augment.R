@@ -12,6 +12,7 @@ library("magrittr")
 #my_data_clean <- read_tsv(file = "data/02_my_data_clean.tsv")
 
 data_tidy <- read_csv("./data/data_tidy.csv")
+probes_data <- read_csv("./data/probes_data.csv")
 
 # Wrangle data ------------------------------------------------------------
 #my_data_clean_aug <- my_data_clean # %>% ...
@@ -33,28 +34,7 @@ data_tidy <- data_tidy %>%
 
 
 ### Filtering only the relevant MiRNAs of the paper ###
-## Loading the data of the microarray probes ##
-
-raw_probes <- read_tsv("./_raw/A-GEOD-8835.adf.txt",
-                       skip = 14,
-                       col_names = TRUE)
-
-raw_comments <- read_tsv("./_raw/A-GEOD-8835_comments.txt",
-                         col_names = TRUE)
-
-raw_probes <- bind_cols(raw_probes,
-                        raw_comments)
-
-#This is the control probes - we do NOT want these -
-raw_controls <- raw_probes %>% 
-  filter(`Comment[SPOT_ID]` == 'Control') 
-
-#This is the raw_probes without all the controls. From now on, we no longer need the 4 variables created above.
-#We will only work with probes_data
-probes_data <- anti_join(raw_probes,
-                         raw_controls)
-
-#Now I am only selecting the human data and the data from mature MiRNAs, and 
+#Selecting the human data and the data from mature MiRNAs, and 
 #then Removing unnecessary columns so that we only have data for mature MiRNAs
 probes_data <- probes_data %>% 
   filter(`Reporter Group [organism]` == "Homo sapiens" &
@@ -80,12 +60,6 @@ data_tidy_filtered <- right_join(data_tidy_pivoted,
   drop_na() %>% 
   relocate(Expression, .after = last_col())
 
-write_csv(data_tidy_filtered, 
-          file = "./data/data_tidy_filtered.csv")
-
-
-data_tidy_filtered <- read_csv("data/data_tidy_filtered.csv") %>% 
-  as_tibble() 
 
 
 #Pivoting back to cartesian data tidy
@@ -98,6 +72,8 @@ data_tidy <- data_tidy_filtered %>%
 # Write data --------------------------------------------------------------
 # write_tsv(x = my_data_clean_aug,
 #           file = "data/03_my_data_clean_aug.tsv")
+write_csv(data_tidy_filtered, 
+          file = "./data/data_tidy_filtered.csv")
 
 write_csv(data_tidy, 
           file = "./data/data_tidy.csv")
