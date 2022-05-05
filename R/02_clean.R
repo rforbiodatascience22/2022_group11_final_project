@@ -12,6 +12,7 @@ library("magrittr")
 
 # Load data ---------------------------------------------------------------
 raw_data_flipped <- read_csv("./data/data_load.csv")
+probes_data <- read_csv("./data/probes_data_load.csv")
 # my_data <- read_tsv(file = "data/01_my_data.tsv")
 
 # Wrangle data ------------------------------------------------------------
@@ -63,6 +64,22 @@ data_tidy = data_concise %>%
 
 
 
+### Filtering only the relevant MiRNAs of the paper ###
+#Selecting the human data and the data from mature MiRNAs, and 
+#then Removing unnecessary columns so that we only have data for mature MiRNAs
+probes_data <- probes_data %>% 
+  filter(`Reporter Group [organism]` == "Homo sapiens" &
+           `Comment[Contains_Mature_MiRNA]` == "yes"  &
+           str_detect(`Reporter Name`, 'hsa')) %>% 
+  select(-c(`Comment[SPOT_ID]`,`Reporter Group [organism]`,`Comment[Contains_Mature_MiRNA]`))
+
+#Renaming the two columns
+probes_data <- probes_data %>% 
+  rename("Probe_name" = "Reporter Name")  %>% 
+  rename("Mature_MiRNA" = "Reporter Database Entry [mirbase]")
+
+
+
 
 
 # Write data --------------------------------------------------------------
@@ -71,3 +88,6 @@ data_tidy = data_concise %>%
 
 write_csv(data_tidy, 
           file = "./data/data_clean.csv")
+
+write_csv(probes_data, 
+          file = "./data/probes_data_clean.csv")

@@ -12,12 +12,12 @@ library("magrittr")
 #my_data_clean <- read_tsv(file = "data/02_my_data_clean.tsv")
 
 data_tidy <- read_csv("./data/data_clean.csv")
-probes_data <- read_csv("./data/probes_data_load.csv")
+probes_data <- read_csv("./data/probes_data_clean.csv")
 
 # Wrangle data ------------------------------------------------------------
 #my_data_clean_aug <- my_data_clean # %>% ...
 
-# Grouping based on staging (in situ, localized, regional, and distant)
+# Grouping data_tidy based on staging (in situ, localized, regional, and distant)
 data_tidy <- data_tidy %>% 
   mutate(SEER_stage = 
            case_when(ptnm_stage == "0" ~ "In situ",
@@ -33,19 +33,6 @@ data_tidy <- data_tidy %>%
 
 
 
-### Filtering only the relevant MiRNAs of the paper ###
-#Selecting the human data and the data from mature MiRNAs, and 
-#then Removing unnecessary columns so that we only have data for mature MiRNAs
-probes_data <- probes_data %>% 
-  filter(`Reporter Group [organism]` == "Homo sapiens" &
-           `Comment[Contains_Mature_MiRNA]` == "yes"  &
-           str_detect(`Reporter Name`, 'hsa')) %>% 
-  select(-c(`Comment[SPOT_ID]`,`Reporter Group [organism]`,`Comment[Contains_Mature_MiRNA]`))
-
-#Renaming the two columns
-probes_data <- probes_data %>% 
-  rename("Probe_name" = "Reporter Name")  %>% 
-  rename("Mature_MiRNA" = "Reporter Database Entry [mirbase]")
 
 #Pivoting the data_tidy miRNAs to be able to filter them later on 
 data_tidy_pivoted <- data_tidy %>% 
@@ -53,13 +40,13 @@ data_tidy_pivoted <- data_tidy %>%
                names_to = "Probe_name", 
                values_to = "Expression")
 
-#Filtering the rows from data_tidy that have a match in probes_data  (I need to keep both columns in probes_data)
+#Filtering the rows from data_tidy that have a match in probes_data  
+#(I need to keep both columns in probes_data)
 #from probes_data so that I change the names of the MiRNA next
 data_tidy_filtered <- right_join(data_tidy_pivoted,
                                  probes_data) %>% 
   drop_na() %>% 
   relocate(Expression, .after = last_col())
-
 
 
 #Pivoting back to cartesian data tidy
