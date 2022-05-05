@@ -65,8 +65,6 @@ data_tidy = data_concise %>%
 
 
 
-
-
 # Write data --------------------------------------------------------------
 # write_tsv(x = my_data_clean,
 #           file = "data/02_my_data_clean.tsv")
