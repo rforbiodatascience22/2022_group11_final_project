@@ -11,8 +11,8 @@ library("magrittr")
 # Load data ---------------------------------------------------------------
 #my_data_clean <- read_tsv(file = "data/02_my_data_clean.tsv")
 
-data_tidy <- read_csv("./data/data_tidy.csv")
-probes_data <- read_csv("./data/probes_data.csv")
+data_tidy <- read_csv("./data/data_clean.csv")
+probes_data <- read_csv("./data/probes_data_load.csv")
 
 # Wrangle data ------------------------------------------------------------
 #my_data_clean_aug <- my_data_clean # %>% ...
@@ -73,7 +73,7 @@ data_tidy <- data_tidy_filtered %>%
 # write_tsv(x = my_data_clean_aug,
 #           file = "data/03_my_data_clean_aug.tsv")
 write_csv(data_tidy_filtered, 
-          file = "./data/data_tidy_filtered.csv")
+          file = "./data/data_aug_long.csv")
 
 write_csv(data_tidy, 
-          file = "./data/data_tidy.csv")
+          file = "./data/data_aug_wide.csv")
