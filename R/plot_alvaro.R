@@ -7,13 +7,6 @@ data_tidy_long<- read_csv("data/data_aug_long.csv")
 
 data_tidy_wide = read_csv("./data/data_aug_wide.csv") 
 
-view(data_tidy_filtered)
-
-data_tidy
-
-data_tidy_filtered <- data_tidy_filtered %>% 
-  drop_na()
-
 
 
 #Attempt to do Figure 2 
@@ -53,8 +46,7 @@ data <-  data_selected  %>%
   unnest() %>% 
   distinct() 
 
-
-#Next: create graph!! Heatmap??
+#Getting the ratio of expression 
 data <- data %>% 
   mutate(ratio = non_cancerous / cancerous) %>% 
   filter(ratio > 1) %>% 
@@ -62,6 +54,7 @@ data <- data %>%
   relocate(probe, .before = non_cancerous)
 
 
+#Next: create graph!! Heatmap??
 
 
 
@@ -78,7 +71,9 @@ data <- data %>%
 
 
 
-### ------------------------------ THIS DOES NOT WORK VERY WELL --------
+
+
+### ------------------------------ IGNORE THE FOLLOWING LINES  ------------
 First I have to select the samples with adenocarcinoma.
 The x axis is mir-21, mir-223, mir-203, mir-192, mir-194 
 The y axis is Expression of cancerous tissue vs non-cancerous tissue (in log2)
