@@ -5,14 +5,14 @@ library(magrittr)
 
 # Load data ---------------------------------------------------------------
 
-tidy_data = read_csv("./data/data_aug_wide.csv")
+wide_data = read_csv("./data/data_aug_wide.csv")
 
 # ADC CT vs NCT  ----------------------------------------------------------
 
-tidy_data %>% 
+wide_data %>% 
   select(contains("375"))
 
-tidy_data %>%
+wide_data %>%
   filter(tumor_type == "ADC") %>%
   select(patient:death_due_to_cancer,
          `hsa-mir-21No1`,
@@ -41,11 +41,11 @@ tidy_data %>%
   ggplot(mapping = aes(x = tissue_type,
                        y = Expression,
                        fill = tissue_type)) +
-  geom_violin(alpha = 0.7) +
+  geom_violin(alpha = 0.65) +
   geom_boxplot(outlier.alpha = 0) +
   geom_jitter(width = 0.1,
               shape = 21,
-              alpha = 0.5,
+              alpha = 0.6,
               show.legend = FALSE) +
   facet_wrap(facets = "miRNA",
              nrow = 2,
@@ -53,16 +53,17 @@ tidy_data %>%
   theme_bw() +
   labs(x = "Tissue type",
        y = "miRNA expression\n(normalized probe intensity)",
-       title = "Differentially expressed miRNAs: cancerous (ADC) vs non-cancerous tissue",
+       title = "Differentially expressed miRNAs: cancerous (ADC) vs. 
+       non-cancerous tissue",
        fill = "Tissue type")
 
-# ggsave(filename = "./doc/dif_exp_ADC_CT_vs_NCT_2.png",
-#        plot = last_plot(),
-#        dpi = 500)
+ggsave(filename = "./doc/dif_exp_ADC_CT_vs_NCT_3.png",
+       plot = last_plot(),
+       dpi = 500)
 
 # SCC CT vs NCT -----------------------------------------------------------
 
-tidy_data %>%
+wide_data %>%
   filter(tumor_type == "SCC") %>%
   select(patient:death_due_to_cancer,
          `hsa-mir-21No1`,
@@ -104,7 +105,7 @@ tidy_data %>%
 
 # ADC CT vs SCC CT --------------------------------------------------------
 
-tidy_data %>%
+wide_data %>%
   filter(tissue_type == "cancerous") %>%
   select(patient:death_due_to_cancer,
          `hsa-mir-194-2No1`,
