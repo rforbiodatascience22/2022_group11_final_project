@@ -1,9 +1,10 @@
 library(tidyverse)
 library(patchwork)
+library(broom)
+library(cowplot)
 
-#NOTE: "./data/data_tidy.csv" IS NOW "./data/data_aug_wide.csv".
-#YOU SHOULD CHANGE IT IN YOUR READ_CSV FUNCTION
 tidy_data_wide = read_csv("./data/data_aug_wide.csv")
+tidy_data_long = read_csv("./data/data_aug_long.csv")
 
 toDelete <- seq(0, length(tidy_data_wide), 2)
 data <- tidy_data_wide[-toDelete,]
@@ -35,8 +36,6 @@ pl3 <- data %>%
   theme(legend.position = "bottom")
 
 pl1 / pl2 / pl3
-
-
 
 pl4 <- data %>%
   ggplot(aes(x = survival_days,
@@ -70,17 +69,11 @@ pl6 <- data %>%
               base_size = 12) + 
   theme(legend.position = "bottom")
 
-pl4 / pl5 / pl6
+pl6 / (pl4 + pl5)
 
 # PCA
-tidy_data_long = read_csv("./data/data_aug_long.csv")
-
-library(broom)
-library(cowplot)
-
 pca_fit <- tidy_data_long %>% 
   select(patient, Expression, Mature_MiRNA) %>%
-  drop_na() %>%
   group_by(Mature_MiRNA, patient) %>%
   mutate(Mean = mean(Expression)) %>%
   select(-Expression) %>%
@@ -136,4 +129,59 @@ pl9 <- pca_fit %>%
 
 pl7 | (pl8 / pl9)
 
+# Linear-model
 
+data1 <- tidy_data_long %>% 
+  select(tissue_type, Expression, Mature_MiRNA) %>%
+  group_by(Mature_MiRNA, tissue_type) %>%
+  mutate(Mean = mean(Expression)) %>%
+  select(-Expression) %>%
+  distinct() %>%
+  pivot_wider(names_from = tissue_type, values_from = Mean) %>%
+  ungroup() %>%
+  drop_na()
+
+mod <- lm(data1$cancerous ~ data1$`non-cancerous`)
+
+data1 <- mod %>% 
+  augment(data1) %>%
+  mutate(`Differently expressed` = case_when(.resid < -2 ~ "Low",
+                        -2 < .resid & .resid < 2 ~ "Neutral",
+                        2 <= .resid ~ "High"))
+
+pl8 <- data1 %>%
+  ggplot(aes(`non-cancerous`, cancerous, label = Mature_MiRNA, color=`Differently expressed`)) +
+  geom_point(size = 1.5) + 
+  geom_smooth(method='lm', color='black', linetype = 'longdash') +
+  geom_text(aes(label=ifelse(.resid > 2 | .resid < -2, as.character(Mature_MiRNA), '')), 
+            hjust=0, vjust=0) +
+  theme_half_open(12)
+
+data2 <- tidy_data_long %>% 
+  select(tumor_type, Expression, Mature_MiRNA) %>%
+  group_by(Mature_MiRNA, tumor_type) %>%
+  mutate(Mean = mean(Expression)) %>%
+  select(-Expression) %>%
+  distinct() %>%
+  pivot_wider(names_from = tumor_type, values_from = Mean) %>%
+  ungroup() %>%
+  drop_na()
+
+mod <- lm(data2$ADC ~ data2$SCC)
+
+data2 <- mod %>% 
+  augment(data2) %>%
+  mutate(`Differently expressed` = case_when(.resid < -2 ~ "Low",
+                                             -2 < .resid & .resid < 2 ~ "Neutral",
+                                             2 <= .resid ~ "High"))
+
+
+pl9 <- data2 %>%
+  ggplot(aes(SCC, ADC, label = Mature_MiRNA, color=`Differently expressed`)) +
+  geom_point(size = 1.5) + 
+  geom_smooth(method='lm', color='black', linetype = 'longdash') +
+  geom_text(aes(label=ifelse(.resid > 2 | .resid < -2, as.character(Mature_MiRNA), '')), 
+            hjust=0, vjust=0) +
+  theme_half_open(12)
+
+pl8 + pl9
