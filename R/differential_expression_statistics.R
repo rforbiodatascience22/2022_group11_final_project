@@ -2,7 +2,7 @@
 
 library("tidyverse")
 library("magrittr")
-# library("rstatix")
+source("./R/proj_func.R")
 
 wide_data = read_csv("./data/data_aug_wide.csv")
 
@@ -22,20 +22,34 @@ valid_miRNAs_nested_cancerous = valid_miRNAs_long %>%
   nest() %>% 
   ungroup()
 
-
 valid_miRNAs_tts = valid_miRNAs_nested_cancerous %>% 
   mutate(tt = map(data,
                   ~ t.test(formula = expression ~ tumor_type,
                            data = .x)),
          tt = map(tt,
                   ~ tidy(.x))) %>% 
-  unnest(tt)
+  unnest(tt) %>%
+  rename(ADC_exp = estimate1,
+         SSC_exp = estimate2) %>% 
+  select(-data)
 
+FDR = 0.1
+ADC_SCC_significance = valid_miRNAs_tts %>% 
+  select(probe, p.value) %>% 
+  arrange(p.value) %>% 
+  mutate(rank = 1:nrow(.)) %>% 
+  mutate(BH_pval = rank / nrow(.) * FDR)  # Adjusted pval by Benjamini-Hochberg method
 
 
 valid_miRNAs %>% 
   filter(tissue_type == "cancerous") %>% 
   select(-tissue_type) %>%
   t_test(formula = `hsa-let-7a-1-prec` ~ tumor_type)
+
+
+valid_miRNAs_long %>% 
+  drop_na("expression") %>% 
+  # group_by(tumor_type) %>% 
+  summarise(mean_exp = mean(expression))
 
 
