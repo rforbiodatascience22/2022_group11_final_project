@@ -2,6 +2,8 @@ library("tidyverse")
 library("magrittr")
 source("./R/proj_func.R")
 
+#NOTE: "./data/data_tidy.csv" IS NOW "./data/data_aug_wide.csv".
+#YOU SHOULD CHANGE IT IN YOUR READ_CSV FUNCTION
 tidy_data = read_csv("./data/data_tidy.csv")
 
 data = tidy_data %>% 

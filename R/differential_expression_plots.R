@@ -5,6 +5,8 @@ library(magrittr)
 
 # Load data ---------------------------------------------------------------
 
+#NOTE: "./data/data_tidy.csv" IS NOW "./data/data_aug_wide.csv".
+#YOU SHOULD CHANGE IT IN YOUR READ_CSV FUNCTION
 tidy_data = read_csv("./data/data_tidy.csv")
 
 # ADC CT vs NCT  ----------------------------------------------------------
