@@ -1,7 +1,9 @@
-library(tidyverse)
-library(magrittr)
+library("tidyverse")
+library("magrittr")
 source("./R/proj_func.R")
 
+#NOTE: "./data/data_tidy.csv" IS NOW "./data/data_aug_wide.csv".
+#YOU SHOULD CHANGE IT IN YOUR READ_CSV FUNCTION
 tidy_data = read_csv("./data/data_tidy.csv")
 
 data = tidy_data %>% 
@@ -21,11 +23,13 @@ Kaplan_Meier_plot = data %>%
                                    TRUE ~ survival_days)) %>% 
   ggplot(mapping = aes(x = survival_days,
                        y = survival_rates)) +
-  xlim(0, 1825) +
+  xlim(0, 1750) +
   geom_line() +
   labs(title = "5-year survival",
        x = "Days",
        y = "Survival rate (%)")
+
+Kaplan_Meier_plot
 
 ggsave(filename = "./doc/Kaplan-Meier.png",
        plot = Kaplan_Meier_plot,

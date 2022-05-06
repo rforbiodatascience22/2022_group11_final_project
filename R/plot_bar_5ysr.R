@@ -3,6 +3,8 @@ library(gridExtra)
 library(survival)
 library(survminer)
 
+#NOTE: "./data/data_tidy.csv" IS NOW "./data/data_aug_wide.csv".
+#YOU SHOULD CHANGE IT IN YOUR READ_CSV FUNCTION
 data_tidy <- read_csv("data/data_tidy.csv") %>% 
   as_tibble()
 
