@@ -1,0 +1,35 @@
+---
+title: "README"
+output: github_document
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# Group 11 Final project 2022
+
+Dalsberg Jørgensen, Jonas - s213551 
+\n
+Gutierrez Leon, Alvaro - s212714 
+\n
+Hoang Viet Minh Pham, Jake - s213060 
+\n
+Romero Yianni, Daniel - s220260 
+\n
+
+## Introduction
+
+## Data and Pipeline
+Paper: https://pubmed.ncbi.nlm.nih.gov/19789312/
+Data: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE13937
+
+## Results
+
+
+## Conclusion
