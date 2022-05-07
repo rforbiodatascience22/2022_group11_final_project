@@ -2,6 +2,7 @@
 
 library("tidyverse")
 library("magrittr")
+library("broom")
 source("./R/proj_func.R")
 
 wide_data = read_csv("./data/data_aug_wide.csv")
@@ -30,26 +31,25 @@ valid_miRNAs_tts = valid_miRNAs_nested_cancerous %>%
                   ~ tidy(.x))) %>% 
   unnest(tt) %>%
   rename(ADC_exp = estimate1,
-         SSC_exp = estimate2) %>% 
+         SCC_exp = estimate2) %>% 
   select(-data)
 
 FDR = 0.1
-ADC_SCC_significance = valid_miRNAs_tts %>% 
-  select(probe, p.value) %>% 
+ADC_SCC_significance = valid_miRNAs_tts %>%
   arrange(p.value) %>% 
   mutate(rank = 1:nrow(.)) %>% 
   mutate(BH_pval = rank / nrow(.) * FDR)  # Adjusted pval by Benjamini-Hochberg method
 
 
-valid_miRNAs %>% 
-  filter(tissue_type == "cancerous") %>% 
-  select(-tissue_type) %>%
-  t_test(formula = `hsa-let-7a-1-prec` ~ tumor_type)
+volcano_plot(ttest_tibble = ADC_SCC_significance,
+             significance_threshold = 0.05,
+             label_logpval_threshold = 4,
+             label_logFC_threshold = 0.15,
+             plot_title = "SCC vs ADC (cancerous tissues)")
 
 
-valid_miRNAs_long %>% 
-  drop_na("expression") %>% 
-  # group_by(tumor_type) %>% 
-  summarise(mean_exp = mean(expression))
-
-
+# To check if a specific miRNA is differentially expressed betwen tumor types
+ADC_SCC_significance %>% 
+  filter(BH_pval < 0.05) %>% 
+  select(probe) %>% 
+  filter(str_detect(probe, "155"))

@@ -14,7 +14,7 @@ raw_data = read_tsv("./_raw/GSE13937_series_matrix.txt",
 
 # Set column and row names and transpose the data
 raw_data_flipped = raw_data %>% 
-  mutate(X1 = X1 %>% str_replace("!", "")) %>% 
+  mutate(X1 = X1 %>% str_replace("!", "")) %>%
   # If there's time, try to find better way of doing this 
   mutate(X1 = case_when(
     str_sub(X2, end = 6) == "cohort" ~ "cohort",
