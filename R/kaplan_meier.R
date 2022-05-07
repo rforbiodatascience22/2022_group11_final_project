@@ -11,13 +11,14 @@ data = tidy_data %>%
 
 Kaplan_Meier_plot = data %>% 
   filter(tissue_type == "cancerous") %>% 
-  mutate(survival_rates = generate_survival_probabilities(survival_days) * 100) %>%
-  mutate(prev_surv = generate_survival_probabilities(survival_days,
+  mutate(survival_rates = generate_survival_probabilities(survival_days) * 100, 
+         prev_surv = generate_survival_probabilities(survival_days,
                                                      shift = TRUE) * 100) %>%
   pivot_longer(cols = survival_rates:prev_surv,
                names_to = "survrate_type",
                values_to = "survival_rates") %>%
-  mutate(survival_days = case_when(survrate_type == "prev_surv" ~ survival_days - 0.001,
+  mutate(survival_days = case_when(survrate_type == "prev_surv" ~
+                                     survival_days - 0.001,
                                    TRUE ~ survival_days)) %>% 
   ggplot(mapping = aes(x = survival_days,
                        y = survival_rates)) +

@@ -24,7 +24,7 @@ volcano_plot = function(ttest_tibble, significance_threshold,
                alpha = 0.7) +
     # geom_text(hjust=0,
     #           vjust=-1) +
-    geom_text_repel(force = 150) +
+    geom_text_repel(force = 110) +
     geom_vline(xintercept = label_logFC_threshold,
                linetype = "dashed",
                alpha = 0.2) +
@@ -80,7 +80,7 @@ diff_exp_boxplot = function(filtered_tibble, probes, group){
 }
 
 # Performs the differential expression analysis as described in the paper
-diff_exp_statistics = function(filtered_tibble, group, FDR = 0.1){
+diff_exp_stats = function(filtered_tibble, group, FDR = 0.1){
   nested = filtered_tibble %>% 
     group_by(probe) %>% 
     nest() %>% 
@@ -88,8 +88,9 @@ diff_exp_statistics = function(filtered_tibble, group, FDR = 0.1){
   
   t_tests = nested %>% 
     mutate(tt = map(data,
-                    ~ t.test(formula = expression ~ case_when(group == "tumor_type" ~ tumor_type,
-                                                              group == "tissue_type" ~ tissue_type),
+                    ~ t.test(formula = expression ~ 
+                               case_when(group == "tumor_type" ~ tumor_type,
+                                         group == "tissue_type" ~ tissue_type),
                              data = .x)),
            tt = map(tt,
                     ~ tidy(.x))) %>% 
@@ -101,13 +102,13 @@ diff_exp_statistics = function(filtered_tibble, group, FDR = 0.1){
   results = t_tests %>%
     arrange(p.value) %>% 
     mutate(rank = 1:nrow(.)) %>% 
-    mutate(BH_pval = rank / nrow(.) * FDR)  # Adjusted pval by Benjamini-Hochberg method
+    mutate(BH_pval = rank / nrow(.) * FDR)  # Adj pval Benjamini-Hochberg method
   
   return(results)
 }
 
 # Generates survival probability for Kaplan-Meier plots
-# OLD: Not tidyverse and dropped in favor of using the survival package.Still
+# OLD: Not tidyverse and dropped in favor of using the survival package. Still
 # here so kaplan_meier.R still works (dead end, though).
 generate_survival_probabilities = function(survival_days, shift = FALSE){
   survival_probs = numeric()

@@ -17,39 +17,44 @@ valid_miRNAs_long = valid_miRNAs %>%
                names_to = "probe",
                values_to = "expression")
 
-valid_miRNAs_nested_cancerous = valid_miRNAs_long %>%
-  filter(tissue_type == "cancerous") %>% 
-  group_by(probe) %>% 
-  nest() %>% 
-  ungroup()
+# ADC vs SCC (cancer tissue) ----------------------------------------------
 
-valid_miRNAs_tts = valid_miRNAs_nested_cancerous %>% 
-  mutate(tt = map(data,
-                  ~ t.test(formula = expression ~ tumor_type,
-                           data = .x)),
-         tt = map(tt,
-                  ~ tidy(.x))) %>% 
-  unnest(tt) %>%
-  rename(ADC_exp = estimate1,
-         SCC_exp = estimate2) %>% 
-  select(-data)
+ADC_SCC_dif_exp = diff_exp_stats(filtered_tibble = valid_miRNAs_long %>%
+                                        filter(tissue_type == "cancerous"),
+                                      group = "tumor_type")
 
-FDR = 0.1
-ADC_SCC_significance = valid_miRNAs_tts %>%
-  arrange(p.value) %>% 
-  mutate(rank = 1:nrow(.)) %>% 
-  mutate(BH_pval = rank / nrow(.) * FDR)  # Adjusted pval by Benjamini-Hochberg method
-
-
-volcano_plot(ttest_tibble = ADC_SCC_significance,
+volcano_plot(ttest_tibble = ADC_SCC_dif_exp,
              significance_threshold = 0.05,
              label_logpval_threshold = 4,
              label_logFC_threshold = 0.15,
              plot_title = "SCC vs ADC (cancerous tissues)")
 
+# ADC cancer tissue vs non-cancer tissue ----------------------------------
 
-# To check if a specific miRNA is differentially expressed betwen tumor types
-ADC_SCC_significance %>% 
-  filter(BH_pval < 0.05) %>% 
-  select(probe) %>% 
-  filter(str_detect(probe, "155"))
+ADC_CT_NCT_diffexp = diff_exp_stats(filtered_tibble = valid_miRNAs_long %>%
+                                           filter(tumor_type == "ADC"),
+                                         group = "tissue_type")
+
+volcano_plot(ttest_tibble = ADC_CT_NCT_diffexp,
+             significance_threshold = 0.05,
+             label_logpval_threshold = 2.5,
+             label_logFC_threshold = 0.1)
+
+# SCC cancer tissue vs non-cancer tissue ----------------------------------
+
+SCC_CT_NCT_diffexp = diff_exp_stats(filtered_tibble = valid_miRNAs_long %>%
+                                           filter(tumor_type == "SCC"),
+                                         group = "tissue_type")
+
+volcano_plot(ttest_tibble = SCC_CT_NCT_diffexp,
+             significance_threshold = 0.05,
+             label_logpval_threshold = 5,
+             label_logFC_threshold = 0.1) +
+  xlim(-0.25, 0.25)
+
+
+# To check if a specific miRNA is differentially expressed between tumor types
+# ADC_SCC_significance %>% 
+#   filter(BH_pval < 0.05) %>% 
+#   select(probe) %>% 
+#   filter(str_detect(probe, "155"))

@@ -24,9 +24,9 @@ diff_exp_boxplot(filtered_tibble = wide_data %>%
        non-cancerous tissue",
        fill = "Tissue type")
 
-ggsave(filename = "./result/dif_exp_ADC_CT_vs_NCT_3.png",
-       plot = last_plot(),
-       dpi = 500)
+# ggsave(filename = "./result/dif_exp_ADC_CT_vs_NCT_3.png",
+#        plot = last_plot(),
+#        dpi = 500)
 
 # SCC CT vs NCT -----------------------------------------------------------
 
@@ -41,9 +41,9 @@ diff_exp_boxplot(filtered_tibble = wide_data %>%
        fill = "Tissue type") +
   theme_bw(base_size = 8)
 
-ggsave(filename = "./result/dif_exp_SCC_CT_vs_NCT.png",
-       plot = last_plot(),
-       dpi = 500)
+# ggsave(filename = "./result/dif_exp_SCC_CT_vs_NCT.png",
+#        plot = last_plot(),
+#        dpi = 500)
 
 # ADC CT vs SCC CT --------------------------------------------------------
 
@@ -58,6 +58,6 @@ diff_exp_boxplot(filtered_tibble = wide_data %>%
        fill = "Tumor type") +
   theme_bw(base_size = 8)
 
-ggsave(filename = "./result/dif_exp_SCC_vs_ADC.png",
-       plot = last_plot(),
-       dpi = 500)
+# ggsave(filename = "./result/dif_exp_SCC_vs_ADC.png",
+#        plot = last_plot(),
+#        dpi = 500)
