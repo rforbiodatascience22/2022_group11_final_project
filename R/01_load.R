@@ -46,18 +46,8 @@ raw_probes <- read_tsv("./_raw/A-GEOD-8835.adf.txt",
 raw_comments <- read_tsv("./_raw/A-GEOD-8835_comments.txt",
                          col_names = TRUE)
 
-raw_probes <- bind_cols(raw_probes,
+probes_data <- bind_cols(raw_probes,
                         raw_comments)
-
-#This is the control probes - we do NOT want these -
-raw_controls <- raw_probes %>% 
-  filter(`Comment[SPOT_ID]` == 'Control') 
-
-#This is the raw_probes without all the controls. 
-#From now on, we no longer need the 4 variables created above.
-#We will only work with probes_data
-probes_data <- anti_join(raw_probes,
-                         raw_controls)
 
 
 # Write data --------------------------------------------------------------

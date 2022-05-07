@@ -1,4 +1,5 @@
-#This flowchart was not used in the final presentation, as the package did not allow for everything we needed 
+#This flowchart was produced but was not used in the final presentation, as the package did not allow 
+#to do everything we needed 
 
 library(DiagrammeR)
 grViz("
@@ -73,7 +74,7 @@ digraph flowchart {
    
    ####### ####### ############### 'EDGE' STATEMENTS  ####### ####### ####### #######
   #Raw - load
-  'GSE13937_series_matrix.txt' -> raw_data [label='something red', fontsize=15, fontname = Helvetica, fontcolor='#131A37']
+  'GSE13937_series_matrix.txt' -> raw_data [label='   Test', fontsize=15, fontname = Helvetica, fontcolor='#131A37']
   
   raw_data -> 'data_load.csv' [color='#131A37']
   'A-GEOD-8835.adf.txt' -> 'raw_probes' 
