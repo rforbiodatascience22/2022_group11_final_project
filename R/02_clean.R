@@ -65,8 +65,20 @@ data_tidy = data_concise %>%
 
 
 ### Filtering only the relevant MiRNAs of the paper ###
+
+#This is the control probes - we do NOT want these -
+raw_controls <- probes_data %>% 
+  filter(`Comment[SPOT_ID]` == 'Control') 
+
+#This is the raw_probes without all the controls. 
+#From now on, we no longer need the 4 variables created above.
+#We will only work with probes_data
+probes_data <- anti_join(probes_data,
+                         raw_controls)
+
 #Selecting the human data and the data from mature MiRNAs, and 
 #then Removing unnecessary columns so that we only have data for mature MiRNAs
+
 probes_data <- probes_data %>% 
   filter(`Reporter Group [organism]` == "Homo sapiens" &
            `Comment[Contains_Mature_MiRNA]` == "yes"  &
