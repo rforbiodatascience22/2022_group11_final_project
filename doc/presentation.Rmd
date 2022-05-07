@@ -3,32 +3,140 @@ title: "Group 11 presentation"
 # subtitle: "MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival"
 author: "Dalsberg Jørgensen, Jonas; Gutierrez Leon, Alvaro; Hoang Viet Minh Pham, Jake; Romero Yianni, Daniel"
 date: "5/7/2022"
-output: ioslides_presentation
+output:
+  ioslides_presentation:
+    #widescreen: true
+    #smaller: true
 ---
-
+<style type="text/css">
+body p {
+  color: #000000;
+}
+</style>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(DiagrammeR)
 ```
 
 ## Introduction
 - **Dataset source:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.
 
+<br>
+
 - **Objective of the project:** To reproduce the findings of the authors and elaborate on their visualizations.
 
-- Bullet 3
+## Materials and Methods
+### Patient data: 
+- **GSE13937_series_matrix.txt**
+<br>
 
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+- National Center for Biotechnology Information website   (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE13937)
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+<br>
+
+### Microarray information:
+- **A-GEOD-8835.adf.txt** and **A-GEOD-8835_comments.txt** 
+
+- European Bioinformatics Institute website (https://www.ebi.ac.uk/arrayexpress/arrays/A-GEOD-8835/)  
+
 
 ## Materials and Methods
+### Flowchart of the wrangling steps 
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+```{r}
+grViz("
+digraph flowchart {
 
-## Materials and Methods
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+
+
+  # RAW 'NODE' STATEMENTS 
+  node [shape = box,
+        fontname = Helvetica]
+  'GSE13937_series_matrix.txt'; 'A-GEOD-8835.adf.txt'; 'A-GEOD-8835_comments.txt';
+  
+  
+  # LOAD 'NODE' STATEMENTS 
+  node [shape = box,
+        fontname = Helvetica]
+  
+  raw_data ; 'data_load.csv'
+  'raw_probes'; 'raw_comments'; 'probes_data_load.csv'
+  
+  
+  # CLEAN 'NODE' STATEMENTS 
+  node [shape = box,
+        fontname = Helvetica]
+  
+  'data_clean.csv' 
+  'probes_data_clean.csv'
+  
+  # AUGMENT 'NODE' STATEMENTS
+  node [shape = box,
+        fontname = Helvetica]
+  
+  data_aug
+  'data_aug_wide.csv'
+  'data_aug_long.csv'
+  
+  # RESULTS
+  node [shape = box,
+        fontname = Helvetica]
+  'Results and visualizations' 
+  
+  # 'EDGE' STATEMENTS 
+  #Raw - load
+  'GSE13937_series_matrix.txt' -> raw_data -> 'data_load.csv'
+  'A-GEOD-8835.adf.txt' -> 'raw_probes'
+  'A-GEOD-8835_comments.txt' -> 'raw_comments'
+  {'raw_probes' 'raw_comments'} -> 'probes_data_load.csv'
+  
+  #Load - clean
+  'data_load.csv' -> 'data_clean.csv'
+  'probes_data_load.csv' -> 'probes_data_clean.csv'
+  
+  #Clean - augmented
+  'data_clean.csv' -> data_aug
+  {data_aug 'probes_data_clean.csv'} -> 'data_aug_long.csv'
+  'data_aug_long.csv' -> 'data_aug_wide.csv'
+  'data_aug_wide.csv' -> 'data_aug_long.csv'
+
+
+
+ #Augmented - Visualizations 
+{'data_aug_wide.csv' 'data_aug_long.csv'} -> 'Results and visualizations' 
+ 
+  
+{ rank = same; 'GSE13937_series_matrix.txt'; 'A-GEOD-8835.adf.txt'; 'A-GEOD-8835_comments.txt' }
+{ rank = same; 'data_clean.csv'; 'probes_data_clean.csv' }
+
+
+}
+")
+```
+
+
+```{r}
+graph <-
+  create_graph() %>%
+  add_path(
+    n = 3,
+    type = "path",
+    edge_aes = edge_aes(
+      style = "dot",
+      color = c("red", "blue")))
+
+# View the graph's internal
+# node data frame; the node
+# aesthetic attributes have
+# been inserted
+graph %>%
+  get_edge_df()
+```
+
 
 ## Results
 ```{r cars, echo = TRUE}
