@@ -19,21 +19,34 @@ pl1 <- data %>%
   geom_boxplot(alpha = 0.5) +
   theme_classic(base_family = "Avenir",
                 base_size = 12) +
-  theme(legend.position = "none")
+  theme(legend.position = "none") + 
+  labs(x = "Survival days",
+       y = "Smoking",
+       title = str_c("Survival days and cause of death of patients under ",
+                     "different coditions"
+                    )
+       )
 
 pl2 <- data %>%
   ggplot(aes(x = survival_days, y = alcohol_consumption, fill = death_due_to_cancer)) +
   geom_boxplot(alpha = 0.5) +
   theme_classic(base_family = "Avenir",
                 base_size = 12) +
-  theme(legend.position = "none")
+  theme(legend.position = "none") + 
+  labs(x = "Survival days",
+       y = "Alcohol consumption"
+       )
 
 pl3 <- data %>%
   ggplot(aes(x = survival_days, y = chemoradiation_therapy, fill = death_due_to_cancer)) +
   geom_boxplot(alpha = 0.5) +
   theme_classic(base_family = "Avenir",
                 base_size = 12) +
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom") + 
+  labs(x = "Survivay days",
+       y = "Chemo therapy",
+       fill = "Death due to cancer",
+       )
 
 pl1 / pl2 / pl3
 
@@ -42,6 +55,8 @@ pl4 <- data %>%
              y = smoking,
              fill = death_due_to_cancer)) +
   geom_boxplot(alpha = 0.5) +
+  labs(x = "Survival days",
+       y = "Smoking") +
   theme_classic(base_family = "Avenir",
                 base_size = 12) +
   theme(legend.position = "none")
@@ -51,20 +66,25 @@ pl5 <- data %>%
              y = alcohol_consumption,
              fill = death_due_to_cancer)) +
   geom_boxplot(alpha = 0.5) +
+  labs(x = "Survival days",
+       y = "Alcohol consumption") +
   theme_classic(base_family = "Avenir",
                 base_size = 12) +
   theme(legend.position = "none")
 
 pl6 <- data %>%
   group_by(death_due_to_cancer) %>%
-  summarise(n_chemo = sum(chemoradiation_therapy == "Yes"), 
-            n_smoking = sum(smoking == "Yes"),
-            n_alcohol = sum(alcohol_consumption == "Yes"),
-            n_barretts = sum(barretts_esophagus == "Yes"),
-            n_nodal = sum(nodal_involvement == "Yes")) %>%
+  summarise(`Chemo therapy` = sum(chemoradiation_therapy == "Yes"), 
+            Smoking = sum(smoking == "Yes"),
+            `Alcohol consumption` = sum(alcohol_consumption == "Yes"),
+            `Barretts esophagus` = sum(barretts_esophagus == "Yes"),
+            `Nodal involvement` = sum(nodal_involvement == "Yes")) %>%
   pivot_longer(!death_due_to_cancer) %>%
   ggplot(aes(x = value, y = name, fill = death_due_to_cancer)) +
   geom_col(position = "dodge", alpha = 0.5) +
+  labs(x = "Patient count",
+       y = "Conditions",
+       fill = "Death due to cancer") +
   theme_classic(base_family = "Avenir",
               base_size = 12) + 
   theme(legend.position = "bottom")
@@ -86,14 +106,18 @@ pca_fit <- tidy_data_long %>%
   prcomp(scale = TRUE)
 
 pl7 <- pca_fit %>%
-  augment(tidy_data_wide) %>% # add original dataset back in
+  augment(tidy_data_wide) %>%
   ggplot(aes(.fittedPC1, .fittedPC2, color = SEER_stage)) + 
   geom_point(size = 1.5) +
+  labs(x = "PC1",
+       y = "PC2",
+       title = "PCA analysis") +
   scale_color_manual(
     values = c(Distant = "#00b300", Localized = "#0072B2", Regional = "#FF0000",
                `In situ` = "#800080")
   ) +
-  theme_half_open(12) + background_grid()
+  theme_half_open(12) + 
+  background_grid()
 
 # define arrow style for plotting
 arrow_style <- arrow(
@@ -112,14 +136,17 @@ pl8 <- pca_fit %>%
     color = "#904C2F", size = 2,
     check_overlap = T
   ) +
-  xlim(-0.5, .5) + ylim(-.5, 0.5) +
-  coord_fixed() + # fix aspect ratio to 1:1
+  labs(title = "Rotation matrix"
+       ) +
+  xlim(-0.3, .3) + ylim(-.3, 0.3) +
   theme_minimal_grid(12)
 
 pl9 <- pca_fit %>%
   tidy(matrix = "eigenvalues") %>%
   ggplot(aes(PC, percent)) +
   geom_col(fill = "#56B4E9", alpha = 0.8) +
+  labs(title = "Contribution of components"
+       ) +
   scale_x_continuous(breaks = 1:9, limits = c(0,10)) +
   scale_y_continuous(
     labels = scales::percent_format(),
@@ -128,6 +155,12 @@ pl9 <- pca_fit %>%
   theme_minimal_hgrid(12)
 
 pl7 | (pl8 / pl9)
+
+ggsave(filename = "./results/PCA.png",
+       plot = last_plot(),
+       dpi = 1000,
+       width = 1920,
+       height = 1080)
 
 # Linear-model
 
@@ -149,13 +182,14 @@ data1 <- mod %>%
                         -2 < .resid & .resid < 2 ~ "Neutral",
                         2 <= .resid ~ "High"))
 
-pl8 <- data1 %>%
+pl10 <- data1 %>%
   ggplot(aes(`non-cancerous`, cancerous, label = Mature_MiRNA, color=`Differently expressed`)) +
   geom_point(size = 1.5) + 
   geom_smooth(method='lm', color='black', linetype = 'longdash') +
   geom_text(aes(label=ifelse(.resid > 2 | .resid < -2, as.character(Mature_MiRNA), '')), 
             hjust=0, vjust=0) +
-  theme_half_open(12)
+  theme_half_open(12) + 
+  theme(legend.position = "none")
 
 data2 <- tidy_data_long %>% 
   select(tumor_type, Expression, Mature_MiRNA) %>%
@@ -176,7 +210,7 @@ data2 <- mod %>%
                                              2 <= .resid ~ "High"))
 
 
-pl9 <- data2 %>%
+pl11 <- data2 %>%
   ggplot(aes(SCC, ADC, label = Mature_MiRNA, color=`Differently expressed`)) +
   geom_point(size = 1.5) + 
   geom_smooth(method='lm', color='black', linetype = 'longdash') +
@@ -184,4 +218,63 @@ pl9 <- data2 %>%
             hjust=0, vjust=0) +
   theme_half_open(12)
 
-pl8 + pl9
+pl10 + pl11
+
+data3 <- tidy_data_long %>% 
+  select(Expression, Mature_MiRNA, tissue_type, tumor_type) %>%
+  filter(tumor_type == "ADC") %>%
+  group_by(Mature_MiRNA, tissue_type) %>%
+  mutate(Mean = mean(Expression)) %>%
+  select(-Expression) %>%
+  distinct() %>%
+  pivot_wider(names_from = tissue_type, values_from = Mean) %>%
+  ungroup() %>%
+  drop_na()
+
+mod <- lm(data3$cancerous ~ data3$`non-cancerous`)
+
+data3 <- mod %>% 
+  augment(data3) %>%
+  mutate(`Differently expressed` = case_when(.resid < -2 ~ "Low",
+                                             -2 < .resid & .resid < 2 ~ "Neutral",
+                                             2 <= .resid ~ "High"))
+
+
+pl12 <- data3 %>%
+  ggplot(aes(`non-cancerous`, cancerous, label = Mature_MiRNA, color=`Differently expressed`)) +
+  geom_point(size = 1.5) + 
+  geom_smooth(method='lm', color='black', linetype = 'longdash') +
+  geom_text(aes(label=ifelse(.resid > 2 | .resid < -2, as.character(Mature_MiRNA), '')), 
+            hjust=0, vjust=0) +
+  theme_half_open(12) +
+  theme(legend.position = "none")
+
+data4 <- tidy_data_long %>% 
+  select(Expression, Mature_MiRNA, tissue_type, tumor_type) %>%
+  filter(tumor_type == "SCC") %>%
+  group_by(Mature_MiRNA, tissue_type) %>%
+  mutate(Mean = mean(Expression)) %>%
+  select(-Expression) %>%
+  distinct() %>%
+  pivot_wider(names_from = tissue_type, values_from = Mean) %>%
+  ungroup() %>%
+  drop_na()
+
+mod <- lm(data4$cancerous ~ data4$`non-cancerous`)
+
+data4 <- mod %>% 
+  augment(data4) %>%
+  mutate(`Differently expressed` = case_when(.resid < -2 ~ "Low",
+                                             -2 < .resid & .resid < 2 ~ "Neutral",
+                                             2 <= .resid ~ "High"))
+
+pl13 <- data4 %>%
+  ggplot(aes(`non-cancerous`, cancerous, label = Mature_MiRNA, color=`Differently expressed`)) +
+  geom_point(size = 1.5) + 
+  geom_smooth(method='lm', color='black', linetype = 'longdash') +
+  geom_text(aes(label=ifelse(.resid > 2 | .resid < -2, as.character(Mature_MiRNA), '')), 
+            hjust=0, vjust=0) +
+  theme_half_open(12)
+
+pl12 + pl13
+
