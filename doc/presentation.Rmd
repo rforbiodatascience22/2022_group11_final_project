@@ -19,7 +19,7 @@ body p {
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-library(DiagrammeR)
+
 ```
 
 ## Introduction
