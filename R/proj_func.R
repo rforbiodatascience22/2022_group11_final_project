@@ -43,6 +43,7 @@ volcano_plot = function(ttest_tibble, significance_threshold,
 # Generates fancy box plot from expression data
 diff_exp_boxplot = function(filtered_tibble, probes, group, facet_rows = NULL,
                             facet_cols = NULL, facet_scale = "fixed"){
+  print(probes)
   plot = filtered_tibble %>%  # Must be wide version
     select(patient:death_due_to_cancer,
            probes) %>%
@@ -116,6 +117,8 @@ diff_exp_stats = function(filtered_tibble, group, FDR = 0.1){
   return(results)
 }
 
+# Returns a vector with the probe names of differentially expressed miRNAS,
+# based on given criteria
 get_plot_candidates = function(ttest_tibble, logpval_threshold,
                                logFC_threshold){
   probes = ttest_tibble %>% 
@@ -137,12 +140,11 @@ generate_survival_probabilities = function(survival_days, shift = FALSE){
   }
   
   if(shift){
-    for(i in 1:length(survival_probs)){
-      # Randomize the data a little to avoid duplicates
-      survival_probs[i] = survival_probs[i] * runif(n = 1,
-                                                    min = 0.999995,
-                                                    max = 1.000005)
-    }
+    # Randomize the data a little to avoid duplicates
+    survival_probs = survival_probs * runif(n = len(survival_probs),
+                                            min = 0.999995,
+                                            max = 1.000005)
+
     survival_shifted = numeric(length(survival_probs))
     
     sorted_probs = sort(survival_probs,
@@ -159,7 +161,6 @@ generate_survival_probabilities = function(survival_days, shift = FALSE){
       
       prev_survival = sorted_probs[i]
     }
-    
     
     survival_probs = survival_shifted
   }

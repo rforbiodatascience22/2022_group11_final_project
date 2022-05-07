@@ -5,6 +5,8 @@ library("magrittr")
 library("broom")
 source("./R/proj_func.R")
 
+# Prepare data ------------------------------------------------------------
+
 wide_data = read_csv("./data/data_aug_wide.csv")
 
 # This selects only miRNAs with more than 25% missing samples, as the paper does
@@ -41,7 +43,18 @@ diff_exp_boxplot(filtered_tibble = wide_data %>%
                  group = "tumor_type",
                  probes = plot_probes,
                  facet_rows = 1,
-                 facet_cols = 4,
+                 facet_scale = "free_y")
+
+paper_probes = ADC_SCC_dif_exp %>%
+  filter(str_detect(string = probe,
+                    pattern = "194|375")) %>% 
+  pull(probe)
+
+diff_exp_boxplot(filtered_tibble = wide_data %>%
+                   filter(tissue_type == "cancerous"),
+                 group = "tumor_type",
+                 probes = paper_probes,
+                 facet_rows = 1,
                  facet_scale = "free_y")
 
 # ADC cancer tissue vs non-cancer tissue ----------------------------------
@@ -57,6 +70,27 @@ volcano_plot(ttest_tibble = ADC_CT_NCT_diffexp,
              significance_threshold = 0.05,
              label_logpval_threshold = logpval_threshold,
              label_logFC_threshold = logFC_threshold)
+
+plot_probes = get_plot_candidates(ttest_tibble = ADC_CT_NCT_diffexp,
+                                  logpval_threshold = logpval_threshold,
+                                  logFC_threshold = logFC_threshold)
+
+diff_exp_boxplot(filtered_tibble = wide_data %>%
+                   filter(tumor_type == "ADC"),
+                 group = "tissue_type",
+                 probes = plot_probes,
+                 facet_rows = 1)
+
+paper_probes = ADC_CT_NCT_diffexp %>%
+  filter(str_detect(string = probe,
+                    pattern = "21|223|192|194|203")) %>% 
+  pull(probe)
+
+diff_exp_boxplot(filtered_tibble = wide_data %>%
+                   filter(tumor_type == "ADC"),
+                 group = "tissue_type",
+                 probes = paper_probes,
+                 facet_rows = 1)
 
 # SCC cancer tissue vs non-cancer tissue ----------------------------------
 
@@ -74,9 +108,31 @@ volcano_plot(ttest_tibble = SCC_CT_NCT_diffexp,
   xlim(-0.25, 0.25)
 
 
+plot_probes = get_plot_candidates(ttest_tibble = SCC_CT_NCT_diffexp,
+                                  logpval_threshold = logpval_threshold,
+                                  logFC_threshold = logFC_threshold)
+
+diff_exp_boxplot(filtered_tibble = wide_data %>%
+                   filter(tumor_type == "SCC"),
+                 group = "tissue_type",
+                 probes = plot_probes,
+                 facet_rows = 1,
+                 facet_scale = "free_y")
+
 
 # To check if a specific miRNA is differentially expressed between tumor types
-# ADC_SCC_significance %>% 
-#   filter(BH_pval < 0.05) %>% 
-#   select(probe) %>% 
-#   filter(str_detect(probe, "155"))
+ADC_SCC_dif_exp %>%
+  filter(BH_pval < 0.05) %>%
+  select(probe) %>%
+  filter(str_detect(probe, "155"))
+
+# To check if a specific miRNA is differentially expressed between tissue types
+ADC_CT_NCT_diffexp %>% 
+  filter(BH_pval < 0.05) %>%
+  select(probe) %>%
+  filter(str_detect(probe, "155"))
+
+SCC_CT_NCT_diffexp %>% 
+  filter(BH_pval < 0.05) %>%
+  select(probe) %>%
+  filter(str_detect(probe, "155"))
