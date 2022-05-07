@@ -105,8 +105,10 @@ pca_fit <- tidy_data_long %>%
   scale() %>%
   prcomp(scale = TRUE)
 
+data_aug <- tidy_data_wide[-toDelete,]
+
 pl7 <- pca_fit %>%
-  augment(tidy_data_wide) %>%
+  augment(data_aug) %>%
   ggplot(aes(.fittedPC1, .fittedPC2, color = SEER_stage)) + 
   geom_point(size = 1.5) +
   labs(x = "PC1",
