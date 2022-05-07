@@ -1,3 +1,4 @@
+# Generates volcano plot from differential expression analysis
 volcano_plot = function(ttest_tibble, significance_threshold,
                         label_logpval_threshold, label_logFC_threshold,
                         plot_title = ""){
@@ -42,7 +43,8 @@ volcano_plot = function(ttest_tibble, significance_threshold,
   return(v_plot)
 }
 
-diff_exp_boxplot = function(filtered_tibble, probes, group, plot_title = ""){
+# Generates fancy box plot from expression data
+diff_exp_boxplot = function(filtered_tibble, probes, group){
   plot = filtered_tibble %>%  # Must be wide version
     select(patient:death_due_to_cancer,
            probes) %>%
@@ -73,7 +75,76 @@ diff_exp_boxplot = function(filtered_tibble, probes, group, plot_title = ""){
     theme_bw() +
     labs(x = group,
          y = "miRNA expression\n(normalized probe intensity)",
-         title = plot_title,
          fill = group)
   return(plot)
+}
+
+# Performs the differential expression analysis as described in the paper
+diff_exp_statistics = function(filtered_tibble, group, FDR = 0.1){
+  nested = filtered_tibble %>% 
+    group_by(probe) %>% 
+    nest() %>% 
+    ungroup()
+  
+  t_tests = nested %>% 
+    mutate(tt = map(data,
+                    ~ t.test(formula = expression ~ case_when(group == "tumor_type" ~ tumor_type,
+                                                              group == "tissue_type" ~ tissue_type),
+                             data = .x)),
+           tt = map(tt,
+                    ~ tidy(.x))) %>% 
+    unnest(tt) %>%
+    rename(ADC_exp = estimate1,
+           SCC_exp = estimate2) %>% 
+    select(-data)
+  
+  results = t_tests %>%
+    arrange(p.value) %>% 
+    mutate(rank = 1:nrow(.)) %>% 
+    mutate(BH_pval = rank / nrow(.) * FDR)  # Adjusted pval by Benjamini-Hochberg method
+  
+  return(results)
+}
+
+# Generates survival probability for Kaplan-Meier plots
+# OLD: Not tidyverse and dropped in favor of using the survival package.Still
+# here so kaplan_meier.R still works (dead end, though).
+generate_survival_probabilities = function(survival_days, shift = FALSE){
+  survival_probs = numeric()
+  n_observations = length(survival_days)
+  for (i in 1:n_observations){
+    n_bigger = length(which(survival_days[i] <= survival_days))
+    survival_prob = n_bigger / n_observations
+    survival_probs = c(survival_probs, survival_prob)
+  }
+  
+  if(shift){
+    for(i in 1:length(survival_probs)){
+      # Randomize the data a little to avoid duplicates
+      survival_probs[i] = survival_probs[i] * runif(n = 1,
+                                                    min = 0.999995,
+                                                    max = 1.000005)
+    }
+    survival_shifted = numeric(length(survival_probs))
+    
+    sorted_probs = sort(survival_probs,
+                        decreasing = TRUE)
+    
+    for(i in 1:length(survival_probs)){
+      if(i == 1){
+        prev_survival = 1
+      }
+      
+      ith = which(sorted_probs[i] == survival_probs)
+      
+      survival_shifted[ith] = prev_survival
+      
+      prev_survival = sorted_probs[i]
+    }
+    
+    
+    survival_probs = survival_shifted
+  }
+  
+  return(survival_probs)
 }
