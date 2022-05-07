@@ -1,7 +1,11 @@
-#This flowchart was produced but was not used in the final presentation, as the package did not allow 
-#to do everything we needed 
+#This flowchart was produced to try to improve the visualization in the slides, 
+#but was not used in the final presentation, as the packages did not allow to do everything we needed 
 
 library(DiagrammeR)
+library(tidyverse)
+library(DiagrammeRsvg)  
+library(rsvg) 
+library(magick)
 
 flowchart <- grViz("
 digraph flowchart {
