@@ -34,6 +34,9 @@ volcano_plot(ttest_tibble = ADC_SCC_dif_exp,
              label_logFC_threshold = logFC_threshold,
              plot_title = "SCC vs ADC (cancerous tissues)")
 
+ggsave(filename = "./results/ADC_SCC_volc_plot.png",
+       dpi = 500)
+
 plot_probes = get_plot_candidates(ttest_tibble = ADC_SCC_dif_exp,
                                   logpval_threshold = logpval_threshold,
                                   logFC_threshold = logFC_threshold)
@@ -83,7 +86,7 @@ diff_exp_boxplot(filtered_tibble = wide_data %>%
 
 paper_probes = ADC_CT_NCT_diffexp %>%
   filter(str_detect(string = probe,
-                    pattern = "21|223|192|194|203")) %>% 
+                    pattern = "-21[N-]|223|192|194|203")) %>% 
   pull(probe)
 
 diff_exp_boxplot(filtered_tibble = wide_data %>%
@@ -116,23 +119,34 @@ diff_exp_boxplot(filtered_tibble = wide_data %>%
                    filter(tumor_type == "SCC"),
                  group = "tissue_type",
                  probes = plot_probes,
-                 facet_rows = 1,
-                 facet_scale = "free_y")
+                 facet_rows = 1)
 
+paper_probes = SCC_CT_NCT_diffexp %>%
+  filter(str_detect(string = probe,
+                    pattern = "-21[N-]|375")) %>% 
+  pull(probe)
+
+diff_exp_boxplot(filtered_tibble = wide_data %>%
+                   filter(tumor_type == "SCC"),
+                 group = "tissue_type",
+                 probes = paper_probes,
+                 facet_rows = 1)
+
+# Specific manual checks --------------------------------------------------
 
 # To check if a specific miRNA is differentially expressed between tumor types
-ADC_SCC_dif_exp %>%
-  filter(BH_pval < 0.05) %>%
-  select(probe) %>%
-  filter(str_detect(probe, "155"))
+# ADC_SCC_dif_exp %>%
+#   filter(BH_pval < 0.05) %>%
+#   select(probe) %>%
+#   filter(str_detect(probe, "155"))
 
 # To check if a specific miRNA is differentially expressed between tissue types
-ADC_CT_NCT_diffexp %>% 
-  filter(BH_pval < 0.05) %>%
-  select(probe) %>%
-  filter(str_detect(probe, "155"))
+# ADC_CT_NCT_diffexp %>% 
+#   filter(BH_pval < 0.05) %>%
+#   select(probe) %>%
+#   filter(str_detect(probe, "155"))
 
-SCC_CT_NCT_diffexp %>% 
-  filter(BH_pval < 0.05) %>%
-  select(probe) %>%
-  filter(str_detect(probe, "155"))
+# SCC_CT_NCT_diffexp %>% 
+#   filter(BH_pval < 0.05) %>%
+#   select(probe) %>%
+#   filter(str_detect(probe, "155"))

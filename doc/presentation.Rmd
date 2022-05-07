@@ -68,9 +68,3 @@ plot(pressure)
 
 ## Discussion
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 62dcf30b73029f26d148151ed4f7e01c7c2b9f88

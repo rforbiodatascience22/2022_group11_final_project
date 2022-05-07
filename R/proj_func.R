@@ -7,8 +7,6 @@ volcano_plot = function(ttest_tibble, significance_threshold,
     mutate(significance = case_when(BH_pval < significance_threshold ~
                                       "Significant",
                                     TRUE ~ "Not significant"),
-           significance = significance %>% 
-             factor(labels = c("Significant", "Not significant")),
            conditional_label = case_when(logP > label_logpval_threshold &
                                            abs(logFC) > label_logFC_threshold ~ 
                                            probe,
@@ -42,7 +40,7 @@ volcano_plot = function(ttest_tibble, significance_threshold,
 
 # Generates fancy box plot from expression data
 diff_exp_boxplot = function(filtered_tibble, probes, group, facet_rows = NULL,
-                            facet_cols = NULL, facet_scale = "fixed"){
+                            facet_cols = NULL, facet_scale = "free_y"){
   print(probes)
   plot = filtered_tibble %>%  # Must be wide version
     select(patient:death_due_to_cancer,
@@ -66,7 +64,8 @@ diff_exp_boxplot = function(filtered_tibble, probes, group, facet_rows = NULL,
                                        group == "tissue_type" ~ tissue_type),
                          y = Expression,
                          fill = case_when(group == "tumor_type" ~ tumor_type,
-                                          group == "tissue_type" ~ tissue_type))) +
+                                          group == "tissue_type" ~ 
+                                            tissue_type))) +
     geom_violin(alpha = 0.5) +
     geom_boxplot(outlier.alpha = 0) +
     geom_jitter(width = 0.1,
