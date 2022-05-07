@@ -34,6 +34,12 @@ volcano_plot(ttest_tibble = ADC_SCC_dif_exp,
              label_logFC_threshold = logFC_threshold,
              plot_title = "SCC vs ADC (cancerous tissues)")
 
+ggsave(filename = "./results/ADC_SCC_volc_plot.png",
+       height = 13,
+       width = 13,
+       units = "cm",
+       dpi = 500)
+
 plot_probes = get_plot_candidates(ttest_tibble = ADC_SCC_dif_exp,
                                   logpval_threshold = logpval_threshold,
                                   logFC_threshold = logFC_threshold)
@@ -43,7 +49,16 @@ diff_exp_boxplot(filtered_tibble = wide_data %>%
                  group = "tumor_type",
                  probes = plot_probes,
                  facet_rows = 1,
-                 facet_scale = "free_y")
+                 facet_scale = "free_y") +
+  labs(title = "SCC vs ADC (cancerous tissues)")
+  theme_bw(base_size = 13.5) +
+  theme(legend.position = "none")
+
+ggsave(filename = "./results/ADC_SCC_diffexp_plot.png",
+       height = 10,
+       width = 25,
+       units = "cm",
+       dpi = 500)
 
 paper_probes = ADC_SCC_dif_exp %>%
   filter(str_detect(string = probe,
@@ -55,7 +70,17 @@ diff_exp_boxplot(filtered_tibble = wide_data %>%
                  group = "tumor_type",
                  probes = paper_probes,
                  facet_rows = 1,
-                 facet_scale = "free_y")
+                 facet_scale = "free_y") +
+  labs(title = "SCC vs ADC (cancerous tissues)",
+       subtitle = "Differentially expressed miRNAs from Mathé et al.") +
+  theme_bw(base_size = 11) +
+  theme(legend.position = "none")
+
+ggsave(filename = "./results/ADC_SCC_diffexp_plot_paper.png",
+       height = 10,
+       width = 14,
+       units = "cm",
+       dpi = 500)
 
 # ADC cancer tissue vs non-cancer tissue ----------------------------------
 
@@ -69,7 +94,16 @@ logFC_threshold = 0.1
 volcano_plot(ttest_tibble = ADC_CT_NCT_diffexp,
              significance_threshold = 0.05,
              label_logpval_threshold = logpval_threshold,
-             label_logFC_threshold = logFC_threshold)
+             label_logFC_threshold = logFC_threshold,
+             plot_title = "ADC cancerous vs. non cancerous tissue") +
+  xlim(-0.4, 0.2)  +
+  ylim(0, 3.6)
+
+ggsave(filename = "./results/ADC_CT_NCT_volc_plot.png",
+       height = 13,
+       width = 13,
+       units = "cm",
+       dpi = 500)
 
 plot_probes = get_plot_candidates(ttest_tibble = ADC_CT_NCT_diffexp,
                                   logpval_threshold = logpval_threshold,
@@ -79,18 +113,37 @@ diff_exp_boxplot(filtered_tibble = wide_data %>%
                    filter(tumor_type == "ADC"),
                  group = "tissue_type",
                  probes = plot_probes,
-                 facet_rows = 1)
+                 facet_rows = 1) +
+  labs(title = "ADC cancerous vs. non cancerous tissue") +
+  theme_bw(base_size = 11) +
+  theme(legend.position = "none")
+
+ggsave(filename = "./results/ADC_CT_NCT_diffexp_plot.png",
+       height = 10,
+       width = 25,
+       units = "cm",
+       dpi = 500)
 
 paper_probes = ADC_CT_NCT_diffexp %>%
   filter(str_detect(string = probe,
-                    pattern = "21|223|192|194|203")) %>% 
+                    pattern = "-21[N-]|223|192|194|203")) %>% 
   pull(probe)
 
 diff_exp_boxplot(filtered_tibble = wide_data %>%
                    filter(tumor_type == "ADC"),
                  group = "tissue_type",
                  probes = paper_probes,
-                 facet_rows = 1)
+                 facet_rows = 1) +
+  labs(title = "ADC cancerous vs. non cancerous tissue",
+       subtitle = "Differentially expressed miRNAs from Mathé et al.") +
+  theme_bw(base_size = 11) +
+  theme(legend.position = "none")
+
+ggsave(filename = "./results/ADC_CT_NCT_diffexp_plot_paper.png",
+       height = 10,
+       width = 25,
+       units = "cm",
+       dpi = 500)
 
 # SCC cancer tissue vs non-cancer tissue ----------------------------------
 
@@ -104,9 +157,15 @@ logFC_threshold = 0.1
 volcano_plot(ttest_tibble = SCC_CT_NCT_diffexp,
              significance_threshold = 0.05,
              label_logpval_threshold = logpval_threshold,
-             label_logFC_threshold = logFC_threshold) +
+             label_logFC_threshold = logFC_threshold,
+             plot_title = "ADC cancerous vs. non cancerous tissue") +
   xlim(-0.25, 0.25)
 
+ggsave(filename = "./results/SCC_CT_NCT_volc_plot.png",
+       height = 13,
+       width = 13,
+       units = "cm",
+       dpi = 500)
 
 plot_probes = get_plot_candidates(ttest_tibble = SCC_CT_NCT_diffexp,
                                   logpval_threshold = logpval_threshold,
@@ -116,23 +175,53 @@ diff_exp_boxplot(filtered_tibble = wide_data %>%
                    filter(tumor_type == "SCC"),
                  group = "tissue_type",
                  probes = plot_probes,
-                 facet_rows = 1,
-                 facet_scale = "free_y")
+                 facet_rows = 2) +
+  theme_bw(base_size = 14) +
+  theme(legend.position = "none") +
+  labs(title = "SCC cancerous vs. non cancerous tissue")
 
+ggsave(filename = "./results/SCC_CT_NCT_diffexp_plot.png",
+       height = 18,
+       width = 25,
+       units = "cm",
+       dpi = 500)
+
+paper_probes = SCC_CT_NCT_diffexp %>%
+  filter(str_detect(string = probe,
+                    pattern = "-21[N-]|375")) %>% 
+  pull(probe)
+
+diff_exp_boxplot(filtered_tibble = wide_data %>%
+                   filter(tumor_type == "SCC"),
+                 group = "tissue_type",
+                 probes = paper_probes,
+                 facet_rows = 1) +
+  theme_bw(base_size = 11) +
+  theme(legend.position = "none") +
+  labs(title = "SCC cancerous vs. non cancerous tissue",
+       subtitle = "Differentially expressed miRNAs from Mathé et al.")
+
+ggsave(filename = "./results/SCC_CT_NCT_diffexp_plot_paper.png",
+       height = 10,
+       width = 14,
+       units = "cm",
+       dpi = 500)
+
+# Specific manual checks --------------------------------------------------
 
 # To check if a specific miRNA is differentially expressed between tumor types
-ADC_SCC_dif_exp %>%
-  filter(BH_pval < 0.05) %>%
-  select(probe) %>%
-  filter(str_detect(probe, "155"))
+# ADC_SCC_dif_exp %>%
+#   filter(BH_pval < 0.05) %>%
+#   select(probe) %>%
+#   filter(str_detect(probe, "155"))
 
 # To check if a specific miRNA is differentially expressed between tissue types
-ADC_CT_NCT_diffexp %>% 
-  filter(BH_pval < 0.05) %>%
-  select(probe) %>%
-  filter(str_detect(probe, "155"))
+# ADC_CT_NCT_diffexp %>% 
+#   filter(BH_pval < 0.05) %>%
+#   select(probe) %>%
+#   filter(str_detect(probe, "155"))
 
-SCC_CT_NCT_diffexp %>% 
-  filter(BH_pval < 0.05) %>%
-  select(probe) %>%
-  filter(str_detect(probe, "155"))
+# SCC_CT_NCT_diffexp %>% 
+#   filter(BH_pval < 0.05) %>%
+#   select(probe) %>%
+#   filter(str_detect(probe, "155"))
