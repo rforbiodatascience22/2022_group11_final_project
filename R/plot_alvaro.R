@@ -1,7 +1,7 @@
 library(tidyverse)
 library(patchwork)
 library(magrittr)
-
+library(patchwork)
 
 data_tidy_long<- read_csv("data/data_aug_long.csv") 
 
@@ -60,9 +60,17 @@ data <- data %>%
 #                      y= patient)) +
 #   geom_tile(mapping = aes(fill = ratio)) +
 
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))
   
 
+ggplot(data = data,
+       mapping = aes(x = probe,
+                     y = ratio)) +
+  geom_col(mapping = aes(),
+           position="dodge") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
+  facet_wrap(vars(ptnm_stage))
+  
+view(data)
 
 
 

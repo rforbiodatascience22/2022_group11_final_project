@@ -1,0 +1,51 @@
+---
+title: "Group 11 presentation"
+# subtitle: "MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival"
+author: "Dalsberg Jørgensen, Jonas; Gutierrez Leon, Alvaro; Hoang Viet Minh Pham, Jake; Romero Yianni, Daniel"
+date: "5/7/2022"
+output: ioslides_presentation
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+- **Dataset source:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.
+
+- **Objective of the project:** To reproduce the findings of the authors and elaborate on their visualizations.
+
+- Bullet 3
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Materials and Methods
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Materials and Methods
+
+## Results
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Results
+
+## Results
+
+## Results
+
+## Discussion
+```{r pressure}
+plot(pressure)
+```
+
+## Discussion
+
+
