@@ -2,7 +2,8 @@
 #to do everything we needed 
 
 library(DiagrammeR)
-grViz("
+
+flowchart <- grViz("
 digraph flowchart {
 
   # a 'graph' statement
@@ -68,13 +69,17 @@ digraph flowchart {
   ######## RESULTS NODE  #######
   node [shape = box,
         fontname = Helvetica,
-        style = filled]
+        style = filled, 
+        fillcolor='#FDBBA8']
   'Results and visualizations' [fillcolor = '#F26C4F']
+  
+  'PCA'; 'Differential expression'; 'Kaplan-Meier'; 'Linear regression'
+  
   
    
    ####### ####### ############### 'EDGE' STATEMENTS  ####### ####### ####### #######
   #Raw - load
-  'GSE13937_series_matrix.txt' -> raw_data [label='   Test', fontsize=15, fontname = Helvetica, fontcolor='#131A37']
+  'GSE13937_series_matrix.txt' -> raw_data [label='', fontsize=15, fontname = Helvetica, fontcolor='#131A37']
   
   raw_data -> 'data_load.csv' [color='#131A37']
   'A-GEOD-8835.adf.txt' -> 'raw_probes' 
@@ -92,10 +97,10 @@ digraph flowchart {
   'data_aug_wide.csv' -> 'data_aug_long.csv'
 
 
-
  #Augmented - Visualizations 
-{'data_aug_wide.csv'} -> 'Results and visualizations' 
- 
+{'data_aug_wide.csv'} -> 'Results and visualizations' -> {'PCA' 'Differential expression' 'Kaplan-Meier' 'Linear regression'} 
+
+
   
 { rank = same; 'GSE13937_series_matrix.txt'; 'A-GEOD-8835.adf.txt'; 'A-GEOD-8835_comments.txt' }
 { rank = same; 'data_clean.csv'; 'probes_data_clean.csv' }
@@ -103,3 +108,12 @@ digraph flowchart {
 
 }
 ")
+
+#Saving the flowchart as a png file
+flowchart = export_svg(flowchart)
+flowchart = charToRaw(flowchart)
+rsvg_png(flowchart, "flowchart.png", width = 500, height = 500) 
+
+#Removing the background of the flowchart so that it looks better on the slide
+image <- image_read("flowchart.png")
+image_transparent(image, 'white')

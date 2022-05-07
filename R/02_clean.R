@@ -2,13 +2,6 @@
 library("tidyverse")
 library("magrittr")
 
-# Objective: Remove invalid data, e.g. if you have amino acid sequence data, 
-# remove non-valid sequences containing X or other non-standard amino acid characters 
-# or fix columns, e.g. dates or when two labels are the same, but spelled differently
-
-# Define functions --------------------------------------------------------
-#source(file = "R/99_project_functions.R")
-
 
 # Load data ---------------------------------------------------------------
 raw_data_flipped <- read_csv("./data/data_load.csv")
@@ -17,8 +10,7 @@ probes_data <- read_csv("./data/probes_data_load.csv")
 
 # Wrangle data ------------------------------------------------------------
 
-# Remove unnecessary columns, most of these have all the same value or are
-# completely irrelevant
+# Remove unnecessary columns, most of these have all the same value or are completely irrelevant
 data_concise = raw_data_flipped %>% 
   select(-c(Sample_status:Sample_channel_count,
             Sample_organism_ch1,
@@ -65,14 +57,9 @@ data_tidy = data_concise %>%
 
 
 ### Filtering only the relevant MiRNAs of the paper ###
-
-#This is the control probes - we do NOT want these -
 raw_controls <- probes_data %>% 
   filter(`Comment[SPOT_ID]` == 'Control') 
 
-#This is the raw_probes without all the controls. 
-#From now on, we no longer need the 4 variables created above.
-#We will only work with probes_data
 probes_data <- anti_join(probes_data,
                          raw_controls)
 

@@ -3,9 +3,6 @@
 library("tidyverse")
 library("magrittr")
 
-# Objective: Collapse data to a single file or convert .xlsx to .tsv, here we could 
-# imagine having an .xlsx-file with multiple sheets, from which we create a single .tsv
-
 # Load raw data -----------------------------------------------------------
 
 raw_data = read_tsv("./_raw/GSE13937_series_matrix.txt",
@@ -15,7 +12,6 @@ raw_data = read_tsv("./_raw/GSE13937_series_matrix.txt",
 # Set column and row names and transpose the data
 raw_data_flipped = raw_data %>% 
   mutate(X1 = X1 %>% str_replace("!", "")) %>%
-  # If there's time, try to find better way of doing this 
   mutate(X1 = case_when(
     str_sub(X2, end = 6) == "cohort" ~ "cohort",
     str_sub(X2, end = 18) == "hybridization date" ~ "hybridization_date",
@@ -36,8 +32,7 @@ raw_data_flipped = raw_data %>%
   as_tibble()
 
 
-
-## Loading the data of the microarray probes ##
+##Loading the data of the microarray probes #
 
 raw_probes <- read_tsv("./_raw/A-GEOD-8835.adf.txt",
                        skip = 14,
