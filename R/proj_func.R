@@ -19,7 +19,7 @@ volcano_plot = function(ttest_tibble, significance_threshold,
                alpha = 0.7) +
     # geom_text(hjust=0,
     #           vjust=-1) +
-    geom_text_repel(force = 110) +
+    geom_text_repel(force = 100) +
     geom_vline(xintercept = label_logFC_threshold,
                linetype = "dashed",
                alpha = 0.2) +
@@ -31,6 +31,8 @@ volcano_plot = function(ttest_tibble, significance_threshold,
                alpha = 0.2) +
     scale_fill_manual(values = c("orange", "purple")) +
     theme_bw() +
+    theme(legend.position = "bottom",
+          text = element_text(family = "Helvetica")) +
     labs(title = plot_title,
          x = "log(FC)",
          y = "-log(p value)",
@@ -41,7 +43,6 @@ volcano_plot = function(ttest_tibble, significance_threshold,
 # Generates fancy box plot from expression data
 diff_exp_boxplot = function(filtered_tibble, probes, group, facet_rows = NULL,
                             facet_cols = NULL, facet_scale = "free_y"){
-  print(probes)
   plot = filtered_tibble %>%  # Must be wide version
     select(patient:death_due_to_cancer,
            probes) %>%
@@ -82,7 +83,8 @@ diff_exp_boxplot = function(filtered_tibble, probes, group, facet_rows = NULL,
                nrow = facet_rows,
                ncol = facet_cols,
                scales = facet_scale) +
-    theme(legend.position = "none")
+    theme(legend.position = "none",
+          text = element_text(family = "Helvetica"))
   return(plot)
 }
 
@@ -140,7 +142,7 @@ generate_survival_probabilities = function(survival_days, shift = FALSE){
   
   if(shift){
     # Randomize the data a little to avoid duplicates
-    survival_probs = survival_probs * runif(n = len(survival_probs),
+    survival_probs = survival_probs * runif(n = length(survival_probs),
                                             min = 0.999995,
                                             max = 1.000005)
 

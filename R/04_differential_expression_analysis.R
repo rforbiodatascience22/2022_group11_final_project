@@ -35,6 +35,9 @@ volcano_plot(ttest_tibble = ADC_SCC_dif_exp,
              plot_title = "SCC vs ADC (cancerous tissues)")
 
 ggsave(filename = "./results/ADC_SCC_volc_plot.png",
+       height = 13,
+       width = 13,
+       units = "cm",
        dpi = 500)
 
 plot_probes = get_plot_candidates(ttest_tibble = ADC_SCC_dif_exp,
@@ -46,7 +49,15 @@ diff_exp_boxplot(filtered_tibble = wide_data %>%
                  group = "tumor_type",
                  probes = plot_probes,
                  facet_rows = 1,
-                 facet_scale = "free_y")
+                 facet_scale = "free_y") +
+  theme_bw(base_size = 13.5) +
+  theme(legend.position = "none")
+
+ggsave(filename = "./results/ADC_SCC_diffexp_plot.png",
+       height = 10,
+       width = 25,
+       units = "cm",
+       dpi = 500)
 
 paper_probes = ADC_SCC_dif_exp %>%
   filter(str_detect(string = probe,
@@ -58,7 +69,15 @@ diff_exp_boxplot(filtered_tibble = wide_data %>%
                  group = "tumor_type",
                  probes = paper_probes,
                  facet_rows = 1,
-                 facet_scale = "free_y")
+                 facet_scale = "free_y") +
+  theme_bw(base_size = 11) +
+  theme(legend.position = "none")
+
+ggsave(filename = "./results/ADC_SCC_diffexp_plot_paper.png",
+       height = 10,
+       width = 14,
+       units = "cm",
+       dpi = 500)
 
 # ADC cancer tissue vs non-cancer tissue ----------------------------------
 
@@ -74,6 +93,12 @@ volcano_plot(ttest_tibble = ADC_CT_NCT_diffexp,
              label_logpval_threshold = logpval_threshold,
              label_logFC_threshold = logFC_threshold)
 
+ggsave(filename = "./results/ADC_CT_NCT_volc_plot.png",
+       height = 13,
+       width = 13,
+       units = "cm",
+       dpi = 500)
+
 plot_probes = get_plot_candidates(ttest_tibble = ADC_CT_NCT_diffexp,
                                   logpval_threshold = logpval_threshold,
                                   logFC_threshold = logFC_threshold)
@@ -82,7 +107,15 @@ diff_exp_boxplot(filtered_tibble = wide_data %>%
                    filter(tumor_type == "ADC"),
                  group = "tissue_type",
                  probes = plot_probes,
-                 facet_rows = 1)
+                 facet_rows = 1) +
+  theme_bw(base_size = 11) +
+  theme(legend.position = "none")
+
+ggsave(filename = "./results/ADC_CT_NCT_diffexp_plot.png",
+       height = 10,
+       width = 25,
+       units = "cm",
+       dpi = 500)
 
 paper_probes = ADC_CT_NCT_diffexp %>%
   filter(str_detect(string = probe,
@@ -93,7 +126,15 @@ diff_exp_boxplot(filtered_tibble = wide_data %>%
                    filter(tumor_type == "ADC"),
                  group = "tissue_type",
                  probes = paper_probes,
-                 facet_rows = 1)
+                 facet_rows = 1) +
+  theme_bw(base_size = 11) +
+  theme(legend.position = "none")
+
+ggsave(filename = "./results/ADC_CT_NCT_diffexp_plot_paper.png",
+       height = 10,
+       width = 25,
+       units = "cm",
+       dpi = 500)
 
 # SCC cancer tissue vs non-cancer tissue ----------------------------------
 
@@ -110,6 +151,11 @@ volcano_plot(ttest_tibble = SCC_CT_NCT_diffexp,
              label_logFC_threshold = logFC_threshold) +
   xlim(-0.25, 0.25)
 
+ggsave(filename = "./results/SCC_CT_NCT_volc_plot.png",
+       height = 13,
+       width = 13,
+       units = "cm",
+       dpi = 500)
 
 plot_probes = get_plot_candidates(ttest_tibble = SCC_CT_NCT_diffexp,
                                   logpval_threshold = logpval_threshold,
@@ -119,7 +165,16 @@ diff_exp_boxplot(filtered_tibble = wide_data %>%
                    filter(tumor_type == "SCC"),
                  group = "tissue_type",
                  probes = plot_probes,
-                 facet_rows = 1)
+                 facet_rows = 2) +
+  theme_bw(base_size = 8) +
+  theme_bw(base_size = 14) +
+  theme(legend.position = "none")
+
+ggsave(filename = "./results/SCC_CT_NCT_diffexp_plot.png",
+       height = 18,
+       width = 25,
+       units = "cm",
+       dpi = 500)
 
 paper_probes = SCC_CT_NCT_diffexp %>%
   filter(str_detect(string = probe,
@@ -130,7 +185,15 @@ diff_exp_boxplot(filtered_tibble = wide_data %>%
                    filter(tumor_type == "SCC"),
                  group = "tissue_type",
                  probes = paper_probes,
-                 facet_rows = 1)
+                 facet_rows = 1) +
+  theme_bw(base_size = 11) +
+  theme(legend.position = "none")
+
+ggsave(filename = "./results/SCC_CT_NCT_diffexp_plot_paper.png",
+       height = 10,
+       width = 14,
+       units = "cm",
+       dpi = 500)
 
 # Specific manual checks --------------------------------------------------
 

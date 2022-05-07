@@ -1,4 +1,4 @@
-# OLD SCRIPT. EVERYTHING HERE IS NOW INTEGRATED IN differential_expression.R
+# OLD SCRIPT. EVERYTHING HERE IS NOW INTEGRATED IN 04_differential_expression.R
 
 # Load libraries ----------------------------------------------------------
 
