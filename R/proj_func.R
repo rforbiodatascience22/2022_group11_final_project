@@ -4,10 +4,7 @@ volcano_plot = function(ttest_tibble, significance_threshold,
                         plot_title = ""){
   library("ggrepel")
   v_plot = ttest_tibble %>% 
-    mutate(FC = ADC_exp / SCC_exp,
-           logFC = log2(FC),
-           logP = -log10(p.value),
-           significance = case_when(BH_pval < significance_threshold ~
+    mutate(significance = case_when(BH_pval < significance_threshold ~
                                       "Significant",
                                     TRUE ~ "Not significant"),
            significance = significance %>% 
@@ -44,7 +41,8 @@ volcano_plot = function(ttest_tibble, significance_threshold,
 }
 
 # Generates fancy box plot from expression data
-diff_exp_boxplot = function(filtered_tibble, probes, group){
+diff_exp_boxplot = function(filtered_tibble, probes, group, facet_rows = NULL,
+                            facet_cols = NULL, facet_scale = "fixed"){
   plot = filtered_tibble %>%  # Must be wide version
     select(patient:death_due_to_cancer,
            probes) %>%
@@ -60,7 +58,9 @@ diff_exp_boxplot = function(filtered_tibble, probes, group){
                                                                  end = -4),
                              TRUE ~ miRNA),
            miRNA = str_c("miR-", miRNA),
-           tissue_type = str_to_sentence(tissue_type)) %>%
+           tissue_type = str_to_sentence(tissue_type),
+           tissue_type = case_when(tissue_type == "Non-cancerous" ~ "Healthy",
+                                   TRUE ~ tissue_type)) %>%
     ggplot(mapping = aes(x = case_when(group == "tumor_type" ~ tumor_type,
                                        group == "tissue_type" ~ tissue_type),
                          y = Expression,
@@ -73,9 +73,16 @@ diff_exp_boxplot = function(filtered_tibble, probes, group){
                 alpha = 0.5,
                 show.legend = FALSE) +
     theme_bw() +
-    labs(x = group,
+    labs(x = case_when(group == "tumor_type" ~ "Tumor type",
+                       group == "tissue_type" ~ "Tissue type"),
          y = "miRNA expression\n(normalized probe intensity)",
-         fill = group)
+         fill = case_when(group == "tumor_type" ~ "Tumor type",
+                          group == "tissue_type" ~ "Tissue type")) +
+    facet_wrap(facets = "miRNA",
+               nrow = facet_rows,
+               ncol = facet_cols,
+               scales = facet_scale) +
+    theme(legend.position = "none")
   return(plot)
 }
 
@@ -92,8 +99,7 @@ diff_exp_stats = function(filtered_tibble, group, FDR = 0.1){
                                case_when(group == "tumor_type" ~ tumor_type,
                                          group == "tissue_type" ~ tissue_type),
                              data = .x)),
-           tt = map(tt,
-                    ~ tidy(.x))) %>% 
+           tt = map(tt, ~ tidy(.x))) %>% 
     unnest(tt) %>%
     rename(ADC_exp = estimate1,
            SCC_exp = estimate2) %>% 
@@ -101,10 +107,21 @@ diff_exp_stats = function(filtered_tibble, group, FDR = 0.1){
   
   results = t_tests %>%
     arrange(p.value) %>% 
-    mutate(rank = 1:nrow(.)) %>% 
-    mutate(BH_pval = rank / nrow(.) * FDR)  # Adj pval Benjamini-Hochberg method
+    mutate(rank = 1:nrow(.),
+           BH_pval = rank / nrow(.) * FDR, # Adj pval Benjamini-Hochberg method
+           FC = ADC_exp / SCC_exp,
+           logFC = log2(FC),
+           logP = -log10(p.value))  
   
   return(results)
+}
+
+get_plot_candidates = function(ttest_tibble, logpval_threshold,
+                               logFC_threshold){
+  probes = ttest_tibble %>% 
+    filter(abs(logFC) > logFC_threshold & logP > logpval_threshold) %>% 
+    pull(probe)
+  return(probes)
 }
 
 # Generates survival probability for Kaplan-Meier plots
