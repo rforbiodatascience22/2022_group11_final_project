@@ -1,6 +1,12 @@
 # Insert linear model here, Jake
+library(tidyverse)
+library(patchwork)
+library(broom)
+library(cowplot)
 
-# Linear-model
+# Load the files
+tidy_data_wide = read_csv("./data/data_aug_wide.csv")
+tidy_data_long = read_csv("./data/data_aug_long.csv")
 
 data1 <- tidy_data_long %>% 
   select(tissue_type, Expression, Mature_MiRNA) %>%

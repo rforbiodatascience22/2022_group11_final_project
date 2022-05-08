@@ -1,3 +1,8 @@
+library(tidyverse)
+library(patchwork)
+library(broom)
+library(cowplot)
+
 # Insert PCA part here, Jake
 pca_plot <- function(crit){
   # PCA

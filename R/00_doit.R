@@ -1,3 +1,13 @@
+# Install required packages -----------------------------------------------
+
+required_packages = c("tidyverse", "ggrepel")
+for (i in 1:length(needed_packages)){
+  package = needed_packages[i]
+  if (!(package %in% installed.packages() %>% as.character())){
+    install.packages(package)
+  }
+}
+
 # Run all scripts ---------------------------------------------------------
 source(file = "R/01_load.R")
 source(file = "R/02_clean.R")
