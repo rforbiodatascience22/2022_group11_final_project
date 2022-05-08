@@ -17,6 +17,7 @@ source(file = "R/05_model_pca.R")
 source(file = "R/06_model_diffexp.R")
 source(file = "R/07_model_diffexp_plot.R")
 source(file = "R/08_flowchart.R")
+source(file = "R/09_kaplan_meier_1.R")
 rmarkdown::render(input = "doc/presentation.Rmd",
                   output_file = "presentation.html")
 rmarkdown::render(input = "README.Rmd",
