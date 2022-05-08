@@ -19,11 +19,11 @@ output:
 
 
 
-<style type="text/css">
-body p {
-  color: #000000;
-}
-</style>
+<!-- <style type="text/css"> -->
+<!-- body p { -->
+<!--   color: #000000; -->
+<!-- } -->
+<!-- </style> -->
 
 
 
@@ -193,12 +193,8 @@ knitr::include_graphics("flowchart.png")
 ``` 
 </center>
 
-<<<<<<< HEAD
 
 
-
-=======
->>>>>>> aff649913ea6436dafa9b0d4374e7c9510752430
 ## Results {data-background=#FFFFFF}
 ```{r, out.width = "1000px", out.height = "500px"}
 knitr::include_graphics("../results/kaplan_meier_tumo_seer.png")
