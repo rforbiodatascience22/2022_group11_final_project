@@ -107,11 +107,14 @@ seer_plots <- ggarrange(count_seer,
 tumor_seer_plots <- ggarrange(tumor_plots,
                              seer_plots)
 
-# Add shared title
-annotate_figure(tumor_seer_plots,
-                top = text_grob("Survival probability for different groups\n",
-                                size = text_size * 2.15,
-                                lineheight = 0.3))
+# # Add shared title
+# annotate_figure(tumor_seer_plots,
+#                 top = text_grob("Survival probability for different groups\n",
+#                                 size = text_size * 2.15,
+#                                 lineheight = 0.3))
+
+# Without a title
+tumor_seer_plots
 
 # Save the plots as a .PNG file
 ggsave("results/kaplan_meier_tumo_seer.png",

@@ -13,11 +13,28 @@ output:
     css: css/ioslides.css
     logo: Corp_Red_RGB.png
     #smaller: true
+
+  header-includes:
+    - \allsectionsfont{\color{black}}
 ---
 
 
 
+<<<<<<< HEAD
+<!-- <style type="text/css"> -->
+<!-- body p { -->
+<!--   color: #000000; -->
+<!-- } -->
+<!-- </style> -->
 
+
+
+<!-- This allows to change color of text individually  -->
+<!-- - <span style="color:red">**Source of the dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.</span> -->
+<!-- <br> -->
+=======
+
+>>>>>>> 6c1e2103d465cea950f62799e938f3a1ae1c1c9b
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library("tidyverse")
@@ -37,6 +54,8 @@ library("ggrepel")
 
 <br>
 
+
+- **Objective of the project:** To reproduce the findings of the authors and elaborate on their visualizations.
 
 - **Objective of the project:** To reproduce the findings of the authors and elaborate on their visualizations.
 
