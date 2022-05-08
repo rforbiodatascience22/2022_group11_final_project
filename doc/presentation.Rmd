@@ -1,7 +1,8 @@
 ---
 title: "R Final Project - Group 11"
 
-author: Dalsberg Jørgensen Jonas <br> Gutierrez Leon, Alvaro <br> Romero Yianni, Daniel <br> Hoang Viet Minh Pham, Jake
+author: Dalsberg Jørgensen Jonas <br> Gutierrez Leon, Alvaro <br> Romero Yianni, Daniel <br> Hoang Viet Minh Pham, Jake <br> 
+
 
 date: "`r format(Sys.time(), '%d %B %Y')`"
 
@@ -10,14 +11,12 @@ output:
     font-family: 'Arial'
     widescreen: true
     css: css/ioslides.css
-    logo: Coral_Red_CMYK.png
+    logo: Corp_Red_RGB.png
     #smaller: true
 ---
 
 
-<!-- This allows to change color of text individually  -->
-<!-- - <span style="color:red">**Source of the dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.</span> -->
-<!-- <br> -->
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -45,7 +44,7 @@ library("rsvg")
 - **Objective of the project:** To reproduce the findings of the authors and elaborate on their visualizations.
 
 ## Materials and methods {data-background=#FFFFFF}
-### Patient data: 
+### **Patient data**: 
 - **GSE13937_series_matrix.txt**
 <br>
 
@@ -53,13 +52,13 @@ library("rsvg")
 
 <br>
 
-### Microarray information:
+### **Microarray information**:
 - **A-GEOD-8835.adf.txt** and **A-GEOD-8835_comments.txt** 
 
 - European Bioinformatics Institute website (https://www.ebi.ac.uk/arrayexpress/arrays/A-GEOD-8835/)  
 
 
-## Materials and methods | Flowchart of the development process {data-background=#FFFFFF}
+## Materials and methods | Flowchart of the data wrangling and analysis {data-background=#FFFFFF}
 
 ```{r}
 flowchart <- grViz("
