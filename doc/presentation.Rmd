@@ -1,7 +1,7 @@
 ---
 title: "R Final Project - Group 11"
 
-author: Dalsberg Jørgensen Jonas <br> Gutierrez Leon, Alvaro <br> Romero Yianni, Daniel <br> Hoang Viet Minh Pham, Jake <br> 
+author: Just one guy 
 
 
 date: "`r format(Sys.time(), '%d %B %Y')`"
@@ -66,8 +66,8 @@ knitr::include_graphics("./images/flowchart.png")
 </center>
 
 
-## Results | **Title here** {data-background=#FFFFFF}
-```{r, out.width = "1000px", out.height = "500px"}
+## Results | **Survival probability for different groups** {data-background=#FFFFFF}
+```{r, out.width = "1000px", out.height = "400px"}
 knitr::include_graphics("../results/kaplan_meier_tumo_seer.png")
 ```
 
@@ -93,13 +93,13 @@ knitr::include_graphics("../results/PCA1.png")
 
 ## Discussion {data-background=#FFFFFF}
 
-- **Data quality:** absence of the different North American cohorts hindered the
+- **Data quality:** Absence of the different North American cohorts hindered the
 reproducibility of the article.
 
-- **Data wrangling:** complex data set which required decision-making regarding the selection of relevant probes, NA values, and others. 
+- **Data wrangling:** Complex data set which required decision-making regarding the selection of relevant probes, NA values, and others. 
 
 - **Survival:** 
 
-- **Differential expression:** we weren't able to reproduce the results, but we found more differentially expressed miRNAs.
+- **Differential expression:** We weren't able to reproduce the results, but we found more differentially expressed miRNAs.
 
 - **Principal Component Analysis:** 

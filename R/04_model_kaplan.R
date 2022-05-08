@@ -39,7 +39,8 @@ count_tumor <- data_fysr %>%
        y = "Patient count") +
   theme(legend.position = "bottom",
         text = element_text(size = text_size),
-        axis.title.x=element_blank()) +
+        axis.title.x=element_blank(),
+        axis.title.y = element_text(hjust = 0.85)) +
   scale_fill_discrete(name = "Tumor type") +
   geom_bar()
 
@@ -75,7 +76,8 @@ count_seer <- data_fysr %>%
        y = "Patient count") +
   theme(legend.position = "bottom",
         text = element_text(size = text_size),
-        axis.title.x=element_blank()) +
+        axis.title.x=element_blank(),
+        axis.title.y = element_text(hjust = 0.85)) +
   scale_fill_discrete(name = "SEER stage") +
   geom_bar()
 
@@ -120,5 +122,5 @@ tumor_seer_plots
 ggsave("results/kaplan_meier_tumo_seer.png",
        bg = "white",
        width = 5000,
-       height = 2500,
+       height = 2000,
        units = "px")
