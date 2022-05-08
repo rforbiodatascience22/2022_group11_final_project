@@ -1,0 +1,104 @@
+---
+title: "R Final Project - Group 11"
+
+author: One guy with a hat
+
+date: "`r format(Sys.time(), '%d %B %Y')`"
+
+output: 
+  ioslides_presentation: 
+    font-family: 'Arial'
+    widescreen: true
+    css: css/ioslides.css
+    logo: Corp_Red_RGB.png
+    #smaller: true
+
+  header-includes:
+    - \allsectionsfont{\color{black}}
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library("tidyverse")
+library("ggrepel")
+```
+
+
+## Introduction {data-background=#FFFFFF}
+- **Dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.
+
+    - Cancerous and  noncancerous tissues.
+    - Cancer stages.
+    - 100 ADC and 70 SCC patients.
+    - North American and Japanese cohorts.
+    - Other variables (tabacco, alcohol)
+     
+
+<br>
+
+
+- **Objective of the project:** To reproduce the findings of the authors and elaborate on their visualizations.
+
+
+## Materials and methods {data-background=#FFFFFF}
+### **Patient data**: 
+- **GSE13937_series_matrix.txt**
+<br>
+
+- National Center for Biotechnology Information website   (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE13937)
+
+<br>
+
+### **Microarray information**:
+- **A-GEOD-8835.adf.txt** and **A-GEOD-8835_comments.txt** 
+
+- European Bioinformatics Institute website (https://www.ebi.ac.uk/arrayexpress/arrays/A-GEOD-8835/)  
+
+
+## Materials and methods | **Flowchart of the data wrangling and analysis** {data-background=#FFFFFF}
+\vspace{5000}
+<center>
+```{r} 
+knitr::include_graphics("./images/flowchart.png") 
+``` 
+</center>
+
+
+## Results | **Survival probability for different groups** {data-background=#FFFFFF}
+```{r, out.width = "1000px", out.height = "400px"}
+knitr::include_graphics("../results/kaplan_meier_tumo_seer.png")
+```
+
+## Results | **Volcano plots** {data-background=#FFFFFF}
+```{r, out.width = "950px"}
+knitr::include_graphics("../results/presentation_vplots.png")
+```
+
+## Results | **Differential expression: our findings** {data-background=#FFFFFF}
+```{r, out.width = "950px"}
+knitr::include_graphics("../results/ADC_SCC_diffexp_plot.png")
+```
+
+## Results | **Differential expression: author's findings** {data-background=#FFFFFF}
+```{r, out.width = "700px", fig.align = "center"}
+knitr::include_graphics("../results/ADC_SCC_diffexp_plot_paper.png")
+```
+
+## Results | **Principal component analysis in cancerous sample** {data-background=#FFFFFF}
+```{r, out.width = "1000px", out.height = "500px"}
+knitr::include_graphics("../results/PCA1.png")
+```
+
+## Discussion {data-background=#FFFFFF}
+
+- **Data quality:** Absence of the different North American cohorts hindered the
+reproducibility of the article.
+
+- **Data wrangling:** Complex data set which required decision-making regarding the selection of relevant probes, NA values, and others. 
+
+- **Survival:** Produced Kaplan-Meier curves that highlighted a correlation between survival and both tumor types and SEER stage.
+
+- **Differential expression:** We weren't able to reproduce the results, but we found more differentially expressed miRNAs.
+
+- **Principal Component Analysis:** PCA shows the data can by grouped by cohort with minor overlap. Overall, there is not a clear clustering of the data based on the mean expression of miRNA. 
