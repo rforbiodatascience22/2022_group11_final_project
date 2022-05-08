@@ -12,9 +12,11 @@ output:
   ioslides_presentation: 
     font-family: 'Helvetica'
     widescreen: true
+    logo: Coral_Red_CMYK.png
     #smaller: true
 
 ---
+
 <!-- Change the text to black but does not work properly -->
 <!-- <style type="text/css"> -->
 <!-- body p { -->
@@ -22,23 +24,25 @@ output:
 <!-- } -->
 <!-- </style> -->
 
-
+<!-- This allows to change color of text individually  -->
+<!-- - <span style="color:red">**Source of the dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.</span> -->
+<!-- <br> -->
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(DiagrammeR)
 ```
 
-## Introduction 
+
+## Introduction {data-background=#FFFFFF}
 - **Source of the dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.
 
     - Microarray data from cancerous and adjacent noncancerous tissues collected from 100 adenocarcinoma and 70 SCC patients enrolled at four clinical centers from the United States, Canada, and Japan
 
 
-<br>
 
 - **Objective of the project:** To reproduce the findings of the authors and elaborate on their visualizations.
 
-## Materials and methods | Patient data: 
+## Materials and methods | Patient data: {data-background=#FFFFFF}
 - **GSE13937_series_matrix.txt**
 <br>
 
