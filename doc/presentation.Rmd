@@ -178,7 +178,7 @@ summary(cars)
 ```
 
 ## Results {data-background=#FFFFFF}
-```{r, out.width = "400px"}
+```{r, out.width = "950px"}
 knitr::include_graphics("../results/presentation_vplots.png")
 ```
 
