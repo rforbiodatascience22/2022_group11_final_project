@@ -96,7 +96,7 @@ knitr::include_graphics("../results/PCA1.png")
 - **Data quality:** absence of the different North American cohorts hindered the
 reproducibility of the article.
 
--**Data wrangling:** complex data set which required decision-making regarding the selection of relevant probes, NA values, and others. 
+- **Data wrangling:** complex data set which required decision-making regarding the selection of relevant probes, NA values, and others. 
 
 - **Survival:** 
 
