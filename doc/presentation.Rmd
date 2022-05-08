@@ -12,24 +12,13 @@ output:
     css: css/ioslides.css
     logo: Coral_Red_CMYK.png
     #smaller: true
-
-  header-includes:
-    - \allsectionsfont{\color{black}}
 ---
-
-
-
-<!-- <style type="text/css"> -->
-<!-- body p { -->
-<!--   color: #000000; -->
-<!-- } -->
-<!-- </style> -->
-
 
 
 <!-- This allows to change color of text individually  -->
 <!-- - <span style="color:red">**Source of the dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.</span> -->
 <!-- <br> -->
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library("DiagrammeR")
@@ -55,7 +44,8 @@ library("rsvg")
 
 - **Objective of the project:** To reproduce the findings of the authors and elaborate on their visualizations.
 
-## Materials and methods | Patient data: {data-background=#FFFFFF}
+## Materials and methods {data-background=#FFFFFF}
+### Patient data: 
 - **GSE13937_series_matrix.txt**
 <br>
 
@@ -192,6 +182,7 @@ rsvg_png(flowchart, "flowchart.png", height = 900, width = 1500)
 knitr::include_graphics("flowchart.png") 
 ``` 
 </center>
+
 
 ## Results {data-background=#FFFFFF}
 ```{r, out.width = "1000px", out.height = "500px"}
