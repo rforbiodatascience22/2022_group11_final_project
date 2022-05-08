@@ -10,7 +10,8 @@ probes_data <- read_csv("./data/probes_data_load.csv")
 
 # Wrangle data ------------------------------------------------------------
 
-# Remove unnecessary columns, most of these have all the same value or are completely irrelevant
+# Remove unnecessary columns, most of these have all the same value or are 
+#completely irrelevant
 data_concise = raw_data_flipped %>% 
   select(-c(Sample_status:Sample_channel_count,
             Sample_organism_ch1,
@@ -70,7 +71,8 @@ probes_data <- probes_data %>%
   filter(`Reporter Group [organism]` == "Homo sapiens" &
            `Comment[Contains_Mature_MiRNA]` == "yes"  &
            str_detect(`Reporter Name`, 'hsa')) %>% 
-  select(-c(`Comment[SPOT_ID]`,`Reporter Group [organism]`,`Comment[Contains_Mature_MiRNA]`))
+  select(-c(`Comment[SPOT_ID]`,`Reporter Group [organism]`,
+            `Comment[Contains_Mature_MiRNA]`))
 
 #Renaming the two columns
 probes_data <- probes_data %>% 
