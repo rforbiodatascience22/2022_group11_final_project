@@ -9,17 +9,23 @@ output:
   ioslides_presentation: 
     font-family: 'Arial'
     widescreen: true
+    css: css/ioslides.css
     logo: Coral_Red_CMYK.png
     #smaller: true
 
+  header-includes:
+    - \allsectionsfont{\color{black}}
 ---
 
-<!-- Change the text to black but does not work properly -->
-<!-- <style type="text/css"> -->
-<!-- body p { -->
-<!--   color: #000000; -->
-<!-- } -->
-<!-- </style> -->
+
+
+<style type="text/css">
+body p {
+  color: #000000;
+}
+</style>
+
+
 
 <!-- This allows to change color of text individually  -->
 <!-- - <span style="color:red">**Source of the dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.</span> -->
@@ -38,9 +44,11 @@ library("rsvg")
 - **Dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.
 
     - Cancerous and  noncancerous tissues.
+    - Cancer stages.
     - 100 ADC and 70 SCC patients.
-    - North American and Japanese cohorts
-     enrolled at four clinical centers from the United States, Canada, and Japan
+    - North American and Japanese cohorts.
+    - Other variables (tabacco, alcohol)
+     
 
 <br>
 
@@ -75,7 +83,8 @@ digraph flowchart {
   ####### RAW 'NODE' STATEMENTS ####### 
   node [shape = box,
         fontname = Arial,
-        fillcolor = '#1B325F'
+        fillcolor = '#1B325F',
+        fontsize = 25,
         style = filled,
         fontcolor = white];
   nodesep= 1.25;
@@ -144,7 +153,7 @@ digraph flowchart {
   #Raw - load
   'GSE13937_series_matrix.txt' -> raw_data [label='', fontsize=15, fontname = Arial, fontcolor='#131A37']
   
-  raw_data -> 'data_load.csv' [color='#131A37']
+  raw_data -> 'data_load.csv' 
   'A-GEOD-8835.adf.txt' -> 'raw_probes' 
   'A-GEOD-8835_comments.txt' -> 'raw_comments'
   {'raw_probes' 'raw_comments'} -> 'probes_data_load.csv'
@@ -177,13 +186,19 @@ flowchart = charToRaw(flowchart)
 rsvg_png(flowchart, "flowchart.png", height = 900, width = 1500)
 ```
 
+
 <center>
 ```{r} 
 knitr::include_graphics("flowchart.png") 
 ``` 
-
 </center>
 
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> aff649913ea6436dafa9b0d4374e7c9510752430
 ## Results {data-background=#FFFFFF}
 ```{r, out.width = "1000px", out.height = "500px"}
 knitr::include_graphics("../results/kaplan_meier_tumo_seer.png")
