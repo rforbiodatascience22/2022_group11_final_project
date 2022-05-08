@@ -18,8 +18,8 @@ project has been carried out by the students:
 The dataset used in the projects consists of miRNA expression data for
 76 esophageal cancer patients from the US and Japan. It was generated
 and published by [Mathé *et
-al.*](https://pubmed.ncbi.nlm.nih.gov/19789312/) and retireved from the
-[GEO
+al.*](https://pubmed.ncbi.nlm.nih.gov/19789312/) and we retireved from
+the [GEO
 website](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE13937).
 
 ## Objectives
