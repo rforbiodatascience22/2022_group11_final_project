@@ -86,7 +86,7 @@ knitr::include_graphics("../results/ADC_SCC_diffexp_plot_paper.png")
 ```
 
 ## Results | **Principal component analysis in cancerous sample** {data-background=#FFFFFF}
-```{r, out.width = "1000px", out.height = "500px"}
+```{r, out.width = "1000px", out.height = "400px"}
 knitr::include_graphics("../results/PCA1.png")
 ```
 
