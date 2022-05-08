@@ -6,7 +6,7 @@ date: "5/7/2022"
 output: 
   ioslides_presentation: 
     font-family: 'Helvetica'
-    #widescreen: true
+    widescreen: true
     #smaller: true
 ---
 <style type="text/css">
@@ -170,6 +170,9 @@ summary(cars)
 ```
 
 ## Results
+```{r, out.width = "400px"}
+knitr::include_graphics("../results/SCC_CT_NCT_volc_plot.png")
+```
 
 ## Results
 
