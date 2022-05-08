@@ -114,6 +114,6 @@ digraph flowchart {
 flowchart = export_svg(flowchart)
 flowchart = charToRaw(flowchart)
 previous_wd = getwd()
-setwd("./doc")
+setwd("./doc/images")
 rsvg_png(flowchart, "flowchart.png", height = 900, width = 1500)
 setwd(previous_wd)

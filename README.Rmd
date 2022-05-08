@@ -50,7 +50,7 @@ knitr::include_graphics("doc/flowchart.png")
 
 Even though we followed the steps described by Mathé *et al.*, we have found many more differentially expressed miRNAs when fitlering with the same criteria. By plotting the differentially expressed miRNAs, we corroborate that the miRNAs that we have found are, in fact, *more* differentially expressed than the ones found by Mathé *et al.*.  
 ```{r, echo=FALSE}
-knitr::include_graphics("results/presentation_vplots_good.png")
+knitr::include_graphics("results/presentation_vplots.png")
 ```
 
 ```{r, echo=FALSE}
