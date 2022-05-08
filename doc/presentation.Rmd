@@ -66,29 +66,29 @@ knitr::include_graphics("./images/flowchart.png")
 </center>
 
 
-## Results {data-background=#FFFFFF}
+## Results | **Title here** {data-background=#FFFFFF}
 ```{r, out.width = "1000px", out.height = "500px"}
 knitr::include_graphics("../results/kaplan_meier_tumo_seer.png")
 ```
 
-## Results {data-background=#FFFFFF}
+## Results | **Volcano plots** {data-background=#FFFFFF}
 ```{r, out.width = "950px"}
 knitr::include_graphics("../results/presentation_vplots.png")
 ```
 
-## Results {data-background=#FFFFFF}
+## Results | **Differential expression: our findings** {data-background=#FFFFFF}
 ```{r, out.width = "950px"}
 knitr::include_graphics("../results/ADC_SCC_diffexp_plot.png")
 ```
 
-## Results {data-background=#FFFFFF}
+## Results | **Differential expression: author's findings** {data-background=#FFFFFF}
 ```{r, out.width = "700px", fig.align = "center"}
 knitr::include_graphics("../results/ADC_SCC_diffexp_plot_paper.png")
 ```
 
-## Results {data-background=#FFFFFF}
+## Results | **Title goes here** {data-background=#FFFFFF}
 ```{r, out.width = "1000px", out.height = "500px"}
-knitr::include_graphics("../results/PCA2.png")
+knitr::include_graphics("../results/PCA1.png")
 ```
 
 ## Discussion {data-background=#FFFFFF}
@@ -100,6 +100,6 @@ reproducibility of the article.
 
 - **Survival:** 
 
-- **Differential expression:** 
+- **Differential expression:** we weren't able to reproduce the results, but we found more differentially expressed miRNAs.
 
 - **Principal Component Analysis:** 
