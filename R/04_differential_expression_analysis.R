@@ -51,7 +51,7 @@ ADC_SCC_boxplot = diff_exp_boxplot(filtered_tibble = wide_data %>%
                                    probes = plot_probes,
                                    facet_rows = 1,
                                    facet_scale = "free_y") +
-  labs(title = "SCC vs ADC (cancerous tissues)")
+  labs(title = "SCC vs ADC (cancerous tissues)") +
   theme_bw(base_size = 13.5) +
   theme(legend.position = "none")
 
