@@ -1,5 +1,5 @@
 library("patchwork")
-source("./R/04_differential_expression_analysis.R")
+source("./R/06_model_diffexp.R")
 
 vplots = ADC_SCC_vplot +
   labs(x = NULL,
