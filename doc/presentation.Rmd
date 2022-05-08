@@ -185,9 +185,12 @@ knitr::include_graphics("flowchart.png")
 </center>
 
 
+<<<<<<< HEAD
+
+
 ## Results {data-background=#FFFFFF}
-```{r cars, echo = TRUE}
-summary(cars)
+```{r, out.width = "1000px", out.height = "500px"}
+knitr::include_graphics("../results/kaplan_meier_tumo_seer.png")
 ```
 
 ## Results {data-background=#FFFFFF}
@@ -198,6 +201,9 @@ knitr::include_graphics("../results/presentation_vplots.png")
 ## Results {data-background=#FFFFFF}
 
 ## Results {data-background=#FFFFFF}
+```{r, out.width = "1000px", out.height = "500px"}
+knitr::include_graphics("../results/PCA2.png")
+```
 
 ## Discussion {data-background=#FFFFFF}
 ```{r pressure}
