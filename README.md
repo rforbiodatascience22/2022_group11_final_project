@@ -17,8 +17,8 @@ project has been carried out by the students:
 
 The dataset used in the projects consists of miRNA expression data for
 76 esophageal cancer patients from the US and Japan. It was generated
-and published by [Mathé et
-al.](https://pubmed.ncbi.nlm.nih.gov/19789312/) and retireved from the
+and published by [Mathé *et
+al.*](https://pubmed.ncbi.nlm.nih.gov/19789312/) and retireved from the
 [GEO
 website](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE13937).
 
@@ -29,10 +29,33 @@ their visualizations.
 
 ## Pipeline
 
-The pipeline of data rpocessing is summarised in the flowchart:
+The data processing pipeline is summarised in the flowchart:
 
-<img src="doc/flowchart.png" width="400px" style="display: block; margin: auto;" />
+<img src="doc/flowchart.png" width="100%" />
 
 ## Results
 
-## Conclusion
+### Survival
+
+### PCA
+
+### Differential expression
+
+Even though we followed the steps described by Mathé *et al.*, we have
+found many more differentially expressed miRNAs according to the same
+criteria. By plotting the differentially expressed miRNAs, we
+corroborate that the miRNAs that we have found are, in fact, *more*
+differentially expressed than the ones found by Mathé *et al.*.  
+<img src="results/presentation_vplots_good.png" width="100%" />
+
+<img src="results/ADC_SCC_diffexp_plot.png" width="100%" />
+
+<img src="results/ADC_SCC_diffexp_plot_paper.png" width="500px" />
+
+<img src="results/ADC_CT_NCT_diffexp_plot.png" width="100%" />
+
+<img src="results/ADC_CT_NCT_diffexp_plot_paper.png" width="100%" />
+
+<img src="results/SCC_CT_NCT_diffexp_plot.png" width="100%" />
+
+<img src="results/SCC_CT_NCT_diffexp_plot_paper.png" width="500px" />
