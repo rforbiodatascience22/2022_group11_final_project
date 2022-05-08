@@ -169,8 +169,8 @@ digraph flowchart {
 
 
 ## Results
-```{r cars, echo = TRUE}
-summary(cars)
+```{r, out.width = "1000px", out.height = "500px"}
+knitr::include_graphics("../results/kaplan_meier_tumo_seer.png")
 ```
 
 ## Results
@@ -181,6 +181,9 @@ knitr::include_graphics("../results/presentation_vplots.png")
 ## Results
 
 ## Results
+```{r, out.width = "1000px", out.height = "500px"}
+knitr::include_graphics("../results/PCA2.png")
+```
 
 ## Discussion
 ```{r pressure}
