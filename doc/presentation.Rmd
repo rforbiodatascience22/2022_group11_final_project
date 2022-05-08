@@ -1,7 +1,7 @@
 ---
 title: "R Final Project - Group 11"
 
-author: Dalsberg Jørgensen Jonas <br> Gutierrez Leon, Alvaro <br> Romero Yianni, Daniel <br> Hoang Viet Minh Pham, Jake <br> 
+author: Dalsberg Jørgensen, Jonas <br> Gutierrez Leon, Alvaro <br> Romero Yianni, Daniel <br> Hoang Viet Minh Pham, Jake <br> 
 
 date: "`r format(Sys.time(), '%d %B %Y')`"
 
