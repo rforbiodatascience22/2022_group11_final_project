@@ -362,9 +362,9 @@ annotate_figure(tumo_seer_plots,
                                 size = text_size * 2.15,
                                 lineheight = 0.3))
 
-# Save the plots as a .PNG file
-ggsave("results/kaplan_meier_tumo_seer.png",
-       bg = "white",
-       width = 5000,
-       height = 2500,
-       units = "px")
+# # Save the plots as a .PNG file
+# ggsave("results/kaplan_meier_tumo_seer.png",
+#        bg = "white",
+#        width = 5000,
+#        height = 2500,
+#        units = "px")
