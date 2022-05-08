@@ -34,7 +34,7 @@ Here we aim to reproduce the findings of the authors and elaborate on their visu
 
 ## Pipeline
 
-The pipeline of data rpocessing is summarised in the flowchart:
+The data processing pipeline is summarised in the flowchart:
 \n
 ```{r, echo=FALSE, out.width = "900px", fig.align = "center"}
 knitr::include_graphics("doc/flowchart.png")
