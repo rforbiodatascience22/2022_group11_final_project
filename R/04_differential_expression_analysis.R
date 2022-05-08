@@ -74,7 +74,7 @@ ADC_SCC_boxplot_paper = diff_exp_boxplot(filtered_tibble = wide_data %>%
                                          facet_rows = 1,
                                          facet_scale = "free_y") +
   labs(title = "SCC vs ADC (cancerous tissues)",
-       subtitle = "Differentially expressed miRNAs from Math? et al.") +
+       subtitle = "Differentially expressed miRNAs from Mathe et al.") +
   theme_bw(base_size = 11) +
   theme(legend.position = "none")
 
@@ -141,7 +141,7 @@ ADC_CT_NCT_boxplot_paper = diff_exp_boxplot(filtered_tibble = wide_data %>%
                                             probes = paper_probes,
                                             facet_rows = 1) +
   labs(title = "ADC cancerous vs. non cancerous tissue",
-       subtitle = "Differentially expressed miRNAs from Math? et al.") +
+       subtitle = "Differentially expressed miRNAs from Mathe et al.") +
   theme_bw(base_size = 11) +
   theme(legend.position = "none")
 
@@ -209,7 +209,7 @@ SCC_CT_NCT_boxplot_paper = diff_exp_boxplot(filtered_tibble = wide_data %>%
   theme_bw(base_size = 11) +
   theme(legend.position = "none") +
   labs(title = "SCC cancerous vs. non-cancerous tissue",
-       subtitle = "Differentially expressed miRNAs from Math? et al.")
+       subtitle = "Differentially expressed miRNAs from Mathe et al.")
 
 ggsave(filename = "./results/SCC_CT_NCT_diffexp_plot_paper.png",
        plot = SCC_CT_NCT_boxplot_paper,

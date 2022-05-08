@@ -1,3 +1,5 @@
+# DEAD END: Dropped in favor of using the survival package
+
 library("tidyverse")
 library("magrittr")
 source("./R/proj_func.R")

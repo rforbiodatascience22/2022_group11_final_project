@@ -179,7 +179,7 @@ summary(cars)
 
 ## Results {data-background=#FFFFFF}
 ```{r, out.width = "950px"}
-knitr::include_graphics("../results/presentation_vplots.png")
+knitr::include_graphics("../results/presentation_vplots_good.png")
 ```
 
 ## Results {data-background=#FFFFFF}
