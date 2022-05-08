@@ -1,7 +1,7 @@
-library(tidyverse)
-library(gridExtra)
-library(survival)
-library(survminer)
+library("tidyverse")
+library("gridExtra")
+library("survival")
+library("survminer")
 
 # Read the data
 data <- read_csv("data/data_aug_wide.csv",

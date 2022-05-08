@@ -1,7 +1,7 @@
-library(tidyverse)
-library(patchwork)
-library(broom)
-library(cowplot)
+library("tidyverse")
+library("patchwork")
+library("broom")
+library("cowplot")
 
 # Load the files
 tidy_data_wide = read_csv("./data/data_aug_wide.csv")
