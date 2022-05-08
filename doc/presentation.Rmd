@@ -30,7 +30,7 @@ library("ggrepel")
 
     - Cancerous and  noncancerous tissues.
     - Cancer stages.
-    - 100 ADC and 70 SCC patients.
+    - 60 patients.
     - North American and Japanese cohorts.
     - Other variables (tabacco, alcohol)
      
