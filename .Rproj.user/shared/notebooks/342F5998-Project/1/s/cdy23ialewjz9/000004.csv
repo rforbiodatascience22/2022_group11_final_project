@@ -1,0 +1,8 @@
+"0","data_tidy = data_concise %>% "
+"0","  separate(col = Sample_title,"
+"0","           into = c(NA, ""patient"")) %>% view() "
+"0","  mutate(patient = str_sub(string = patient,"
+"0","                           end = -2)) %>% view()"
+"2","Error in stri_sub(string, from = start, to = end) : 
+  objeto 'patient' no encontrado
+"

@@ -1,0 +1,494 @@
+---
+title: "Untitled"
+author: "Álvaro Gutiérrez León"
+date: "5/4/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(patchwork)
+library(magrittr)
+source("./R/proj_func.R")
+```
+
+```{r}
+tidy_data_wide = read_csv("./data/data_aug_wide.csv")
+```
+
+```{r}
+data_selected <- data_tidy_wide %>%
+  select(1:14,
+         "hsa-mir-21No1",
+         "hsa-mir-021-prec-17No1",
+         "hsa-mir-223-prec",
+         "hsa-mir-146bNo1",
+         "hsa-mir-146-prec",
+         "hsa-mir-181a-precNo1",
+         "hsa-mir-181b-precNo1",
+         "hsa-mir-103-prec-5=103-1",
+         "hsa-mir-107-prec-10",
+         "hsa-let-7c-prec",
+         "hsa-mir-203-precNo1",
+         "hsa-mir-205-prec") %>%
+  pivot_longer(cols = contains("hsa"),
+               names_to = "probe",
+               values_to = "expression") %>%
+  pivot_wider(names_from = tissue_type,
+              values_from = expression) %>%
+  rename("non_cancerous" = "non-cancerous")
+
+data_selected2 <- data_tidy_wide %>%
+  pivot_longer(cols = contains("hsa"),
+               names_to = "probe",
+               values_to = "expression") %>%
+  filter(probe == "hsa-mir-21No1" | 
+         probe == "hsa-mir-021-prec-17No1" |
+         probe ==         "hsa-mir-223-prec" |
+         probe ==         "hsa-mir-146bNo1" |
+         probe ==         "hsa-mir-146-prec" |
+         probe ==         "hsa-mir-181a-precNo1" |
+         probe ==         "hsa-mir-181b-precNo1" |
+         probe ==         "hsa-mir-103-prec-5=103-1" |
+         probe ==          "hsa-mir-107-prec-10" |
+         probe ==          "hsa-let-7c-prec" |
+         probe ==         "hsa-mir-203-precNo1" |
+         probe ==         "hsa-mir-205-prec") %>% 
+  drop_na(expression) #Importante porque hay sondas sin datos en non_cancerous
+  # pivot_wider(names_from = tissue_type,
+  #             values_from = expression) %>% 
+  # rename("non_cancerous" = "non-cancerous")
+
+```
+
+```{r}
+data_selected %>% 
+  # select("probe",
+  #        "non-cancerous",
+  #        "cancerous") %>% 
+  filter(tumor_type == "ADC") %>% 
+  group_by(non_cancerous) 
+
+  # mutate(eo = cancerous - non_cancerous)
+```
+Lo que tnego que hacer: necesito sacar el fold change the cancerous/non-cancerous para cada miRNA. Cada miRNA tiene 2 muestras en cada paciente, una procedente de cancerous y non cancerous. Pues esas muestras las tengo que bien dividir para el fold change o bien restar y de ahi sacar una columna con la diferencia para cada paciente de un mismo miRNA. Asi, para un unico miRNA, tendre tantos valores de fold change como pacientes tenga. Y eso sera para todos los miRNA. 
+
+Voy a intentar primero sacarlo con 1 sola probe.
+
+Truco con group_by. Si filtro por ejemplo para "  filter(probe == "hsa-let-7c-prec" &
+         patient == "1") ", estaría viendo el primer grupo de group_by(probe, patient). Puedo hacer el código solo con esto para imaginarlo y ya extenderlo a todos 
+```{r}
+minidata <- data_selected2 %>% 
+  pivot_wider(names_from = tissue_type,
+              values_from = expression) %>%
+  select("patient",
+         "probe",
+         "non-cancerous",
+         "cancerous") %>% 
+  rename("non_cancerous" = "non-cancerous") %>% 
+  filter(probe == "hsa-let-7c-prec" &
+         patient == "1")
+  # mutate(non_cancerous = replace_na(non_cancerous, 0),
+  #        cancerous = replace_na(cancerous, 0)) %>% 
+  # filter(non_cancerous > 0)
+  # 
+
+minidata
+```
+
+
+Esto es lo que necesito para 1 paciente y para 1 probe 
+```{r}
+minidata %>% 
+  nest(-patient) %>% 
+  mutate(data = map(data, ~ map_dfc(., na.omit))) %>% 
+  unnest() %>% 
+  distinct()
+
+```
+
+A ver si lo consigo hacer para todos los pacientes
+```{r}
+minidata2 <- data_selected2 %>% 
+  pivot_wider(names_from = tissue_type,
+              values_from = expression) %>%
+  select("patient",
+         "probe",
+         "non-cancerous",
+         "cancerous") %>% 
+  rename("non_cancerous" = "non-cancerous") %>% 
+  filter(probe == "hsa-let-7c-prec")
+  
+  # filter(probe == "hsa-let-7c-prec" & patient == "1" |
+  #        probe == "hsa-let-7c-prec" & patient == "2" | 
+  #        probe == "hsa-let-7c-prec" & patient == "3" |
+  #        probe == "hsa-let-7c-prec" & patient == "4" |
+  #        probe == "hsa-let-7c-prec" & patient == "5" |
+  #        probe == "hsa-let-7c-prec" & patient == "6")
+
+minidata2
+```
+Esto funciona para todos los pacientes y para una sonda 
+```{r}
+minidata2 %>% 
+  nest(-patient) %>% 
+  mutate(data = map(data, ~ map_dfc(., na.omit))) %>% 
+  unnest() %>% 
+  distinct() 
+
+```
+
+
+
+
+A ver si lo consigo hacer para todos los pacientes y sondas
+```{r}
+minidata3 <- data_selected2 %>% 
+  pivot_wider(names_from = tissue_type,
+              values_from = expression) %>%
+  select("patient",
+         "probe",
+         "non-cancerous",
+         "cancerous") %>% 
+  rename("non_cancerous" = "non-cancerous")
+  
+  # filter(probe == "hsa-let-7c-prec" & patient == "1" |
+  #        probe == "hsa-let-7c-prec" & patient == "2" | 
+  #        probe == "hsa-let-7c-prec" & patient == "3" |
+  #        probe == "hsa-let-7c-prec" & patient == "4" |
+  #        probe == "hsa-let-7c-prec" & patient == "5" |
+  #        probe == "hsa-let-7c-prec" & patient == "6")
+
+minidata3
+```
+```{r}
+data <- minidata3 %>% 
+  nest(-patient, -probe) %>% 
+  mutate(data = map(data, ~ map_dfc(., na.omit))) %>% 
+  unnest() %>% 
+  distinct() 
+
+data
+```
+
+
+Ahora creo la diferencia entre cancerous ni non_cancerous
+```{r}
+data %>% 
+  mutate(ratio = non_cancerous / cancerous) %>% 
+  filter(ratio > 1) %>% 
+  arrange(desc(ratio))
+```
+
+
+
+
+From https://community.rstudio.com/t/coalesce-rows-and-remove-nas-but-keep-all-non-na-rows-for-each-unique-group/15894/5
+```{r}
+dat <- structure(list(Group = c(1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2,
+2, 3, 3, 3, 3, 3, 3, 3, 3), Month = c("Jan", "Feb", "Mar", "Jun", NA, NA, NA,
+NA, "Jan", "Mar", NA, NA, NA, NA, NA, NA, "Feb", "Mar", "Jun", NA, NA, NA, NA,
+NA), Value = c(NA, NA, NA, NA, "4", "5", "6", "4", NA, NA, NA, NA, "3", "2",
+NA, NA, NA, NA, NA, NA, "8", "7", "4", NA)), row.names = c(NA, -24L ), class =
+c("tbl_df", "tbl", "data.frame"))
+
+dat
+```
+
+
+
+```{r}
+dat %>% 
+  nest(-Group) %>% 
+  mutate(data = map(data, ~ map_dfc(., na.omit))) %>% 
+  unnest()
+```
+
+```{r}
+data_selected %>% 
+  nest(-patient) %>% 
+  mutate(cancerous = map(cancerous, ~ map_dfc(., na.omit))) %>% 
+  mutate(non_cancerous = map(non_cancerous, ~ map_dfc(., na.omit))) %>% 
+  unnest()
+```
+
+```{r}
+minidata %>% 
+  nest(-patient) %>% 
+  mutate(data = map(data, ~ map_dfc(., na.omit))) %>% 
+  unnest() %>% 
+  distinct()
+
+```
+
+
+
+```{r}
+data_selected
+```
+
+
+```{r}
+data_selected <- data_tidy_wide %>%
+  select(1:14,
+         "hsa-mir-21No1",
+         "hsa-mir-021-prec-17No1",
+         "hsa-mir-223-prec",
+         "hsa-mir-146bNo1",
+         "hsa-mir-146-prec",
+         "hsa-mir-181a-precNo1",
+         "hsa-mir-181b-precNo1",
+         "hsa-mir-103-prec-5=103-1",
+         "hsa-mir-107-prec-10",
+         "hsa-let-7c-prec",
+         "hsa-mir-203-precNo1",
+         "hsa-mir-205-prec") %>%
+  select(-Sample_geo_accession) %>%  #It gives issues with the mapping 
+  pivot_longer(cols = contains("hsa"),
+               names_to = "probe",
+               values_to = "expression") %>%
+  pivot_wider(names_from = tissue_type,
+              values_from = expression) %>%
+  rename("non_cancerous" = "non-cancerous")
+```
+
+
+```{r}
+minidata <- data_selected 
+```
+
+
+```{r}
+data <- minidata %>% 
+  nest(-patient, -probe) %>% 
+  mutate(data = map(data, ~ map_dfc(., na.omit))) %>% 
+  unnest() %>% 
+  distinct() 
+
+data
+```
+
+
+
+```{r}
+data <- data %>% 
+  mutate(ratio = non_cancerous / cancerous) %>% 
+  filter(ratio > 1) %>% 
+  arrange(desc(ratio)) %>% 
+  relocate(probe, .before = non_cancerous)
+
+data
+```
+
+
+
+```{r}
+setwd("~/Desktop/RStudio/2022_group11_final_project")
+```
+
+
+
+```{r}
+setwd("~/Desktop/RStudio/2022_group11_final_project")
+raw_data = read_tsv("./_raw/GSE13937_series_matrix.txt",
+                    skip = 35,
+                    col_names = FALSE)
+
+# Set column and row names and transpose the data
+raw_data_flipped = raw_data %>% 
+  mutate(X1 = X1 %>% str_replace("!", "")) %>% 
+  # If there's time, try to find better way of doing this 
+  mutate(X1 = case_when(
+    str_sub(X2, end = 6) == "cohort" ~ "cohort", #If the 6 first letters of the X2 column are "cohort", then the X1 column will be named cohort, but it stays in x2 xd 
+    str_sub(X2, end = 18) == "hybridization date" ~ "hybridization_date",
+    str_sub(X2, end = 11) == "tissue type" ~ "tissue_type",
+    str_sub(X2, end = 9) == "histology" ~ "histology",
+    str_sub(X2, end = 19) == "barrett's esophagus" ~ "barretts_esophagus",
+    str_sub(X2, end = 22) == "chemoradiation therapy" ~ 
+      "chemoradiation_therapy",
+    str_sub(X2, end = 19) == "alcohol consumption" ~ "alcohol_consumption",
+    str_sub(X2, end = 7) == "smoking" ~ "smoking",
+    str_sub(X2, end = 10) == "ptnm stage" ~ "ptnm_stage",
+    str_sub(X2, end = 17) == "nodal involvement" ~ "nodal_involvement",
+    str_sub(X2, end = 13) == "survival days" ~ "survival_days",
+    str_sub(X2, end = 19) == "death due to cancer" ~ "death_due_to_cancer",
+    TRUE ~ X1)) %>% #The TRUE is included because if it wasn't, we would lose the rest of the rows of X1 that were not explicitely mentioned earlier 
+  column_to_rownames("X1") %>% 
+  t() %>% 
+  as_tibble() %>% view()
+
+```
+
+
+```{r}
+data_tidy = data_concise %>% 
+  separate(col = Sample_title,
+           into = c(NA, "patient")) %>% 
+  mutate(patient = str_sub(string = patient,
+                           end = -2)) %>% #The string is one of the arguments and it refers to patient
+  #it will stop the string at the position -2, which correspondons to the number itself 
+  separate(col = Sample_source_name_ch1,
+           sep = " ",
+           into = c("tumor_type", NA, "tissue_type")) %>% #separa ADC patient, cancerous y tira el patient
+  mutate(cohort = str_sub(string = cohort,
+                          start = 9)) %>% #me quedo con lo de cohort a partir de la posicion 9para eliminar "cohort"
+  mutate(barretts_esophagus = str_sub(string = barretts_esophagus,
+                                      start = 22)) %>% #para eliminar "barrets esophagus"
+  mutate(chemoradiation_therapy = str_sub(string = chemoradiation_therapy,
+                                          start = 25)) %>% #eliminar chemoradiation 
+  mutate(alcohol_consumption = str_sub(string = alcohol_consumption,
+                                       start = 21), #remove alcohol_consumption string
+         alcohol_consumption = na_if(alcohol_consumption,
+                                     y = "")) %>% #si es un espacio, es un NA 
+  mutate(smoking = str_sub(string = smoking,
+                           start = 10),
+         smoking = na_if(smoking,
+                         y = "")) %>%
+  mutate(ptnm_stage = str_sub(string = ptnm_stage,
+                              start = 13)) %>% #remove the ptnm stagae
+  mutate(nodal_involvement = str_sub(string = nodal_involvement,
+                                     start = 20)) %>% #remove
+  mutate(survival_days = str_sub(string = survival_days,
+                                 start = 16), #remove
+         survival_days = as.integer(survival_days)) %>% #they were characters
+  mutate(death_due_to_cancer = str_sub(string = death_due_to_cancer,
+                                       start = 22))
+```
+
+
+
+
+```{r}
+graph <- grViz("
+digraph flowchart {
+
+  # RAW 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  
+  ####### ####### ####### ####### ####### ####### NODES  ####### ####### ####### #######
+  ####### RAW 'NODE' STATEMENTS ####### DB5353
+  node [shape = box,
+        fontname = Helvetica,
+        fillcolor = '#1B325F',
+        fontsize = 20,
+        style = filled,
+        fontcolor = white];
+  nodesep= 1.25;
+    
+  'GSE13937_series_matrix.txt'; 'A-GEOD-8835.adf.txt'; 'A-GEOD-8835_comments.txt';
+  
+  
+  ####### LOAD 'NODE' STATEMENTS  #######
+  #CSV #FFF6CD
+  node [shape = box,
+        fontname = Helvetica,
+        fillcolor = '#E9F2F9',
+        fontsize = 20,
+        style = filled,
+        fontcolor = black]
+  
+  'data_load.csv' 'probes_data_load.csv'
+  
+  #NO CSV
+   node [shape = box,
+        fontname = Helvetica,
+        fontsize = 20,
+        fillcolor = white,
+        style = filled]
+  
+  raw_data ; 'raw_probes'; 'raw_comments'; 
+  
+  
+  
+  ####### CLEAN 'NODE' STATEMENTS  #######
+  node [shape = box,
+        fontname = Helvetica,
+        fontsize = 20,
+        fillcolor = '#9CC4E4',
+        style = filled]
+  
+  'data_clean.csv' 
+  'probes_data_clean.csv'
+  
+  ######## AUGMENT 'NODE' STATEMENTS  #######
+  #CSV
+  node [shape = box,
+        fontname = Helvetica,
+        fontsize = 20,
+        fillcolor = '#3A89C9',
+        stile = filled]
+  
+  'data_aug_wide.csv'
+  'data_aug_long.csv'
+  
+  #NO CSV
+  node [shape = box,
+        fontname = Helvetica,
+        fontsize = 20,
+        fillcolor = white,
+        style = filled]
+  data_aug
+  
+  ######## RESULTS NODE  #######
+  node [shape = box,
+        fontname = Helvetica,
+        fontsize = 20,
+        style = filled, 
+        fillcolor='#FDBBA8']
+        
+  'Results and visualizations' [fillcolor = '#F26C4F']
+  
+  'PCA'; 'Differential expression'; 'Kaplan-Meier'; 'Linear regression'
+  
+  
+   
+   ####### ####### ############### 'EDGE' STATEMENTS  ####### ####### ####### #######
+  #Raw - load
+  'GSE13937_series_matrix.txt' -> raw_data [label='', fontsize=15, fontname = Helvetica, fontcolor='#131A37']
+  
+  raw_data -> 'data_load.csv' [color='#131A37']
+  'A-GEOD-8835.adf.txt' -> 'raw_probes' 
+  'A-GEOD-8835_comments.txt' -> 'raw_comments'
+  {'raw_probes' 'raw_comments'} -> 'probes_data_load.csv'
+  
+  #Load - clean
+  'data_load.csv' -> 'data_clean.csv'
+  'probes_data_load.csv' -> 'probes_data_clean.csv'
+  
+  #Clean - augmented
+  'data_clean.csv' -> data_aug
+  {data_aug 'probes_data_clean.csv'} -> 'data_aug_wide.csv'
+  'data_aug_long.csv' -> 'data_aug_wide.csv'
+  'data_aug_wide.csv' -> 'data_aug_long.csv'
+
+
+ #Augmented - Visualizations 
+{'data_aug_wide.csv'} -> 'Results and visualizations' -> {'PCA' 'Differential expression' 'Kaplan-Meier' 'Linear regression'} 
+
+
+  
+{ rank = same; 'GSE13937_series_matrix.txt'; 'A-GEOD-8835.adf.txt'; 'A-GEOD-8835_comments.txt' }
+{ rank = same; 'data_clean.csv'; 'probes_data_clean.csv' }
+{ rank = same; 'data_aug_wide.csv'; 'data_aug_long.csv' }
+
+}
+")
+
+grViz(graph) %>%
+  export_svg %>% 
+  charToRaw %>% 
+  rsvg_png("graph.png")
+```
+
+
+
+
+
+<!-- This allows to change color of text individually  -->
+<!-- - <span style="color:red">**Source of the dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.</span> -->
+<!-- <br> -->

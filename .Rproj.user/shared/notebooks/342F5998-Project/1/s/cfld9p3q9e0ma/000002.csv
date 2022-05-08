@@ -1,0 +1,4 @@
+"0","setwd(""~/Desktop/RStudio/2022_group11_final_project"")"
+"2","Warning:"
+"2"," The working directory was changed to /Users/Alvaro/Desktop/RStudio/2022_group11_final_project inside a notebook chunk. The working directory will be reset when the chunk is finished running. Use the knitr root.dir option in the setup chunk to change the working directory for notebook chunks.
+"
