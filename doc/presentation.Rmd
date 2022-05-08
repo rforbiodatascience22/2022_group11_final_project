@@ -1,24 +1,26 @@
 ---
-title: "Group 11 presentation"
-# subtitle: "MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival"
-author: "Dalsberg Jørgensen, Jonas; Gutierrez Leon, Alvaro; Hoang Viet Minh Pham, Jake; Romero Yianni, Daniel"
-date: "5/7/2022"
+title: "R Final Project - Group 11"
+author:
+- "Dalsberg Jørgensen, Jonas"
+- "Gutierrez Leon, Alvaro"
+- "Hoang Viet Minh Pham, Jake"
+- "Romero Yianni, Daniel"
+
+date: "`r format(Sys.time(), '%d %B %Y')`"
+
 output: 
   ioslides_presentation: 
     font-family: 'Helvetica'
-    #widescreen: true
+    widescreen: true
     #smaller: true
+
 ---
-<style type="text/css">
-body p {
-  color: #000000;
-}
-</style>
-
-slides > slide.backdrop {
-  background: white;
-}
-
+<!-- Change the text to black but does not work properly -->
+<!-- <style type="text/css"> -->
+<!-- body p { -->
+<!--   color: #000000; -->
+<!-- } -->
+<!-- </style> -->
 
 
 ```{r setup, include=FALSE}
@@ -26,15 +28,17 @@ knitr::opts_chunk$set(echo = FALSE)
 library(DiagrammeR)
 ```
 
-## Introduction
-- **Dataset source:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.
+## Introduction 
+- **Source of the dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.
+
+    - Microarray data from cancerous and adjacent noncancerous tissues collected from 100 adenocarcinoma and 70 SCC patients enrolled at four clinical centers from the United States, Canada, and Japan
+
 
 <br>
 
 - **Objective of the project:** To reproduce the findings of the authors and elaborate on their visualizations.
 
-## Materials
-### Patient data: 
+## Materials and methods | Patient data: 
 - **GSE13937_series_matrix.txt**
 <br>
 
@@ -48,7 +52,7 @@ library(DiagrammeR)
 - European Bioinformatics Institute website (https://www.ebi.ac.uk/arrayexpress/arrays/A-GEOD-8835/)  
 
 
-## Methods: pipeline flowchart
+## Materials and methods | Flowchart of the development process {data-background=#FFFFFF}
 
 ```{r}
 grViz("
