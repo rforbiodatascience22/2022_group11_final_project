@@ -193,9 +193,12 @@ knitr::include_graphics("flowchart.png")
 ``` 
 </center>
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> aff649913ea6436dafa9b0d4374e7c9510752430
 ## Results {data-background=#FFFFFF}
 ```{r, out.width = "1000px", out.height = "500px"}
 knitr::include_graphics("../results/kaplan_meier_tumo_seer.png")
@@ -207,6 +210,14 @@ knitr::include_graphics("../results/presentation_vplots.png")
 ```
 
 ## Results {data-background=#FFFFFF}
+```{r, out.width = "950px"}
+knitr::include_graphics("../results/ADC_SCC_diffexp_plot.png")
+```
+
+## Results {data-background=#FFFFFF}
+```{r, out.width = "700px", fig.align = "center"}
+knitr::include_graphics("../results/ADC_SCC_diffexp_plot_paper.png")
+```
 
 ## Results {data-background=#FFFFFF}
 ```{r, out.width = "1000px", out.height = "500px"}
@@ -217,5 +228,3 @@ knitr::include_graphics("../results/PCA2.png")
 ```{r pressure}
 plot(pressure)
 ```
-
-## Discussion {data-background=#FFFFFF}
