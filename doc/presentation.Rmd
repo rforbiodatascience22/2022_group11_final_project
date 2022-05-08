@@ -98,7 +98,7 @@ reproducibility of the article.
 
 - **Data wrangling:** Complex data set which required decision-making regarding the selection of relevant probes, NA values, and others. 
 
-- **Survival:** 
+- **Survival:** Produced Kaplan-Meier curves that highlighted a correlation between survival and both tumor types and SEER stage.
 
 - **Differential expression:** We weren't able to reproduce the results, but we found more differentially expressed miRNAs.
 
