@@ -1,4 +1,0 @@
-"0","data %>% "
-"0","  mutate(ratio = non_cancerous / cancerous) %>% "
-"0","  filter(ratio > 1) %>% "
-"0","  arrange(desc(ratio))"
