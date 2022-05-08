@@ -28,15 +28,13 @@ data_tidy <- data_tidy %>%
 
 
 
-#Pivoting the data_tidy miRNAs to be able to filter them later on 
+#Pivoting the data_tidy miRNAs 
 data_tidy_pivoted <- data_tidy %>% 
   pivot_longer(cols = "ath-MIR156aNo1" : "series_matrix_table_end", 
                names_to = "Probe_name", 
                values_to = "Expression")
 
 #Filtering the rows from data_tidy that have a match in probes_data  
-#(I need to keep both columns in probes_data)
-#from probes_data so that I change the names of the MiRNA next
 data_tidy_filtered <- right_join(data_tidy_pivoted,
                                  probes_data) %>% 
   drop_na() %>% 
