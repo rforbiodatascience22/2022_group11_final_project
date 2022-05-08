@@ -1,10 +1,7 @@
 ---
 title: "R Final Project - Group 11"
-author:
-- "Dalsberg Jørgensen, Jonas"
-- "Gutierrez Leon, Alvaro"
-- "Hoang Viet Minh Pham, Jake"
-- "Romero Yianni, Daniel"
+
+author: Dalsberg Jørgensen Jonas <br> Gutierrez Leon, Alvaro <br> Romero Yianni, Daniel <br> Hoang Viet Minh Pham, Jake
 
 date: "`r format(Sys.time(), '%d %B %Y')`"
 
@@ -29,7 +26,11 @@ output:
 <!-- <br> -->
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-library(DiagrammeR)
+library("DiagrammeR")
+library("tidyverse")
+library("ggrepel")
+library("DiagrammeRsvg")
+library("rsvg") 
 ```
 
 
@@ -57,10 +58,9 @@ library(DiagrammeR)
 
 
 ## Materials and methods | Flowchart of the development process {data-background=#FFFFFF}
-<center>
 
-```{r fig.align="center"}
-grViz("
+```{r}
+flowchart <- grViz("
 digraph flowchart {
 
   # a 'graph' statement
@@ -68,12 +68,14 @@ digraph flowchart {
 
 
   ####### ####### ####### ####### ####### ####### NODES  ####### ####### ####### #######
-  ####### RAW 'NODE' STATEMENTS ####### DB5353
+  ####### RAW 'NODE' STATEMENTS ####### 
   node [shape = box,
         fontname = Arial,
-        fillcolor = '#1B325F',
+        fillcolor = '#1B325F'
         style = filled,
-        fontcolor = white]
+        fontcolor = white];
+  nodesep= 1.25;
+  
   'GSE13937_series_matrix.txt'; 'A-GEOD-8835.adf.txt'; 'A-GEOD-8835_comments.txt';
   
   
@@ -166,10 +168,17 @@ digraph flowchart {
 }
 ")
 
+flowchart = export_svg(flowchart)
+flowchart = charToRaw(flowchart)
+rsvg_png(flowchart, "flowchart.png", height = 900, width = 1500)
 ```
 
-</center>
+<center>
+```{r} 
+knitr::include_graphics("flowchart.png") 
+``` 
 
+</center>
 
 
 ## Results {data-background=#FFFFFF}
