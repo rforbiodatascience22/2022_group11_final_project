@@ -191,10 +191,18 @@ knitr::include_graphics("../results/kaplan_meier_tumo_seer.png")
 
 ## Results {data-background=#FFFFFF}
 ```{r, out.width = "950px"}
-knitr::include_graphics("../results/presentation_vplots_good.png")
+knitr::include_graphics("../results/presentation_vplots.png")
 ```
 
 ## Results {data-background=#FFFFFF}
+```{r, out.width = "950px"}
+knitr::include_graphics("../results/ADC_SCC_diffexp_plot.png")
+```
+
+## Results {data-background=#FFFFFF}
+```{r, out.width = "700px", fig.align = "center"}
+knitr::include_graphics("../results/ADC_SCC_diffexp_plot_paper.png")
+```
 
 ## Results {data-background=#FFFFFF}
 ```{r, out.width = "1000px", out.height = "500px"}
@@ -205,5 +213,3 @@ knitr::include_graphics("../results/PCA2.png")
 ```{r pressure}
 plot(pressure)
 ```
-
-## Discussion {data-background=#FFFFFF}
