@@ -171,7 +171,7 @@ summary(cars)
 
 ## Results
 ```{r, out.width = "400px"}
-knitr::include_graphics("../results/SCC_CT_NCT_volc_plot.png")
+knitr::include_graphics("../results/presentation_vplots.png")
 ```
 
 ## Results
