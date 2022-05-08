@@ -95,5 +95,5 @@ pca_plots +
 ggsave(filename = "./results/PCA1.png",
        plot = last_plot(),
        width = 4000,
-       height = 1500,
+       height = 1600,
        units = "px")
