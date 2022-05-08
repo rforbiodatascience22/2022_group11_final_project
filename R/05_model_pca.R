@@ -85,8 +85,7 @@ pca_plots <- (pl7 | (pl8 / pl9)) & theme(text = element_text(size = text_size),
                                          axis.text = element_text(size = text_size),
                                          legend.text = element_text(size = text_size))
 pca_plots +
-  plot_annotation(title = "Principal component analysis",
-                  theme = theme(plot.title = element_text(size = text_size * 2.15,
+  plot_annotation(theme = theme(plot.title = element_text(size = text_size * 2.15,
                                                           hjust = 0.5,
                                                           margin = margin(0,
                                                                           0,
