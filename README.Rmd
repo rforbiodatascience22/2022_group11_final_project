@@ -14,22 +14,34 @@ knitr::opts_chunk$set(
 
 # Group 11 Final project 2022
 
-Dalsberg Jørgensen, Jonas - s213551 
-\n
-Gutierrez Leon, Alvaro - s212714 
-\n
-Hoang Viet Minh Pham, Jake - s213060 
-\n
-Romero Yianni, Daniel - s220260 
-\n
+Final project for the 22100 R for Bio Data Science course at DTU. The project has been carried out by the students:
+
+- Dalsberg Jørgensen, Jonas - s213551 
+- Gutierrez Leon, Alvaro - s212714 
+- Hoang Viet Minh Pham, Jake - s213060 
+- Romero Yianni, Daniel - s220260 
+
 
 ## Introduction
 
-## Data and Pipeline
-Paper: https://pubmed.ncbi.nlm.nih.gov/19789312/
-Data: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE13937
+## Data
+
+The dataset used in the projects consists of miRNA expression data for 76 esophageal cancer patients from the US and Japan. It was generated and published by [Mathé et al.](https://pubmed.ncbi.nlm.nih.gov/19789312/) and retireved from the [GEO website](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE13937).
+
+## Objectives
+
+Here we aim to reproduce the findings of the authors and elaborate on their visualizations.
+
+## Pipeline
+
+The data processing pipeline is summarised in the flowchart:
+\n
+```{r, echo=FALSE, out.width = "900px", fig.align = "center"}
+knitr::include_graphics("doc/flowchart.png")
+```
 
 ## Results
+
 
 
 ## Conclusion
