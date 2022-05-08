@@ -1,6 +1,8 @@
 # Install required packages -----------------------------------------------
 
-required_packages = c("tidyverse", "ggrepel")
+required_packages = c("tidyverse", "ggrepel", "magrittr", "patchwork", "broom",
+                      "gridExtra", "survival", "survminer", "cowplot",
+                      "DiagrammeRsvg", "rsvg", "DiagrammeR")
 for (i in 1:length(required_packages)){
   package = required_packages[i]
   if (!(package %in% as.character(installed.packages()))){

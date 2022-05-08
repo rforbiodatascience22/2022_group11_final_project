@@ -80,8 +80,8 @@ ADC_SCC_boxplot_paper = diff_exp_boxplot(filtered_tibble = wide_data %>%
 
 ggsave(filename = "./results/ADC_SCC_diffexp_plot_paper.png",
        plot = ADC_SCC_boxplot_paper,
-       height = 10,
-       width = 14,
+       height = 9,
+       width = 16,
        units = "cm",
        dpi = 500)
 
