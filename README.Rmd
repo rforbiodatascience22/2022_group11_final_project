@@ -93,6 +93,25 @@ knitr::include_graphics("results/kaplan_meier_us_jap.png")
 ```
 
 ### PCA
+We did PCA on mean expression of different miRNAs of cancerous sample. The analysis shows a separation in the data between US and Japanese cohort.
+```{r, echo=FALSE}
+knitr::include_graphics("results/PCA1.png")
+```
+
+### Linear model
+A linear model was fitted into the data to explore any miRNA that is differentially expressed between two conditions. 
+
+```{r, echo=FALSE}
+knitr::include_graphics("results/lm1.png")
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("results/lm2.png")
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("results/lm3.png")
+```
 
 ### Differential expression
 
