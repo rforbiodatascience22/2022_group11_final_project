@@ -26,7 +26,7 @@ Final project for the 22100 R for Bio Data Science course at DTU. The project ha
 
 ## Data
 
-The dataset used in the projects consists of miRNA expression data for 76 esophageal cancer patients from the US and Japan. It was generated and published by [Mathé *et al.*](https://pubmed.ncbi.nlm.nih.gov/19789312/) and we retreived it from the [GEO website](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE13937).
+The dataset used in the projects consists of miRNA expression data for 76 esophageal cancer patients from the US and Japan. It was generated and published by [Mathé *et al.*](https://pubmed.ncbi.nlm.nih.gov/19789312/) and we retrieved it from the [GEO website](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE13937).
 
 ## Objectives
 
@@ -37,7 +37,7 @@ Here we aim to reproduce the findings of the authors and elaborate on their visu
 The data processing pipeline is summarised in the flowchart:  
   
 ```{r, echo=FALSE}
-knitr::include_graphics("doc/flowchart.png")
+knitr::include_graphics("doc/images/flowchart.png")
 ```
 
 ## Results
@@ -96,9 +96,9 @@ knitr::include_graphics("results/kaplan_meier_us_jap.png")
 
 ### Differential expression
 
-Even though we followed the steps described by Mathé *et al.*, we have found many more differentially expressed miRNAs when fitlering with the same criteria. By plotting the differentially expressed miRNAs, we corroborate that the miRNAs that we have found are, in fact, *more* differentially expressed than the ones found by Mathé *et al.*.  
+Even though we followed the steps described by Mathé *et al.*, we have found many more differentially expressed miRNAs when filtering with the same criteria. By plotting the differentially expressed miRNAs, we corroborate that the miRNAs that we have found are, in fact, *more* differentially expressed than the ones found by Mathé *et al.*.  
 ```{r, echo=FALSE}
-knitr::include_graphics("results/presentation_vplots_good.png")
+knitr::include_graphics("results/presentation_vplots.png")
 ```
 
 ```{r, echo=FALSE}
