@@ -36,7 +36,7 @@ Here we aim to reproduce the findings of the authors and elaborate on their visu
 
 The pipeline of data rpocessing is summarised in the flowchart:
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width = "600px", fig.align = "center"}
 knitr::include_graphics("doc/flowchart.png")
 ```
 

@@ -30,7 +30,8 @@ their visualizations.
 ## Pipeline
 
 The pipeline of data rpocessing is summarised in the flowchart:
-<img src="doc/flowchart.png" width="100%" />
+
+<img src="doc/flowchart.png" width="400px" style="display: block; margin: auto;" />
 
 ## Results
 
