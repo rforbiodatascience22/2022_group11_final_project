@@ -99,7 +99,7 @@ knitr::include_graphics("results/PCA1.png")
 ```
 
 ### Linear model
-A linear model was fitted into the data to explore any miRNA that is differentially expressed between two conditions. 
+A linear model was fitted into the data to explore any miRNA that is differentially expressed between two conditions. Any miRNA that has residual larger than 2 will be considered differentially expressed. 
 
 ```{r, echo=FALSE}
 knitr::include_graphics("results/lm1.png")

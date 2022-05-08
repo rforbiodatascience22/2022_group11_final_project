@@ -1,4 +1,5 @@
 ./doc/presentation.html
-.RData
-.Rproj
 .Rproj.user
+.Rhistory
+.RData
+.Ruserdata
