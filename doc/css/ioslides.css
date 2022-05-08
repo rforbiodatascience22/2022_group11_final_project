@@ -1,3 +1,7 @@
+slides > slide {
+  background: linear-gradient(#ffffff, #ffffff 85%, #ffffff);
+  background-color: white;
+  }
 
 body {
   color: #000000;
@@ -8,7 +12,7 @@ h1 {
 }
 
 h2 {
-  color: #000000;
+  color: #97040c;
 }
 
 h3 {
@@ -34,3 +38,4 @@ p {
 ul {
   color: #000000;
 }
+
