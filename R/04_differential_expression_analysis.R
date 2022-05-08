@@ -32,7 +32,7 @@ ADC_SCC_vplot = volcano_plot(ttest_tibble = ADC_SCC_dif_exp,
                              significance_threshold = 0.05,
                              label_logpval_threshold = logpval_threshold,
                              label_logFC_threshold = logFC_threshold,
-                             plot_title = "SCC vs ADC (cancerous tissues)")
+                             plot_title = "SCC vs ADC\n(cancerous tissues)")
 
 ggsave(filename = "./results/ADC_SCC_volc_plot.png",
        plot = ADC_SCC_vplot,
@@ -51,7 +51,7 @@ ADC_SCC_boxplot = diff_exp_boxplot(filtered_tibble = wide_data %>%
                                    probes = plot_probes,
                                    facet_rows = 1,
                                    facet_scale = "free_y") +
-  labs(title = "SCC vs ADC (cancerous tissues)")
+  labs(title = "SCC vs ADC (cancerous tissues)") +
   theme_bw(base_size = 13.5) +
   theme(legend.position = "none")
 
@@ -74,7 +74,7 @@ ADC_SCC_boxplot_paper = diff_exp_boxplot(filtered_tibble = wide_data %>%
                                          facet_rows = 1,
                                          facet_scale = "free_y") +
   labs(title = "SCC vs ADC (cancerous tissues)",
-       subtitle = "Differentially expressed miRNAs from Mathé et al.") +
+       subtitle = "Differentially expressed miRNAs from Math? et al.") +
   theme_bw(base_size = 11) +
   theme(legend.position = "none")
 
@@ -98,7 +98,7 @@ ADC_CT_NCT_vplot = volcano_plot(ttest_tibble = ADC_CT_NCT_diffexp,
                                 significance_threshold = 0.05,
                                 label_logpval_threshold = logpval_threshold,
                                 label_logFC_threshold = logFC_threshold,
-                                plot_title = "ADC (cancerous vs. noncancerous)"
+                                plot_title = "ADC (cancerous vs. non-cancerous)"
                                 ) +
   xlim(-0.4, 0.2)  +
   ylim(0, 3.6)
@@ -141,7 +141,7 @@ ADC_CT_NCT_boxplot_paper = diff_exp_boxplot(filtered_tibble = wide_data %>%
                                             probes = paper_probes,
                                             facet_rows = 1) +
   labs(title = "ADC cancerous vs. non cancerous tissue",
-       subtitle = "Differentially expressed miRNAs from Mathé et al.") +
+       subtitle = "Differentially expressed miRNAs from Math? et al.") +
   theme_bw(base_size = 11) +
   theme(legend.position = "none")
 
@@ -165,7 +165,7 @@ SCC_CT_NCT_vplot = volcano_plot(ttest_tibble = SCC_CT_NCT_diffexp,
                                 significance_threshold = 0.05,
                                 label_logpval_threshold = logpval_threshold,
                                 label_logFC_threshold = logFC_threshold,
-                                plot_title = "SCC (cancerous vs. non cancerous)"
+                                plot_title = "SCC (cancerous vs. non-cancerous)"
                                 ) +
   xlim(-0.25, 0.25)
 
@@ -187,7 +187,7 @@ SCC_CT_NCT_boxplot = diff_exp_boxplot(filtered_tibble = wide_data %>%
                                       facet_rows = 2) +
   theme_bw(base_size = 14) +
   theme(legend.position = "none") +
-  labs(title = "SCC cancerous vs. non cancerous tissue")
+  labs(title = "SCC cancerous vs. non-cancerous tissue")
 
 ggsave(filename = "./results/SCC_CT_NCT_diffexp_plot.png",
        plot = SCC_CT_NCT_boxplot,
@@ -208,8 +208,8 @@ SCC_CT_NCT_boxplot_paper = diff_exp_boxplot(filtered_tibble = wide_data %>%
                                             facet_rows = 1) +
   theme_bw(base_size = 11) +
   theme(legend.position = "none") +
-  labs(title = "SCC cancerous vs. non cancerous tissue",
-       subtitle = "Differentially expressed miRNAs from Mathé et al.")
+  labs(title = "SCC cancerous vs. non-cancerous tissue",
+       subtitle = "Differentially expressed miRNAs from Math? et al.")
 
 ggsave(filename = "./results/SCC_CT_NCT_diffexp_plot_paper.png",
        plot = SCC_CT_NCT_boxplot_paper,

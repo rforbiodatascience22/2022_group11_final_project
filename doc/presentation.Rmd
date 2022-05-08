@@ -10,11 +10,13 @@ date: "`r format(Sys.time(), '%d %B %Y')`"
 
 output: 
   ioslides_presentation: 
-    font-family: 'Helvetica'
+    font-family: 'Arial'
     widescreen: true
+    logo: Coral_Red_CMYK.png
     #smaller: true
 
 ---
+
 <!-- Change the text to black but does not work properly -->
 <!-- <style type="text/css"> -->
 <!-- body p { -->
@@ -22,23 +24,25 @@ output:
 <!-- } -->
 <!-- </style> -->
 
-
+<!-- This allows to change color of text individually  -->
+<!-- - <span style="color:red">**Source of the dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.</span> -->
+<!-- <br> -->
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(DiagrammeR)
 ```
 
-## Introduction 
+
+## Introduction {data-background=#FFFFFF}
 - **Source of the dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.
 
     - Microarray data from cancerous and adjacent noncancerous tissues collected from 100 adenocarcinoma and 70 SCC patients enrolled at four clinical centers from the United States, Canada, and Japan
 
 
-<br>
 
 - **Objective of the project:** To reproduce the findings of the authors and elaborate on their visualizations.
 
-## Materials and methods | Patient data: 
+## Materials and methods | Patient data: {data-background=#FFFFFF}
 - **GSE13937_series_matrix.txt**
 <br>
 
@@ -53,8 +57,9 @@ library(DiagrammeR)
 
 
 ## Materials and methods | Flowchart of the development process {data-background=#FFFFFF}
+<center>
 
-```{r}
+```{r fig.align="center"}
 grViz("
 digraph flowchart {
 
@@ -65,7 +70,7 @@ digraph flowchart {
   ####### ####### ####### ####### ####### ####### NODES  ####### ####### ####### #######
   ####### RAW 'NODE' STATEMENTS ####### DB5353
   node [shape = box,
-        fontname = Helvetica,
+        fontname = Arial,
         fillcolor = '#1B325F',
         style = filled,
         fontcolor = white]
@@ -75,7 +80,7 @@ digraph flowchart {
   ####### LOAD 'NODE' STATEMENTS  #######
   #CSV #FFF6CD
   node [shape = box,
-        fontname = Helvetica,
+        fontname = Arial,
         fillcolor = '#E9F2F9', 
         style = filled,
         fontcolor = black]
@@ -84,7 +89,7 @@ digraph flowchart {
   
   #NO CSV
    node [shape = box,
-        fontname = Helvetica,
+        fontname = Arial,
         fillcolor = white,
         style = filled]
   
@@ -94,7 +99,7 @@ digraph flowchart {
   
   ####### CLEAN 'NODE' STATEMENTS  #######
   node [shape = box,
-        fontname = Helvetica,
+        fontname = Arial,
         fillcolor = '#9CC4E4',
         style = filled]
   
@@ -104,7 +109,7 @@ digraph flowchart {
   ######## AUGMENT 'NODE' STATEMENTS  #######
   #CSV
   node [shape = box,
-        fontname = Helvetica,
+        fontname = Arial,
         fillcolor = '#3A89C9',
         stile = filled]
   
@@ -113,14 +118,14 @@ digraph flowchart {
   
   #NO CSV
   node [shape = box,
-        fontname = Helvetica,
+        fontname = Arial,
         fillcolor = white,
         style = filled]
   data_aug
   
   ######## RESULTS NODE  #######
   node [shape = box,
-        fontname = Helvetica,
+        fontname = Arial,
         style = filled, 
         fillcolor='#FDBBA8']
   'Results and visualizations' [fillcolor = '#F26C4F']
@@ -131,7 +136,7 @@ digraph flowchart {
    
    ####### ####### ############### 'EDGE' STATEMENTS  ####### ####### ####### #######
   #Raw - load
-  'GSE13937_series_matrix.txt' -> raw_data [label='', fontsize=15, fontname = Helvetica, fontcolor='#131A37']
+  'GSE13937_series_matrix.txt' -> raw_data [label='', fontsize=15, fontname = Arial, fontcolor='#131A37']
   
   raw_data -> 'data_load.csv' [color='#131A37']
   'A-GEOD-8835.adf.txt' -> 'raw_probes' 
@@ -163,31 +168,36 @@ digraph flowchart {
 
 ```
 
+</center>
 
 
 
+<<<<<<< HEAD
 
 
-## Results
+## Results {data-background=#FFFFFF}
 ```{r, out.width = "1000px", out.height = "500px"}
 knitr::include_graphics("../results/kaplan_meier_tumo_seer.png")
 ```
 
-## Results
-```{r, out.width = "400px"}
+## Results {data-background=#FFFFFF}
+```{r, out.width = "950px"}
 knitr::include_graphics("../results/presentation_vplots.png")
 ```
 
-## Results
+## Results {data-background=#FFFFFF}
+```{r}
 
-## Results
+```
+
+## Results {data-background=#FFFFFF}
 ```{r, out.width = "1000px", out.height = "500px"}
 knitr::include_graphics("../results/PCA2.png")
 ```
 
-## Discussion
+## Discussion {data-background=#FFFFFF}
 ```{r pressure}
 plot(pressure)
 ```
 
-## Discussion
+## Discussion {data-background=#FFFFFF}

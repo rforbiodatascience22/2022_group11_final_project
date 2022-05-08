@@ -19,7 +19,7 @@ volcano_plot = function(ttest_tibble, significance_threshold,
                alpha = 0.7) +
     # geom_text(hjust=0,
     #           vjust=-1) +
-    geom_text_repel(force = 100) +
+    geom_text_repel(force = 110) +
     geom_vline(xintercept = label_logFC_threshold,
                linetype = "dashed",
                alpha = 0.2) +
@@ -43,21 +43,20 @@ volcano_plot = function(ttest_tibble, significance_threshold,
 # Generates fancy box plot from expression data
 diff_exp_boxplot = function(filtered_tibble, probes, group, facet_rows = NULL,
                             facet_cols = NULL, facet_scale = "free_y"){
+  probes_clean = read_csv("data/probes_data_clean.csv") %>% 
+    rename(probe = Probe_name,
+           miRNA = Mature_MiRNA)
+  
   plot = filtered_tibble %>%  # Must be wide version
     select(patient:death_due_to_cancer,
            probes) %>%
     pivot_longer(cols = contains("hsa-mir"),
-                 names_to = "miRNA",
+                 names_to = "probe",
                  values_to = "Expression") %>%
-    separate(col = miRNA,
-             into = c(NA, NA, "miRNA", NA),
-             sep = "-") %>%
-    mutate(miRNA = case_when(str_sub(miRNA,
-                                     start = -3,
-                                     end = -2) == "No" ~ str_sub(miRNA,
-                                                                 end = -4),
-                             TRUE ~ miRNA),
-           miRNA = str_c("miR-", miRNA),
+    inner_join(y = probes_clean,
+               by = "probe") %>% 
+    mutate(miRNA = str_sub(miRNA,
+                           start = 5),
            tissue_type = str_to_sentence(tissue_type),
            tissue_type = case_when(tissue_type == "Non-cancerous" ~ "Healthy",
                                    TRUE ~ tissue_type)) %>%
