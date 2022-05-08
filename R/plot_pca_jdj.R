@@ -16,7 +16,7 @@ tidy_data_wide <- tidy_data_wide %>%
   #filter(tumor_type == "SCC")
   filter(tissue_type == "cancerous")
 
-text_size = 13 # for all plots
+text_size = 18 # for all plots
 ## PCA
 pca_fit <- tidy_data_long %>%
   select(patient, Expression, Mature_MiRNA) %>%
@@ -55,11 +55,15 @@ pl8 <- pca_fit %>%
   tidy(matrix = "rotation") %>%
   pivot_wider(names_from = "PC", names_prefix = "PC", values_from = "value") %>%
   ggplot(aes(PC1, PC2)) +
-  geom_segment(xend = 0, yend = 0, arrow = arrow_style) +
+  geom_segment(xend = 0,
+               yend = 0,
+               arrow = arrow_style) +
   geom_text(
     aes(label = column),
-    hjust = 1, nudge_x = -0.02,
-    color = "#904C2F", size = 2,
+    hjust = 1,
+    nudge_x = -0.02,
+    color = "#904C2F",
+    size = text_size / 3,
     check_overlap = T
   ) +
   labs(title = "Rotation matrix"
@@ -81,10 +85,21 @@ pl9 <- pca_fit %>%
   ) +
   theme_minimal_hgrid(12)
 
-(pl7 | (pl8 / pl9)) & theme(text = element_text(size = text_size))
+# Combine the plots into one figure
+pca_plots <- (pl7 | (pl8 / pl9)) & theme(text = element_text(size = text_size),
+                                         axis.text = element_text(size = text_size),
+                                         legend.text = element_text(size = text_size))
+pca_plots +
+  plot_annotation(title = "Principal component analysis",
+                  theme = theme(plot.title = element_text(size = text_size * 2.15,
+                                                          hjust = 0.5,
+                                                          margin = margin(0,
+                                                                          0,
+                                                                          10,
+                                                                          0))))
 
 ggsave(filename = "./results/PCA2.png",
        plot = last_plot(),
-       dpi = 1000,
-       width = 15,
-       height = 10)
+       width = 5000,
+       height = 2500,
+       units = "px")

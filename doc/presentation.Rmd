@@ -1,10 +1,7 @@
 ---
 title: "R Final Project - Group 11"
-author:
-- "Dalsberg Jørgensen, Jonas"
-- "Gutierrez Leon, Alvaro"
-- "Hoang Viet Minh Pham, Jake"
-- "Romero Yianni, Daniel"
+
+author: Dalsberg Jørgensen Jonas <br> Gutierrez Leon, Alvaro <br> Romero Yianni, Daniel <br> Hoang Viet Minh Pham, Jake
 
 date: "`r format(Sys.time(), '%d %B %Y')`"
 
@@ -29,15 +26,23 @@ output:
 <!-- <br> -->
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-library(DiagrammeR)
+library("DiagrammeR")
+library("tidyverse")
+library("ggrepel")
+library("DiagrammeRsvg")
+library("rsvg") 
 ```
 
 
 ## Introduction {data-background=#FFFFFF}
-- **Source of the dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.
+- **Dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.
 
-    - Microarray data from cancerous and adjacent noncancerous tissues collected from 100 adenocarcinoma and 70 SCC patients enrolled at four clinical centers from the United States, Canada, and Japan
+    - Cancerous and  noncancerous tissues.
+    - 100 ADC and 70 SCC patients.
+    - North American and Japanese cohorts
+     enrolled at four clinical centers from the United States, Canada, and Japan
 
+<br>
 
 
 - **Objective of the project:** To reproduce the findings of the authors and elaborate on their visualizations.
@@ -57,10 +62,9 @@ library(DiagrammeR)
 
 
 ## Materials and methods | Flowchart of the development process {data-background=#FFFFFF}
-<center>
 
-```{r fig.align="center"}
-grViz("
+```{r}
+flowchart <- grViz("
 digraph flowchart {
 
   # a 'graph' statement
@@ -68,12 +72,14 @@ digraph flowchart {
 
 
   ####### ####### ####### ####### ####### ####### NODES  ####### ####### ####### #######
-  ####### RAW 'NODE' STATEMENTS ####### DB5353
+  ####### RAW 'NODE' STATEMENTS ####### 
   node [shape = box,
         fontname = Arial,
-        fillcolor = '#1B325F',
+        fillcolor = '#1B325F'
         style = filled,
-        fontcolor = white]
+        fontcolor = white];
+  nodesep= 1.25;
+  
   'GSE13937_series_matrix.txt'; 'A-GEOD-8835.adf.txt'; 'A-GEOD-8835_comments.txt';
   
   
@@ -166,15 +172,21 @@ digraph flowchart {
 }
 ")
 
+flowchart = export_svg(flowchart)
+flowchart = charToRaw(flowchart)
+rsvg_png(flowchart, "flowchart.png", height = 900, width = 1500)
 ```
+
+<center>
+```{r} 
+knitr::include_graphics("flowchart.png") 
+``` 
 
 </center>
 
-
-
 ## Results {data-background=#FFFFFF}
-```{r cars, echo = TRUE}
-summary(cars)
+```{r, out.width = "1000px", out.height = "500px"}
+knitr::include_graphics("../results/kaplan_meier_tumo_seer.png")
 ```
 
 ## Results {data-background=#FFFFFF}
@@ -183,11 +195,11 @@ knitr::include_graphics("../results/presentation_vplots_good.png")
 ```
 
 ## Results {data-background=#FFFFFF}
-```{r}
-
-```
 
 ## Results {data-background=#FFFFFF}
+```{r, out.width = "1000px", out.height = "500px"}
+knitr::include_graphics("../results/PCA2.png")
+```
 
 ## Discussion {data-background=#FFFFFF}
 ```{r pressure}

@@ -24,7 +24,7 @@ data_fysr <- data %>%
   filter(tissue_type == "cancerous") # only one row per patient
 
 # Plot: How many patients in each group (cancer stage)
-text_size = 13 # for all plots
+text_size = 18 # for all plots
 legend_name = "SEER stage"
 p_count <- data_fysr %>%
   ggplot(mapping = aes(x = SEER_stage,
@@ -93,7 +93,7 @@ all_plots <- ggarrange(box_plots,
 text <- "Survival probability for different stages of cancer\n"
 annotate_figure(all_plots,
                 top = text_grob(text,
-                                size = 28,
+                                size = text_size * 2.15,
                                 lineheight = 0.3))
 
 # Save the plots as a .PNG file
@@ -148,7 +148,7 @@ text_all <- paste(text_1,
 text_all
 annotate_figure(us_vs_jap,
                 top = text_grob("Survival probability by cohort\n",
-                                size = 28,
+                                size = text_size * 2.15,
                                 lineheight = 0.3),
                 bottom = text_grob(text_all,
                                    hjust = 1,
@@ -298,7 +298,7 @@ all_strata <- ggarrange(plot_tumo,
 text <- "Visualization of all significantly different strata\n"
 annotate_figure(all_strata,
                 top = text_grob(text,
-                                size = 28,
+                                size = text_size * 2.15,
                                 lineheight = 0.3))
 ggsave("results/kaplan_meier_all.png",
        bg = "white",
@@ -335,7 +335,10 @@ p_tumo <- p_tumo$plot +
 # Combined tumor type plot
 tumo_plots <- ggarrange(p_count_tumo,
                         p_tumo,
-                        nrow = 2)
+                        nrow = 2,
+                        heights = c(1,
+                                    2),
+                        font.label = c(size = text_size))
 
 # P_count and Kaplan-Meier plot for the SEER stage
 p_count_seer <- p_count +
@@ -344,7 +347,10 @@ p_count_seer <- p_count +
 # Combined SEER stage plot
 seer_plots <- ggarrange(p_count_seer,
                         p_km,
-                        nrow = 2)
+                        nrow = 2,
+                        heights = c(1,
+                                    2),
+                        font.label = c(size = text_size))
 
 # Combine all plots
 tumo_seer_plots <- ggarrange(tumo_plots,
@@ -353,12 +359,12 @@ tumo_seer_plots <- ggarrange(tumo_plots,
 # Add shared title
 annotate_figure(tumo_seer_plots,
                 top = text_grob("Survival probability for different groups\n",
-                                size = 28,
+                                size = text_size * 2.15,
                                 lineheight = 0.3))
 
 # Save the plots as a .PNG file
 ggsave("results/kaplan_meier_tumo_seer.png",
        bg = "white",
-       width = 4500,
-       height = 3000,
+       width = 5000,
+       height = 2500,
        units = "px")
