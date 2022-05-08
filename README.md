@@ -4,7 +4,7 @@ README
 # Group 11 Final project 2022
 
 Final project for the 22100 R for Bio Data Science course at DTU. The
-project has been carried out by the students:
+project has been carried out by:
 
 -   Dalsberg Jørgensen, Jonas - s213551
 -   Gutierrez Leon, Alvaro - s212714
@@ -18,8 +18,8 @@ project has been carried out by the students:
 The dataset used in the projects consists of miRNA expression data for
 76 esophageal cancer patients from the US and Japan. It was generated
 and published by [Mathé *et
-al.*](https://pubmed.ncbi.nlm.nih.gov/19789312/) and we retireved from
-the [GEO
+al.*](https://pubmed.ncbi.nlm.nih.gov/19789312/) and we retrieved it
+from the [GEO
 website](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE13937).
 
 ## Objectives
@@ -31,7 +31,7 @@ their visualizations.
 
 The data processing pipeline is summarised in the flowchart:
 
-<img src="doc/flowchart.png" width="100%" />
+<img src="doc/images/flowchart.png" width="100%" />
 
 ## Results
 
@@ -42,11 +42,11 @@ The data processing pipeline is summarised in the flowchart:
 ### Differential expression
 
 Even though we followed the steps described by Mathé *et al.*, we have
-found many more differentially expressed miRNAs according to the same
-criteria. By plotting the differentially expressed miRNAs, we
+found many more differentially expressed miRNAs when filtering with the
+same criteria. By plotting the differentially expressed miRNAs, we
 corroborate that the miRNAs that we have found are, in fact, *more*
 differentially expressed than the ones found by Mathé *et al.*.  
-<img src="results/presentation_vplots_good.png" width="100%" />
+<img src="results/presentation_vplots.png" width="100%" />
 
 <img src="results/ADC_SCC_diffexp_plot.png" width="100%" />
 

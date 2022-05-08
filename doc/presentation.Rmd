@@ -1,7 +1,8 @@
 ---
 title: "R Final Project - Group 11"
 
-author: Dalsberg Jørgensen Jonas <br> Gutierrez Leon, Alvaro <br> Romero Yianni, Daniel <br> Hoang Viet Minh Pham, Jake
+author: Dalsberg Jørgensen Jonas <br> Gutierrez Leon, Alvaro <br> Romero Yianni, Daniel <br> Hoang Viet Minh Pham, Jake <br> 
+
 
 date: "`r format(Sys.time(), '%d %B %Y')`"
 
@@ -10,22 +11,18 @@ output:
     font-family: 'Arial'
     widescreen: true
     css: css/ioslides.css
-    logo: Coral_Red_CMYK.png
+    logo: Corp_Red_RGB.png
     #smaller: true
+
+  header-includes:
+    - \allsectionsfont{\color{black}}
 ---
 
 
-<!-- This allows to change color of text individually  -->
-<!-- - <span style="color:red">**Source of the dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.</span> -->
-<!-- <br> -->
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-library("DiagrammeR")
 library("tidyverse")
 library("ggrepel")
-library("DiagrammeRsvg")
-library("rsvg") 
 ```
 
 
@@ -44,8 +41,9 @@ library("rsvg")
 
 - **Objective of the project:** To reproduce the findings of the authors and elaborate on their visualizations.
 
+
 ## Materials and methods {data-background=#FFFFFF}
-### Patient data: 
+### **Patient data**: 
 - **GSE13937_series_matrix.txt**
 <br>
 
@@ -53,133 +51,17 @@ library("rsvg")
 
 <br>
 
-### Microarray information:
+### **Microarray information**:
 - **A-GEOD-8835.adf.txt** and **A-GEOD-8835_comments.txt** 
 
 - European Bioinformatics Institute website (https://www.ebi.ac.uk/arrayexpress/arrays/A-GEOD-8835/)  
 
 
-## Materials and methods | Flowchart of the development process {data-background=#FFFFFF}
-
-```{r}
-flowchart <- grViz("
-digraph flowchart {
-
-  # a 'graph' statement
-  graph [overlap = true, fontsize = 10]
-
-
-  ####### ####### ####### ####### ####### ####### NODES  ####### ####### ####### #######
-  ####### RAW 'NODE' STATEMENTS ####### 
-  node [shape = box,
-        fontname = Arial,
-        fillcolor = '#1B325F',
-        fontsize = 25,
-        style = filled,
-        fontcolor = white];
-  nodesep= 1.25;
-  
-  'GSE13937_series_matrix.txt'; 'A-GEOD-8835.adf.txt'; 'A-GEOD-8835_comments.txt';
-  
-  
-  ####### LOAD 'NODE' STATEMENTS  #######
-  #CSV #FFF6CD
-  node [shape = box,
-        fontname = Arial,
-        fillcolor = '#E9F2F9', 
-        style = filled,
-        fontcolor = black]
-  
-  'data_load.csv' 'probes_data_load.csv'
-  
-  #NO CSV
-   node [shape = box,
-        fontname = Arial,
-        fillcolor = white,
-        style = filled]
-  
-  raw_data ; 'raw_probes'; 'raw_comments'; 
-  
-  
-  
-  ####### CLEAN 'NODE' STATEMENTS  #######
-  node [shape = box,
-        fontname = Arial,
-        fillcolor = '#9CC4E4',
-        style = filled]
-  
-  'data_clean.csv' 
-  'probes_data_clean.csv'
-  
-  ######## AUGMENT 'NODE' STATEMENTS  #######
-  #CSV
-  node [shape = box,
-        fontname = Arial,
-        fillcolor = '#3A89C9',
-        stile = filled]
-  
-  'data_aug_wide.csv'
-  'data_aug_long.csv'
-  
-  #NO CSV
-  node [shape = box,
-        fontname = Arial,
-        fillcolor = white,
-        style = filled]
-  data_aug
-  
-  ######## RESULTS NODE  #######
-  node [shape = box,
-        fontname = Arial,
-        style = filled, 
-        fillcolor='#FDBBA8']
-  'Results and visualizations' [fillcolor = '#F26C4F']
-  
-  'PCA'; 'Differential expression'; 'Kaplan-Meier'; 'Linear regression'
-  
-  
-   
-   ####### ####### ############### 'EDGE' STATEMENTS  ####### ####### ####### #######
-  #Raw - load
-  'GSE13937_series_matrix.txt' -> raw_data [label='', fontsize=15, fontname = Arial, fontcolor='#131A37']
-  
-  raw_data -> 'data_load.csv' 
-  'A-GEOD-8835.adf.txt' -> 'raw_probes' 
-  'A-GEOD-8835_comments.txt' -> 'raw_comments'
-  {'raw_probes' 'raw_comments'} -> 'probes_data_load.csv'
-  
-  #Load - clean
-  'data_load.csv' -> 'data_clean.csv'
-  'probes_data_load.csv' -> 'probes_data_clean.csv'
-  
-  #Clean - augmented
-  'data_clean.csv' -> data_aug
-  {data_aug 'probes_data_clean.csv'} -> 'data_aug_wide.csv'
-  'data_aug_long.csv' -> 'data_aug_wide.csv'
-  'data_aug_wide.csv' -> 'data_aug_long.csv'
-
-
- #Augmented - Visualizations 
-{'data_aug_wide.csv'} -> 'Results and visualizations' -> {'PCA' 'Differential expression' 'Kaplan-Meier' 'Linear regression'} 
-
-
-  
-{ rank = same; 'GSE13937_series_matrix.txt'; 'A-GEOD-8835.adf.txt'; 'A-GEOD-8835_comments.txt' }
-{ rank = same; 'data_clean.csv'; 'probes_data_clean.csv' }
-{ rank = same; 'data_aug_wide.csv'; 'data_aug_long.csv' }
-
-}
-")
-
-flowchart = export_svg(flowchart)
-flowchart = charToRaw(flowchart)
-rsvg_png(flowchart, "flowchart.png", height = 900, width = 1500)
-```
-
+## Materials and methods | **Flowchart of the data wrangling and analysis** {data-background=#FFFFFF}
 
 <center>
 ```{r} 
-knitr::include_graphics("flowchart.png") 
+knitr::include_graphics("./images/flowchart.png") 
 ``` 
 </center>
 
@@ -210,6 +92,14 @@ knitr::include_graphics("../results/PCA2.png")
 ```
 
 ## Discussion {data-background=#FFFFFF}
-```{r pressure}
-plot(pressure)
-```
+
+- **Data quality:** absence of the different North American cohorts hindered the
+reproducibility of the article.
+
+-**Data wrangling:** complex data set which required decision-making regarding the selection of relevant probes, NA values, and others. 
+
+- **Survival:** 
+
+- **Differential expression:** 
+
+- **Principal Component Analysis:** 
