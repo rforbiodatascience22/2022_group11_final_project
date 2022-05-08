@@ -85,7 +85,7 @@ knitr::include_graphics("../results/ADC_SCC_diffexp_plot.png")
 knitr::include_graphics("../results/ADC_SCC_diffexp_plot_paper.png")
 ```
 
-## Results | **Title goes here** {data-background=#FFFFFF}
+## Results | **Principal component analysis in cancerous sample** {data-background=#FFFFFF}
 ```{r, out.width = "1000px", out.height = "500px"}
 knitr::include_graphics("../results/PCA1.png")
 ```
@@ -101,4 +101,4 @@ reproducibility of the article.
 
 - **Differential expression:** We weren't able to reproduce the results, but we found more differentially expressed miRNAs.
 
-- **Principal Component Analysis:** 
+- **Principal Component Analysis:** PCA shows the data can by grouped by cohort with minor overlap. Overall, there is not a clear clustering of the data based on the mean expression of miRNA. 
