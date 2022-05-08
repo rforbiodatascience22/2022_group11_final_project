@@ -92,13 +92,13 @@ knitr::include_graphics("../results/PCA1.png")
 
 ## Discussion {data-background=#FFFFFF}
 
-- **Missing data.**
+- Missing data.
 
-- **Complex data set.** 
+- Complex data set. 
 
-- **Correlation between survival and some conditions.** 
+- Correlation between survival and some conditions. 
 
-- **Higher number of differentially expressed miRNAs** 
+- Higher number of differentially expressed miRNAs.
 
-- **Partial clustering in PCA.** 
+- Partial clustering in PCA. 
 

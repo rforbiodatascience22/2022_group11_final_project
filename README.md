@@ -6,10 +6,10 @@ README
 Final project for the 22100 R for Bio Data Science course at DTU. The
 project has been carried out by:
 
--   Dalsberg Jørgensen, Jonas - s213551
--   Gutierrez Leon, Alvaro - s212714
--   Hoang Viet Minh Pham, Jake - s213060
--   Romero Yianni, Daniel - s220260
+  - Dalsberg Jørgensen, Jonas - s213551
+  - Gutierrez Leon, Alvaro - s212714
+  - Hoang Viet Minh Pham, Jake - s213060
+  - Romero Yianni, Daniel - s220260
 
 ## Introduction
 
@@ -73,12 +73,28 @@ essentially separated the patients based on two conditions - country and
 tumor type (SCC vs. ADC+SCC). As we have shown in kaplan\_meier\_all.png
 and kaplan\_meier\_tumo\_seer.png, tumor type seems to be a good
 indicator of outcome, and so it is not surprising that US patients
-survive longer than Japanese patients (ADC &gt; SCC). We then filtered
-for only SCC samples to more fairly compare the countries, and we found
-a p-value of 0.31, so the observed difference in outcome was not
+survive longer than Japanese patients (ADC \> SCC). We then filtered for
+only SCC samples to more fairly compare the countries, and we found a
+p-value of 0.31, so the observed difference in outcome was not
 significant. <img src="results/kaplan_meier_us_jap.png" width="100%" />
 
 ### PCA
+
+We did PCA on mean expression of different miRNAs of cancerous sample.
+The analysis shows a separation in the data between US and Japanese
+cohort. <img src="results/PCA1.png" width="100%" />
+
+### Linear model
+
+A linear model was fitted into the data to explore any miRNA that is
+differentially expressed between two conditions. Any miRNA that has
+residual larger than 2 will be considered differentially expressed.
+
+<img src="results/lm1.png" width="100%" />
+
+<img src="results/lm2.png" width="100%" />
+
+<img src="results/lm3.png" width="100%" />
 
 ### Differential expression
 
