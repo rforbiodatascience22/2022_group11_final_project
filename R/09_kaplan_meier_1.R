@@ -2,7 +2,7 @@
 
 library("tidyverse")
 library("magrittr")
-source("./R/proj_func.R")
+source("./R/99_proj_functions.R")
 
 tidy_data = read_csv("./data/data_aug_wide.csv")
 
