@@ -21,6 +21,7 @@ source(file = "R/06_model_diffexp.R")
 source(file = "R/07_model_diffexp_plot.R")
 source(file = "R/08_flowchart.R")
 source(file = "R/100_kaplan_meier_1.R")
+source(file = "R/101_kaplan_meier_2.R")
 source(file = "R/104_glm.R")
 
 rmarkdown::render(input = "doc/presentation.Rmd",

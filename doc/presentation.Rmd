@@ -43,17 +43,17 @@ library("ggrepel")
 
 ## Materials and methods {data-background=#FFFFFF}
 ### **Patient data**: 
-- **GSE13937_series_matrix.txt**
+- **GSE13937_series_matrix.txt**.
 <br>
 
-- National Center for Biotechnology Information website   (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE13937)
+- National Center for Biotechnology Information website   (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE13937).
 
 <br>
 
 ### **Microarray information**:
-- **A-GEOD-8835.adf.txt** and **A-GEOD-8835_comments.txt** 
+- **A-GEOD-8835.adf.txt** and **A-GEOD-8835_comments.txt**. 
 
-- European Bioinformatics Institute website (https://www.ebi.ac.uk/arrayexpress/arrays/A-GEOD-8835/)  
+- European Bioinformatics Institute website (https://www.ebi.ac.uk/arrayexpress/arrays/A-GEOD-8835/).  
 
 
 ## Materials and methods | **Flowchart of the data wrangling and analysis** {data-background=#FFFFFF}

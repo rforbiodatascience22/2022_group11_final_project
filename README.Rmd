@@ -73,7 +73,7 @@ knitr::include_graphics("results/kaplan_meier_tumo_seer.png")
 An initial but discarded idea was to present just the SEER stage plots. In this
 version, we have included a bar plot with the 5-year survival rates (top right).
 ```{r, echo=FALSE}
-knitr::include_graphics("results/kaplan_meier_seer.png.png")
+knitr::include_graphics("results/kaplan_meier_seer.png")
 ```
 
 When exploring different strata, it initially seemed like the country (cohort)
