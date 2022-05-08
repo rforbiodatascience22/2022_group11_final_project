@@ -35,10 +35,14 @@ library("rsvg")
 
 
 ## Introduction {data-background=#FFFFFF}
-- **Source of the dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.
+- **Dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.
 
-    - Microarray data from cancerous and adjacent noncancerous tissues collected from 100 adenocarcinoma and 70 SCC patients enrolled at four clinical centers from the United States, Canada, and Japan
+    - Cancerous and  noncancerous tissues.
+    - 100 ADC and 70 SCC patients.
+    - North American and Japanese cohorts
+     enrolled at four clinical centers from the United States, Canada, and Japan
 
+<br>
 
 
 - **Objective of the project:** To reproduce the findings of the authors and elaborate on their visualizations.
