@@ -8,18 +8,14 @@ library(ggpubr)
 tidy_data_wide = read_csv("./data/data_aug_wide.csv")
 tidy_data_long = read_csv("./data/data_aug_long.csv")
 
-# Filter for squamous cell carcinoma only
-# tidy_data_long <- tidy_data_long %>%
-# #  filter(tumor_type == "SCC") %>% 
-#   filter(tissue_type == "cancerous")
 tidy_data_wide <- tidy_data_wide %>%
-  #filter(tumor_type == "SCC")
   filter(tissue_type == "cancerous")
 
 text_size = 18 # for all plots
 ## PCA
 pca_fit <- tidy_data_long %>%
-  select(patient, Expression, Mature_MiRNA) %>%
+  select(patient, Expression, Mature_MiRNA, tissue_type) %>%
+  filter(tissue_type == "cancerous") %>%
   group_by(Mature_MiRNA, patient) %>%
   mutate(Mean = mean(Expression)) %>%
   select(-Expression) %>%
@@ -27,7 +23,7 @@ pca_fit <- tidy_data_long %>%
   pivot_wider(names_from = Mature_MiRNA, values_from = Mean) %>%
   select_if(~ !any(is.na(.))) %>%
   ungroup() %>%
-  select(-patient) %>%
+  select(-patient, -tissue_type) %>%
   scale() %>%
   prcomp(scale = TRUE)
 
@@ -98,7 +94,7 @@ pca_plots +
                                                                           10,
                                                                           0))))
 
-ggsave(filename = "./results/PCA2.png",
+ggsave(filename = "./results/PCA1.png",
        plot = last_plot(),
        width = 5000,
        height = 2500,
