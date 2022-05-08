@@ -92,13 +92,13 @@ knitr::include_graphics("../results/PCA1.png")
 
 ## Discussion {data-background=#FFFFFF}
 
-- **Data quality:** Absence of the different North American cohorts hindered the
-reproducibility of the article.
+- **Missing data.**
 
-- **Data wrangling:** Complex data set which required decision-making regarding the selection of relevant probes, NA values, and others. 
+- **Complex data set.** 
 
-- **Survival:** Produced Kaplan-Meier curves that highlighted a correlation between survival and both tumor types and SEER stage.
+- **Correlation between survival and some conditions.** 
 
-- **Differential expression:** We weren't able to reproduce the results, but we found more differentially expressed miRNAs.
+- **Higher number of differentially expressed miRNAs** 
 
-- **Principal Component Analysis:** PCA shows the data can by grouped by cohort with minor overlap. Overall, there is not a clear clustering of the data based on the mean expression of miRNA. 
+- **Partial clustering in PCA.** 
+
