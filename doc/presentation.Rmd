@@ -19,22 +19,6 @@ output:
 ---
 
 
-
-<<<<<<< HEAD
-<!-- <style type="text/css"> -->
-<!-- body p { -->
-<!--   color: #000000; -->
-<!-- } -->
-<!-- </style> -->
-
-
-
-<!-- This allows to change color of text individually  -->
-<!-- - <span style="color:red">**Source of the dataset:** MiRNA expression in squamous cell carcinoma and adenocarcinoma of the esophagus and associations with survival.</span> -->
-<!-- <br> -->
-=======
-
->>>>>>> 6c1e2103d465cea950f62799e938f3a1ae1c1c9b
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library("tidyverse")
@@ -57,7 +41,6 @@ library("ggrepel")
 
 - **Objective of the project:** To reproduce the findings of the authors and elaborate on their visualizations.
 
-- **Objective of the project:** To reproduce the findings of the authors and elaborate on their visualizations.
 
 ## Materials and methods {data-background=#FFFFFF}
 ### **Patient data**: 
@@ -78,7 +61,7 @@ library("ggrepel")
 
 <center>
 ```{r} 
-knitr::include_graphics("flowchart.png") 
+knitr::include_graphics("./images/flowchart.png") 
 ``` 
 </center>
 
@@ -110,3 +93,13 @@ knitr::include_graphics("../results/PCA2.png")
 
 ## Discussion {data-background=#FFFFFF}
 
+- **Data quality:** absence of the different North American cohorts hindered the
+reproducibility of the article.
+
+-**Data wrangling:** complex data set which required decision-making regarding the selection of relevant probes, NA values, and others. 
+
+- **Survival:** 
+
+- **Differential expression:** 
+
+- **Principal Component Analysis:** 
